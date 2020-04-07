@@ -28,6 +28,18 @@ gem 'haml-rails'
 gem 'haml'
 gem 'bootstrap-sass'
 gem 'devise_invitable'
+gem 'sass'
+gem "responders"
+gem 'pry'
+gem 'dotenv-rails'
+# Facebook OAuth2 Strategy for OmniAuth
+gem 'omniauth-facebook'
+
+# OmniAuth strategy for Twitter
+gem 'omniauth-twitter'
+
+# OmniAuth strategy for Instagram
+gem 'omniauth-instagram'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
@@ -43,6 +55,8 @@ gem 'devise_invitable'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
+  # When mail is sent from your application, Letter Opener will open a preview in the browser instead of sending.
+  gem "letter_opener"
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'html2haml'

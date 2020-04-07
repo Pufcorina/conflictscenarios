@@ -1,0 +1,6 @@
+%a.reload_job{href: reload_job_path(id: "job_value"), remote: true, "data-remote" => true, id: "reload_job_" + subcat[:type]}
+  %spam.font_size_large.fa.fa-refresh.pull-right{'data-toggle' => "tooltip", "data-html" => "true", "data-container" => "body", 'title' => "Retry"}
+#errors_job
+  %img{:height => "134", :src => image_path("error-gif.gif"), :width => "134"}/
+  = succeed "" do
+    %br/

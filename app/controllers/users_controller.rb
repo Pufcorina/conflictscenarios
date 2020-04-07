@@ -1,9 +1,23 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :admin_only, :except => :show
+  helper_method :sort_column, :sort_direction
 
   def index
     @users = User.all
+  end
+
+  def new
+    @user = User.new
+  end
+
+  def create
+    binding.pry
+    params_user = user_params
+    params_user[:password] = SecureRandom.hex(8)
+    @user = User.new(params_user)
+    @user.save
+
   end
 
   def show
@@ -30,7 +44,17 @@ class UsersController < ApplicationController
     redirect_to users_path, :notice => "User deleted."
   end
 
+  def sort_column
+    params[:sort]
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
+
   private
+
+
 
   def admin_only
     unless current_user.admin?
@@ -40,6 +64,10 @@ class UsersController < ApplicationController
 
   def secure_params
     params.require(:user).permit(:role)
+  end
+
+  def user_params
+    params.require(:user).permit(:role, :name, :email)
   end
 
 end

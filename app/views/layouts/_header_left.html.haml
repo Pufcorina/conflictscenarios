@@ -1,0 +1,53 @@
+%body
+  .sidenav.custom_flex_fist_position.btsp_ps_container.btsp_fheader_table_container{style: "overflow: hidden"}
+    .row
+      .col-lg-12.custom_logo_left
+        %img{:alt => "Golf Genius Golf Shop", :src => image_path("gsg_logo.png")}
+    - if logged_in?
+      .menu#menu_container
+        .border_menu_head.customer_name_design.col-lg-12.col-md-12.col-sm-12.col-xs-12.no_padding
+          - if @customer.present?
+            %i
+              #{@customer.name}
+        - if ((["email_center", "order_lines", "static", "orders", "vendors", "category_forms", "vendor_metadata", "users", "members", "member_metadata", "order_line_metadata", "member_profile_categories", "metadata", "type_members", "settings", "demo_trackers", "club_trackers", "email_templates", "text_message_templates", "report_center", "surveys", "report_center_buttons", "product_categories"].include? params[:controller].split("/")[0]) && (current_user.try(:customer_id) || @customer))
+          .border_menu_head.col-lg-12.col-md-12.col-sm-12.col-xs-12.no_padding#special_orders{data: {tbody_show: "#special_orders_body"}, class: side_header_menu_active(["dashboard", "orders","static", "order_line_metadata"])}
+            %a.cursor_pointer.col-lg-2.col-md-2.col-sm-2.col-xs-2{class: side_header_menu_active(["order_lines", "orders","static", "order_line_metadata"]) == "active" ? "icon-special-order" : "icon-special-order"}
+            .special_orders_txt.no_padding_left.cursor_pointer.col-lg-10.col-md-10.col-sm-10.col-xs-10.no_padding_right
+              Special Orders
+              %span.cursor_pointer.icon-right-open-mini.right.no_padding{class: side_header_menu_active(["order_lines", "orders","static", "order_line_metadata"]) == "active" ? "icon-down-open-mini" : "icon-right-open-mini"}
+          .border_menu_body.border_menu_subcategory.col-lg-12.col-md-12.col-sm-12.col-xs-12#special_orders_body{class: side_header_menu_hidden(["order_lines", "orders","static", "order_line_metadata"])}
+
+        - if is_admin?
+          .border_menu_head.col-lg-12.col-md-12.col-sm-12.col-xs-12#account{data: {tbody_show: "#account_body"}, class: side_header_menu_active(["users", "admin", "customers", "carrier_options", "legal_documents", "legal_document_links"])}
+            %a.col-lg-2.col-md-2.col-sm-2.col-xs-2.cursor_pointer{class: side_header_menu_active(["users", "admin", "customers", "carrier_options", "legal_documents", "legal_document_links"]) == "active" ? "icon-account" : "icon-account"}
+            .col-lg-10.col-md-10.col-sm-10.col-xs-10.no_padding_right.no_padding_left.members_txt.cursor_pointer.add_padding_right_30
+              Account
+              %span.cursor_pointer.icon-right-open-mini.right.no_padding{class: side_header_menu_active(["users", "admin", "customers", "carrier_options", "legal_documents", "legal_document_links"]) == "active" ? "icon-down-open-mini" : "icon-right-open-mini"}
+          .border_menu_body.border_menu_subcategory.col-lg-12.col-md-12.col-sm-12.col-xs-12#account_body{class: side_header_menu_hidden(["users", "admin", "customers", "carrier_options", "legal_documents", "legal_document_links"])}
+
+            .div{class: side_menu_active("users",["edit"])}
+              = link_to "Profile", edit_user_registration_path
+            -#%br
+            .div
+              = link_to "Logout", destroy_user_session_path, :method=>'delete'
+        - else
+          .border_menu_head.col-lg-12.col-md-12.col-sm-12.col-xs-12#account{data: {tbody_show: "#account_body"}, class: side_header_menu_active(["users", "customers"])}
+            %a.col-lg-2.col-md-2.col-sm-2.col-xs-2.cursor_pointer{class: side_header_menu_active(["users", "customers"]) == "active" ? "icon-account" : "icon-account"}
+            .col-lg-10.col-md-10.col-sm-10.col-xs-10.no_padding_right.no_padding_left.members_txt.cursor_pointer.add_padding_right_30
+              Account
+              %span.cursor_pointer.icon-right-open-mini.right.no_padding{class: side_header_menu_active(["users", "customers"]) == "active" ? "icon-down-open-mini" : "icon-right-open-mini"}
+          .border_menu_body.border_menu_subcategory.col-lg-12.col-md-12.col-sm-12.col-xs-12#account_body{class: side_header_menu_hidden(["users", "customers"])}
+            - if current_user.try(:customer_id)
+              .div{class: side_menu_active("users",["managers_index", "new"])}
+                = link_to "Admin center", users_path
+            .div{class: side_menu_active("users",["edit"])}
+              = link_to "Profile", edit_user_registration_path
+            .div
+              = link_to "Logout", destroy_user_session_path, :method=>'delete'
+    - else
+      .menu
+        .border_menu_head.active
+          = link_to "LOG IN", "/users/sign_in"
+:javascript
+  window.gems.menu.init();
+  window.gems.new_design_shared.applyCustomScrollbar("#menu_container", "vertical");
