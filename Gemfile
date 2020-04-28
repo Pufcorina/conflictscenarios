@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.3'
+ruby '2.3.7'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.2'
-# Use postgresql as the database for Active Record
-gem 'pg', '>= 0.18', '< 2.0'
+# Use sqlite3 as the database for Active Record
+gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -20,26 +20,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
-gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
-gem 'devise'
-gem 'haml-rails'
-gem 'haml'
-gem 'bootstrap-sass'
-gem 'devise_invitable'
-gem 'sass'
-gem "responders"
-gem 'pry'
-gem 'dotenv-rails'
-# Facebook OAuth2 Strategy for OmniAuth
-gem 'omniauth-facebook'
-
-# OmniAuth strategy for Twitter
-gem 'omniauth-twitter'
-
-# OmniAuth strategy for Instagram
-gem 'omniauth-instagram'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
@@ -54,12 +36,13 @@ gem 'omniauth-instagram'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+gem 'devise'
+gem 'pg'
+
 group :development, :test do
-  # When mail is sent from your application, Letter Opener will open a preview in the browser instead of sending.
-  gem "letter_opener"
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'html2haml'
+
 end
 
 group :development do

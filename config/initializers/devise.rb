@@ -8,7 +8,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'a2ad9630e8ba72b61a3ec6e6bb78048707bb78110d3e21cf8fb3cb3debf9437e84881f0450bbff2bc278f812c669be2372ee2c62be861f2e06b5f5668f4c658c'
+  # config.secret_key = '64bb9c9baa4d6c05939ff32e1cda55b13b3f3e475c7df019dd9dc8d924dee1682a797b1a0260d32633eb06ce86d755a028301e68704debed6bf38c63a8e62724'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -18,10 +18,10 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'todorananacorina13@gmail.com'
+  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
 
   # Configure the class responsible to send e-mails.
-  config.mailer = 'Devise::Mailer'
+  # config.mailer = 'Devise::Mailer'
 
   # Configure the parent class responsible to send e-mails.
   # config.parent_mailer = 'ActionMailer::Base'
@@ -114,13 +114,13 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '7238c486c630ee86852487f3a44e1d7f63523d7dbbc4f948e1ad7a3273f3a1c75c05ff0d40fc077e0dc5554b1e5a62856847fb4c655f549d12abc55780ace334'
+  # config.pepper = '5d696557097e1bc2ff6957de55925dbe414326e7b465e1d423e1564e376daaa73f4efb9ceabbbd1d6dac3f9f73d4afe0cbcad2b148289bac4c7e902191fa717e'
 
   # Send a notification to the original email when the user's email is changed.
-  config.send_email_changed_notification = true
+  # config.send_email_changed_notification = false
 
   # Send a notification email when the user's password is changed.
-  config.send_password_change_notification = true
+  # config.send_password_change_notification = false
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -207,7 +207,7 @@ Devise.setup do |config|
   # ==> Configuration for :recoverable
   #
   # Defines which key will be used when recovering the password for an account
-  config.reset_password_keys = [:email]
+  # config.reset_password_keys = [:email]
 
   # Time interval you can reset your password with a reset password key.
   # Don't put a too small interval or your users won't have the time to
@@ -216,7 +216,7 @@ Devise.setup do |config|
 
   # When set to false, does not sign a user in automatically after their password is
   # reset. Defaults to true, so a user is signed in automatically after a reset.
-  config.sign_in_after_reset_password = true
+  # config.sign_in_after_reset_password = true
 
   # ==> Configuration for :encryptable
   # Allow you to use another hashing or encryption algorithm besides bcrypt (default).
