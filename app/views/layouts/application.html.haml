@@ -1,5 +1,5 @@
 !!!
-%html{style: ("background-image: url('#{image_url 'chicago-city-lights-at-night.jpg'}'); background-size: cover; background-repeat: no-repeat;" if !logged_in?)}
+%html{style: ("background-image: url('#{image_url 'background.jpg'}'); background-size: cover; background-repeat: no-repeat;" if !logged_in?)}
   %head
     %title Conflict Scenario
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
@@ -33,7 +33,7 @@
       .div#flash_alert
         = render 'shared/flash_notice'
   - else
-    %body.height_100.add-margin-all-0{style: "background-image: url('#{image_url 'chicago-city-lights-at-night.jpg'}'); background-size: cover; background-repeat: no-repeat;"}
+    %body.height_100.add-margin-all-0{style: "background-image: url('#{image_url 'background.jpg'}'); background-size: cover; background-repeat: no-repeat;"}
       = yield
 
       %script{type: "text/javascript", 'data-turbolinks-eval'=>false}
