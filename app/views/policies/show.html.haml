@@ -1,0 +1,17 @@
+.row
+  .col-12.no_padding_left
+    = link_to "Security", security_path, :method => :get, class: "top_link_grey"
+    %i.fa.fa-chevron-right.color_grey
+    %span.color_purple Privacy Policy
+
+.row.add_margin_top_20{style: "height: calc(100% - 50px)"}
+  .col-9
+    = text_area_tag :content, @policy.content, :class => "tinymce ", id: "editor_without_toolbar", style: "height: 100% !important"
+  .col-2
+    = link_to "Edit Policy", edit_policies_path(@policy.id), :method => :get, class: "btn btn-info"
+
+:javascript
+  window.starterkitrails.shared.init();
+  window.crm.new_design_shared.applyCustomScrollbar("#editor_without_toolbar");
+
+

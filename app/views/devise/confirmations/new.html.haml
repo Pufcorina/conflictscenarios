@@ -1,0 +1,24 @@
+.container
+  .d-flex.justify-content-center.h-100
+    = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
+      -#= render "devise/shared/error_messages", resource: resource
+      .card{style: "height: 200px"}
+        .card-header
+          %h4.color_white Account has already confirmed
+        .card-body
+          .d-flex.justify-content-center
+            = link_to "Forgot your password?", new_user_password_path, :method => :get, class: "btn login_btn color_white register_btn"
+          -#= f.label :email, 'Email:', class: "color_white add_padding_top_20"
+          -#
+          -#.input-group.form-group
+          -#  .input-group-prepend
+          -#    %span.input-group-text
+          -#      %i.fa.fa-key.color_white
+          -#  = f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email)
+          -#.d-flex.justify-content-center.add_padding_top_20
+          -#  = f.submit "Resend confirmation instructions", class: "btn login_btn color_white register_btn"
+        .card-footer
+          .d-flex.justify-content-center
+            = link_to "Sign in", new_user_session_path, :method => :get, class: "link"
+
+

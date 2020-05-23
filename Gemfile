@@ -5,6 +5,8 @@ ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.2'
+# Use postgresql as the database for Active Record
+gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -34,13 +36,33 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+
+gem 'haml'
+gem 'haml-rails'
+
+gem 'bootstrap', '~> 4.0.0'
+gem 'high_voltage'
+gem 'jquery-rails'
+gem 'popper_js', '~> 1.16.0'
+
+
 gem 'devise'
-gem 'pg'
+gem 'toastr-rails'
+
+# the font-awesome font for the rails asset pipeline
+gem 'font-awesome-rails'
+gem 'pry'
+
+gem "cancancan"
+gem "letter_opener"
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.1.0'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-
 end
 
 group :development do
@@ -62,3 +84,11 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'perfect-scrollbar-rails'
+gem "wysiwyg-rails"
+gem 'font-awesome-rails'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'figaro'
+

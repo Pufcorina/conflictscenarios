@@ -1,0 +1,84 @@
+.btsp_ps_container
+  // overflow: hidden
+  position: relative
+
+.btsp_ps_container_normal_scroll
+  overflow: scroll
+  position: relative
+
+.ps-container
+  .ps-scrollbar-x-rail
+    position: absolute
+    bottom: 0px
+    height: 8px
+    -webkit-border-radius: 4px
+    -moz-border-radius: 4px
+    border-radius: 4px
+    -o-transition: background-color .2s linear, opacity .2s linear
+    -webkit-transition: background-color 0.2s linear, opacity 0.2s linear
+    -moz-transition: background-color .2s linear, opacity .2s linear
+    transition: background-color .2s linear, opacity .2s linear
+  &:hover .ps-scrollbar-x-rail, &.hover .ps-scrollbar-x-rail
+    opacity: 1
+    filter: alpha(opacity = 100)
+  .ps-scrollbar-x-rail
+    background-color: #eee
+    &.in-scrolling
+      opacity: 1
+      filter: alpha(opacity = 100)
+  .ps-scrollbar-y-rail
+    position: absolute
+    right: 0px
+    width: 8px
+    -webkit-border-radius: 4px
+    -moz-border-radius: 4px
+    border-radius: 4px
+    -o-transition: background-color .2s linear, opacity .2s linear
+    -webkit-transition: background-color 0.2s linear, opacity 0.2s linear
+    -moz-transition: background-color .2s linear, opacity .2s linear
+    transition: background-color .2s linear, opacity .2s linear
+
+  &:hover .ps-scrollbar-y-rail, &.hover .ps-scrollbar-y-rail
+    opacity: 1
+    filter: alpha(opacity = 100)
+  .ps-scrollbar-y-rail
+    background-color: #eee
+    &.in-scrolling
+      opacity: 1
+      filter: alpha(opacity = 100)
+  .ps-scrollbar-x
+    position: absolute
+    bottom: 0
+    height: 8px
+    -webkit-border-radius: 4px
+    -moz-border-radius: 4px
+    border-radius: 4px
+    -o-transition: background-color .2s linear
+    -webkit-transition: background-color 0.2s linear
+    -moz-transition: background-color .2s linear
+    transition: background-color .2s linear
+    background-color: #B48DF8 !important
+
+  &.ie6 .ps-scrollbar-x
+    font-size: 0
+  .ps-scrollbar-x-rail
+    &:hover .ps-scrollbar-x, &.hover .ps-scrollbar-x
+      background-color: #999
+  .ps-scrollbar-y
+    position: absolute
+    right: 0
+    width: 8px
+    -webkit-border-radius: 4px
+    -moz-border-radius: 4px
+    border-radius: 4px
+    -o-transition: background-color .2s linear
+    -webkit-transition: background-color 0.2s linear
+    -moz-transition: background-color .2s linear
+    transition: background-color .2s linear
+    background-color: #B48DF8  !important
+
+  &.ie .ps-scrollbar-y
+    font-size: 0
+  .ps-scrollbar-y-rail
+    &:hover .ps-scrollbar-y, &.hover .ps-scrollbar-y
+      background-color: #999

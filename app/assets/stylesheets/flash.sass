@@ -1,0 +1,78 @@
+#flash
+  min-height: 100px
+
+#round_changed_message
+  height: 115px
+  &.taller
+    height: 130px
+  &.taller2
+    height: 185px
+    .message
+      margin-bottom: 15px
+
+#flash, #modal-flash, #round_changed_message
+  height: auto
+  font-size: 13px
+  text-align: center
+  position: fixed
+  left: 47%
+  margin-left: -260px
+  background-color: white
+  border-radius: 10px
+  top: 50%
+  margin-top: -80px
+  z-index: 10000
+  box-shadow: 0 0 4px 4px #d3d3d3
+  width: 600px
+  font-family: Helvetica,sans-serif
+  -moz-box-shadow: 0 0 4px 4px lightgrey
+  -webkit-box-shadow: 0 0 4px 4px lightgrey
+
+.title_bar
+  text-align: right
+  height: 35px
+
+  .delete-flash
+    margin:
+      top: 5px
+      right: 5px
+    cursor: pointer
+    width: 20px
+
+.flash-content
+  width: 99%
+  padding-top: 10px
+  margin: 4px auto 0px auto
+  text-align: center
+  img
+    margin-top: 0px
+    height: 48px
+  .loader img
+    height: 50px
+    margin-top: -13px
+  .choice
+    margin-top: 4px
+
+#modal-flash
+  top: 50%
+  margin-top: -50px
+  padding-bottom: 20px
+  a.modal-dismiss
+    margin-top: 10px
+
+  .flash-content
+    padding-top: 22px
+    min-height: 33px
+​
+#flash
+  display: none
+​
+#round_changed_message
+  left: 0
+  right: 0
+  margin-left: auto
+  margin-right: auto
+  width: auto
+  max-width: 600px
+  .flash-content
+    line-height: 16px

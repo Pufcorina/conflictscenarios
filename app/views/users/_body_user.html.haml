@@ -1,0 +1,32 @@
+= form_with(url: "/new_user", method: "post") do
+  .modal-body.no_padding_bottom
+    .row.no_padding_top.no_padding_bottom.custom_modal_content.custom_flex_head_position.no_padding_left
+      .col-lg-12.col-xs-12.body_item_height
+        .row.add_padding_top_15
+          .col-lg-4.col-xs-4.popup_form_size.custom_width_30
+            First Name
+          .col-lg-8.col-xs-8.no_padding.custom_width_70
+            .form-group
+              = text_field_tag :first_name, '', class: "form-control", autocomplete: "off"
+        .row
+          .col-lg-4.col-xs-4.popup_form_size.custom_width_30
+            Last Name
+          .col-lg-8.col-xs-8.no_padding.custom_width_70
+            .form-group
+              = text_field_tag :last_name, '', class: "form-control", autocomplete: "off"
+        .row
+          .col-lg-4.col-xs-4.popup_form_size.custom_width_30
+            Email
+          .col-lg-8.col-xs-8.no_padding.custom_width_70
+            .form-group
+              = email_field_tag :email, '', class: "form-control", autocomplete: "off"
+        .row
+          .col-lg-4.col-xs-4.popup_form_size.custom_width_30
+            Role
+          .col-lg-8.col-xs-8.no_padding.custom_width_70
+            .form-group
+              = select_tag :role, options_for_select(options_for_role, selected: "employee"), class: "form-control"
+
+  .modal-footer
+    %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
+    = submit_tag "Save", class: "btn btn-success", remote: true

@@ -1,0 +1,4 @@
+$("#users_container_list").html("#{j render partial: "users/users_list"}");
+-# $(".paginate_users").html("#{j render partial: "layouts/paginate",  locals: {items: @users, remote_pagination: false}}");
+-#remove parameters sent from url
+window.history.pushState(window.location.href, 'Title', window.location.href.split('?')[0]);

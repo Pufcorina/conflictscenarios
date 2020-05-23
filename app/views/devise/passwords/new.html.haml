@@ -1,0 +1,20 @@
+.container
+  .d-flex.justify-content-center.h-100
+    = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      .card
+        .card-header
+          %h3 Forgot your password?
+        .card-body
+          .input-group.form-group.add_padding_top_20
+            .input-group-prepend
+              %span.input-group-text
+                %i.fa.fa-envelope.color_white
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Email"
+
+          .form-group.text_center.add_padding_top_10
+            = f.submit "Send me reset password instructions", class: "btn login_btn color_white register_btn"
+        .card-footer
+          .d-flex.justify-content-center
+            = link_to "Sign in", new_user_session_path, :method => :get, class: "link"
+

@@ -1,0 +1,108 @@
+.menu_top
+  display: flex
+  width: 100%
+  height: 90px
+.menu_left
+  position: absolute
+  width: 90px
+  height: calc(100vh - 90px)
+
+.color_menu
+  background-color: #EEEEEE
+
+.logo_container
+  padding: 10px 8px
+  width: 100px
+.logo
+  width: 80px
+  height: 50px
+
+.account_icon
+  color: white
+  font-size: 50px !important
+  padding: 15px 10px
+.dropdown_custom
+  color: white
+  padding: 15px 10px
+
+  .dropdown-menu
+    top: 55px !important
+    position: absolute
+    min-width: 150px !important
+
+.menu_content_top
+  width: calc(100% - 100px)
+  display: flex
+  flex-flow: row-reverse
+  padding-right: 15px
+
+
+.menu_content_links
+  display: flex
+  flex: 90%
+  flex-direction: row-reverse
+
+.menu_item
+  padding: 35px 30px
+
+.menu_content_left
+  display: flex
+  flex-direction: column
+
+.left_menu_icon
+  color: #666
+  font-size: 30px !important
+  padding: 30px
+  &:hover
+    background-color: #EEEEEE
+    text-decoration: none
+    color: #B48DF8
+.website_image_menu
+  color: white
+  font-size: 40px !important
+  padding: 25px
+  margin-left: 25px
+  background-image: url('website_white.png')
+  background-repeat: no-repeat
+  display: block
+  &:hover
+    background-image: url('website_red.png')
+
+
+.dropdown-menu
+  background-color: #EEEEEE !important
+  top: 86px !important
+  border: none !important
+  width: 100px !important
+  max-width: 40px !important
+  a
+    &:hover
+      text-decoration: none
+      color: #B48DF8
+
+  li
+    padding: 5px !important
+    padding-left: 20px !important
+  li:hover .sub-menu
+    visibility: visible
+
+.dropdown:hover .dropdown-menu
+  display: block
+  max-width: 40px !important
+
+.nav-tabs .dropdown-menu, .nav-pills .dropdown-menu
+  margin-top: 0
+
+.navbar
+  .dropdown-menu
+    margin-top: 0
+
+.dropdown-toggle::after
+  display: none !important
+
+ul.dropdown-menu li .sub-menu li a
+  width: 107px !important
+  max-width: 107px !important
+.dropdown-menu
+  min-width: 107px !important
+  max-width: 107px !important

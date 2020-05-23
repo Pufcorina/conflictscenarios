@@ -1,0 +1,16 @@
+.row
+  .col-12.no_padding_left
+    = link_to "Security", security_path, :method => :get, class: "top_link_grey"
+    %i.fa.fa-chevron-right.color_grey
+    %span.color_purple Edit Policy
+= form_for(@policy, url: policy_path(@policy.id), html: { method: :put }) do |f|
+  .row.add_margin_top_20.h-100
+    .col-12.h-100
+      = render partial: 'shared/editor', locals: {f: f}
+
+  .row.add_margin_top_20.add_margin_left_15
+    = f.submit "Update policy", class: "pull-right btn btn-outline-success add_margin_right_5 add_margin_top_20", id: "edit_policy_update_button"
+    %button.btn.btn-outline-info.add_margin_top_20#preview_policy Preview
+
+:javascript
+  window.crm.policies.init();

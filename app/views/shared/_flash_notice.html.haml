@@ -1,0 +1,14 @@
+- content = flash.now[:modal] || flash[:modal] || flash[:notice] || flash[:alert] || flash[:error]
+- if flash[:notice].present? || flash[:modal].present?
+  - flash_color = "background-color: #28a745 !important"
+- if flash[:alert].present?
+  - flash_color = "background-color: darkorange !important"
+- if flash[:error].present?
+  - flash_color = "background-color: #F55047 !important"
+- if content.present? && !["You need to sign in or sign up before continuing.", "Signed in successfully."].include?(content)
+  .panel.panel-default#modal-flash
+    .panel-heading.title_bar{style: "#{flash_color}"}
+      .fa.fa-times-circle-o.delete-flash.fa-2x.color_white
+    .panel-body.flash-content
+      != content
+    -# = link_to "OK", "#", class: "button orange btsp_orange_button modal-dismiss"

@@ -1,0 +1,133 @@
+.row
+  .col-12
+    = link_to "Home", root_path, :method => :get, class: "top_link_grey"
+    %i.fa.fa-chevron-right.color_grey
+    %span.color_purple Profile
+
+
+= form_for(@user, url: user_path(@user.id), html: { method: :put }) do |f|
+  .row.add_margin_top_20.add_margin_left_15
+    .col-xs-12.col-lg-5.d-flex.flex-row.flex-wrap.add_margin_top_20.add_margin_bottom_20.border_lightgrey_views.add_margin_right_20
+      .col-xs-12.col-lg-4.no_padding.add_margin_top_10
+        #image_profile
+          = image_tag 'chicago-city-lights-at-night.jpg', class: "image_profile"
+          %a.change_color_image_profile.color_white Choose image
+      .col-xs-12.col-lg-7.add_margin_top_10#name_user{class: ("color_purple" if @user[:first_name].blank?)}
+        %h3
+          - if @user[:first_name].present? && @user[:last_name]..present?
+            #{@user.try(:last_name)} #{@user.try(:first_name)}
+          - else
+            Please complete your details
+        %p.color_grey
+          #{@user.try(:email)}
+        %p.color_grey
+          #{@user.try(:phone) || "No phone"}
+        %p Member from: #{@user.try(:created_at).try(:strftime, "%m/%d/%Y")}
+
+        .col-4.action_icons.hidden#name_user_edit_actions
+          %button.pull-right.btn.btn-outline-success.add_margin_right_10#btn_save_user_name{type: "button", "data-type"=>"description"}
+            %i.fa.fa-check.color_green.add_margin_right_5
+            Save
+          %button.pull-right.btn.btn-outline-info.add_margin_right_10#btn_edit_user_name{type: "button", "data-type"=>"description"}
+            %i.fa.fa-pencil.color_blue.add_margin_right_5
+            Edit
+    .col-xs-12.col-lg-6.d-flex.flex-column.add_margin_top_20.add_margin_bottom_20.border_lightgrey_views
+      .col-xs-12.d-flex.flex-row.add_padding_top_10
+        .col-3
+          = f.label :first_name
+        .col-9
+          = f.text_field :first_name, autofocus: true, autocomplete: false, placeholder: "First Name", class: "form-control"
+      .col-xs-12.d-flex.flex-row.add_padding_top_10
+        .col-3
+          = f.label :last_name
+        .col-9
+          = f.text_field :last_name, autofocus: true, autocomplete: false, placeholder: "Last Name", class: "form-control"
+      .col-xs-12.d-flex.flex-row.add_padding_top_10{class: ("add_margin_bottom_10" if !is_admin?)}
+        .col-3
+          = f.label :phone
+        .col-9
+          = f.text_field :phone, autofocus: true, autocomplete: false, placeholder: "Phone", class: "form-control"
+      - if is_admin?
+        .col-xs-12.d-flex.flex-row.add_padding_top_10.add_margin_bottom_10
+          .col-3.bold.color_purple
+            = label_tag :role
+          .col-9
+            = select_tag :role, options_for_select(options_for_role, selected: (f.object.admin.present? ? "admin" : (f.object.manager.present? ? "manager" : "employee"))), class: "form-control"
+  .row.add_margin_top_20.add_margin_left_15.custom_name.add_margin_bottom_20
+    .col-12.no_padding_left
+      %h5.page-title
+        ACCOUNT DETAILS
+    .col-12.no_padding_left
+      .page-title
+  -#.row
+  -#  - if @user.pending_reconfirmation?
+  -#    %p.color_purple
+  -#      Currently waiting confirmation for: #{@user.unconfirmed_email}
+  .row.add_margin_left_15
+    .col-xs-12.col-lg-5.d-flex.flex-column.add_padding_top_20.add_padding_bottom_20.border_lightgrey_views.add_margin_right_20.add_margin_top_20
+      .col-xs-12.d-flex.flex-row.add_padding_top_10
+        .col-5
+          = f.label :current_password
+        .col-7
+          = f.text_field :current_password, autofocus: true, autocomplete: false, placeholder: "Current Password", type: "password", class: "form-control", disabled: (true if current_user.id != @user.id)
+          %i.fa.fa-key.pull-right.color_purple.icon_password{'aria-hidden': true, onmouseover: "mouseoverPass(event);", onmouseout: "mouseoutPass(event);"}
+      .col-xs-12.d-flex.flex-row.add_padding_top_10
+        .col-5
+          = f.label :password, value: "New Password"
+        .col-7
+          = f.text_field :password, autofocus: true, autocomplete: "new-password", placeholder: "New Password", type: "password", class: "form-control", disabled: (true if current_user.id != @user.id)
+          %i.fa.fa-key.pull-right.color_purple.icon_password{'aria-hidden': true, onmouseover: "mouseoverPass(event);", onmouseout: "mouseoutPass(event);"}
+          - if @minimum_password_length
+            %em
+              #{@minimum_password_length} characters minimum
+      .col-xs-12.d-flex.flex-row.add_padding_top_10
+        .col-5
+          = f.label :password_confirmation
+        .col-7
+          = f.text_field :password_confirmation, autofocus: true, autocomplete: false, placeholder: "Password Confirmation", class: "form-control", type: "password", disabled: (true if current_user.id != @user.id)
+          %i.fa.fa-key.pull-right.color_purple.icon_password{'aria-hidden': true, onmouseover: "mouseoverPass(event);", onmouseout: "mouseoutPass(event);"}
+      -## - is_admin?
+      -##   .row.d-flex.flex-row.add_padding_top_10
+      -##     .col-3
+      -##       = f.label :password_confirmation
+      -##     .col-9
+      -##       = f.text_field :password_confirmation, autofocus: true, autocomplete: false, placeholder: "Password Confirmation", class: "form-control", type: "checkbox"
+    .col-xs-12.col-lg-6.d-flex.flex-column.add_padding_top_20.add_padding_bottom_20.border_lightgrey_views.add_margin_top_20
+      .col-xs-12.d-flex.flex-row.add_padding_top_10
+        .col-3
+          = f.label :date_of_birth
+        .col-9
+          = f.text_field :date_of_birth, value: f.object.try(:date_of_birth).try(:strftime, "%m/%d/%Y"), autofocus: true, autocomplete: false, placeholder: "mm/dd/yyyy", class: "form-control datepicker", oninput:"this.value = this.value.replace(/[^0-9\/]/, '')"
+      .col-xs-12.d-flex.flex-row.add_padding_top_10
+        .col-3
+          = f.label :city
+        .col-9
+          = f.text_field :city, autofocus: true, autocomplete: false, placeholder: "City", class: "form-control"
+      .col-xs-12.d-flex.flex-row.add_padding_top_10
+        .col-3
+          = f.label :country
+        .col-9
+          = f.text_field :country, autofocus: true, autocomplete: false, placeholder: "Country", class: "form-control"
+      .col-xs-12.d-flex.flex-row.add_padding_top_10
+        .col-3
+          = f.label :gender
+        .col-9
+          = f.select :gender, options_for_gender, {}, class: "form-control"
+
+  .row.pull-right
+    = f.submit "Update account", class: "pull-right btn btn-outline-success add_margin_right_5 add_margin_top_20", id: "edit_user_update_button"
+    - if is_admin? && @user.email != "maria@eightinvestmentgroup.com"
+      = link_to "Cancel account", user_path(@user), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger add_margin_top_20"
+
+:javascript
+
+  $(document).ready(function(){
+    // $('.datepicker').datepicker();
+  });
+
+  function mouseoverPass(obj) {
+    obj.target.previousElementSibling.type = "text"
+  }
+  function mouseoutPass(obj) {
+    obj.target.previousElementSibling.type = "password"
+  }

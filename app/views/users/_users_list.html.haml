@@ -1,0 +1,26 @@
+.tableFixHead
+  %table.table.table-striped.custom_table.height_500
+    %thead
+      %tr
+        
+        %th.background_light_gray.custom_vertical_align_middle= sortable_remote "first_name", "FIRST NAME"
+        %th.background_light_gray.custom_vertical_align_middle= sortable_remote "last_name", "LAST NAME"
+        %th.background_light_gray.custom_vertical_align_middle= sortable_remote "email", "EMAIL"
+        %th.background_light_gray.text_center.custom_vertical_align_middle.custom_high_z_index= sortable "phone", "PHONE"
+        %th.background_light_gray.text_center.custom_vertical_align_middle.custom_high_z_index Role
+        %th.background_light_gray.custom_high_z_index
+    %tbody.max_height_500
+      - @users.each do |user|
+        %tr
+          %td #{user.first_name}
+          %td #{user.last_name}
+          %td #{user.email}
+          %td.text_center #{user.phone}
+          %td.text_center #{user.admin ? "Admin" : (user.manager ? "Manager" : "Employee")}
+          %td.text_align_right
+            - if user.email != "admin@admin.com"
+              = link_to "", user_path(user), data: { confirm: "Are you sure?" }, method: :delete, class: "pull-right fa fa-trash color_purple font_size_20 add_padding_right_20", type: "button"
+            %a.pull-right.fa.fa-pencil.color_blue.font_size_20.add_padding_right_20{href: edit_user_path(id: user["id"]), method: :get, "data-toggle" => "tooltip"}
+:javascript
+  window.crm.users.init();
+  // window.crm.new_design_shared.applyCustomScrollbar("#users_container_list");
