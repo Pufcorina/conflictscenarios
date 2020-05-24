@@ -16,7 +16,7 @@ class Ability
       can :update, User, id: user.id
       cannot :index, User
       cannot :manage, Policy
-      cannot :manage, Fields
+      # cannot :manage, Fields
     end
 
     #   else

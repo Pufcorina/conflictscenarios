@@ -12,7 +12,7 @@
   = t ".content_head"
 
 -content_for :content do
-  %p Congratulations! You've been added to the Eight Investment Group team.
+  %p Congratulations! You've been added to the Conflict Scenario app.
   %p{style: "font-weight: bold; font-size: 22px"} #{@user.password}
   %p="After authentication please fill in your details.<br/>You can confirm your account email through the link below:".html_safe
   %p= link_to (t ".confirm_account"), confirmation_url(@user, confirmation_token: @user.confirmation_token), :style => "color: #0098c4; border-bottom:1px solid #0098c4; font-size:22px;  text-decoration: none"

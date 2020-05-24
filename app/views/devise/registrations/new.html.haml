@@ -1,9 +1,9 @@
 .container
   .d-flex.justify-content-center.h-100
-    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
       .card
         .card-header
-          %h3 Sign In
+          %h3 Sign up
         .card-body
           .input-group.form-group
             .input-group-prepend
@@ -15,13 +15,15 @@
               %span.input-group-text
                 %i.fa.fa-key.color_white
             = f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: "Password"
-          .row.align-items-center.remember
-            %input{:type => "checkbox"}>
-            Remember Me
+          .input-group.form-group
+            .input-group-prepend
+              %span.input-group-text
+                %i.fa.fa-key.color_white
+            = f.password_field :password_confirmation, autocomplete: "current-password", class: "form-control", placeholder: "Password confirmation"
+
           .form-group.add_padding_top_5
-            = f.submit "Log in", class: "btn login_btn color_white"
+            = f.submit "Sign up", class: "btn login_btn color_white"
         .card-footer
-          .d-flex.justify-content-center
+          .d-flex.justify-content-between
             = link_to "Forgot your password?", new_user_password_path, :method => :get, class: "link color_white"
-          .d-flex.justify-content-center
-            = link_to "Sign up", new_user_registration_path, :method => :get, class: "link color_white"
+            = link_to "Sign in", new_user_session_path, :method => :get, class: "link color_white"
