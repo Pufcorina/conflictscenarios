@@ -20,7 +20,7 @@
           %td.text_align_right
             - if user.email != "admin@admin.com"
               = link_to "", user_path(user), data: { confirm: "Are you sure?" }, method: :delete, class: "pull-right fa fa-trash color_purple font_size_20 add_padding_right_20", type: "button"
-            %a.pull-right.fa.fa-pencil.color_blue.font_size_20.add_padding_right_20{href: edit_user_path(id: user["id"]), method: :get, "data-toggle" => "tooltip"}
+            %a.pull-right.fa.fa-pencil.color_lightskyblue.font_size_20.add_padding_right_20{href: edit_user_path(id: user["id"]), method: :get, "data-toggle" => "tooltip"}
 :javascript
   window.crm.users.init();
   // window.crm.new_design_shared.applyCustomScrollbar("#users_container_list");

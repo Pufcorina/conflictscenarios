@@ -1,0 +1,26 @@
+.fileupload.fileupload-new.survey_logo.no_padding#logo_object{data: {provides: 'fileupload'}, class: ("logo_image_hover" if f.object.try(:logo).to_s != "fallback/avatar.png" or f.object.try(:logo).present?)}
+  %span#logo_title{style: "color: #{(f.object.try(:logo).present? and f.object.try(:logo).to_s != "fallback/avatar.png") ? "white" : "rgb(102,102,102)"}"} Logo
+  .fileupload-preview.thumbnail.logo_image_survey
+    - if f.object.try(:logo).present?
+      = image_tag f.object.logo
+    - else
+      = image_tag "noimage.png"
+
+  .image_actions_profile.logo_survey_buttons
+    %button.pull-right.btn_survey.btn_save#btn_save_logo{data: {provides: 'fileupload'}, class: ("hidden" unless f.object.try(:logo) == "fallback/avatar.png" or f.object.try(:logo).blank?), type: "button"}
+      %i.glyphicon.glyphicon-ok.color_green.add-margin-right-5
+      Save
+    %span.pull-right.btn.btn-file.btn_survey.btn-sm#btn_select_logo{class: ("hidden" unless f.object.try(:logo) == "fallback/avatar.png" or f.object.try(:logo).blank?)}
+      %span.fileupload-new
+        %span.glyphicon.glyphicon-picture
+        = "Select"
+      %span.fileupload-exists
+        %span.glyphicon.glyphicon-open
+        = t '.change'
+      = f.file_field :logo
+    %button.pull-right.btn_survey.btn_edit#btn_edit_logo{type: "button"}
+      %i.glyphicon.glyphicon-pencil.color_lightskyblue.add-margin-right-5
+      Edit
+    = link_to "#", class: "pull-right btn_survey btn_delete", data: {dismiss: 'fileupload'}, id: "btn_delete_logo", style: "#{(f.object.try(:logo).to_s == "fallback/avatar.png" or f.object.try(:logo).blank?) ? "display: block;" : ""}" do
+      %span.glyphicon.glyphicon-trash.color_red.add-margin-right-5
+      = t '.delete', id: "btn_delete_logo"

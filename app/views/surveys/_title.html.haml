@@ -1,0 +1,19 @@
+.add-margin-top-10.no_padding_top.title.previewing.background_light_grey#title
+  .col-xs-8
+    .row.editable#title_edit
+      .col-xs-7.add-margin-top-10.question_title
+        %b.question_rank_title.font_size_16.add-margin-left-10
+          Title
+        .input_field_form.form-group.question_title_text_form
+          = f.text_field :title, value: (f.object.try(:title) || "Untitled Survey"), class: 'form-control custom_input', placeholder: "Enter survey title"
+    .row.preview.add_padding_left_30
+      %b.add-margin-bottom-10.add-margin-left-15#title_text_content #{f.object.try(:title).present? ? f.object.try(:title) : "Untitled Survey"}
+  .col-xs-4.pull-right
+    .form-group.add-margin-top-15
+      %button.pull-right.add-margin-top-10.btn_survey.btn_save.hidden#btn_save_title{type: "button", "data-type"=>"title"}
+        %i.glyphicon.glyphicon-ok.color_survey_green.add-margin-right-5
+        Save
+    .form-group.add-margin-top-15
+      %button.pull-right.add-margin-top-10.btn_survey.btn_edit#btn_edit_title{type: "button", "data-type"=>"title"}
+        %i.glyphicon.glyphicon-pencil.color_survey_lightskyblue.add-margin-right-5
+        Edit

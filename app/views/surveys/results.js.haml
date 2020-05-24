@@ -1,0 +1,5 @@
+- @questions.each do |question|
+  - if question[0].question_type == "free_text"
+    $("#question_type_#{question[0].id}").html("#{j render partial: "results_free_text", locals: {question: question}}");
+$('.custom_pagination > a').attr('data-remote', 'true');
+

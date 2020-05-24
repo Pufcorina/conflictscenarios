@@ -1,0 +1,33 @@
+.row.question.add-margin-top-10.nested-fields{ class:"question_sortable_default_class #{(f.object.try(:id).blank? ? "editing background_grey" : "previewing background_light_grey")}", id: "question_#{f.object.try(:order) || ((f.try(:index).to_i || 0) + 1)}"}
+  .col-xs-12.add_padding_left_10.no_padding.add_padding_top_10.add-margin-bottom-15{style: "min-height: 60px"}
+    .col-xs-1.no_padding_right.question_title{style: "width: 75px"}
+      %b.question_rank_title
+        = "Q#{f.object.try(:order) || ((f.try(:index).to_i || 0) + 1)}"
+    .col-xs-6.question_title.no_padding_left.editable
+      .input_field_form.form-group.question_title_text_form
+        = f.text_field :title, class: 'form-control custom_input question_name_input', placeholder: "Enter question text"
+    .col-xs-8.col-md-8.col-lg-9.question_title.no_padding_left.preview
+      %b.add_padding_top_5.question_title_preview
+        = f.object.try(:title)
+    .col-xs-2.no_padding.question_select.editable
+      .form-group
+        = f.select :question_type, options_for_select(options_for_survey_questions, selected: f.try(:object).question_type || "free_text"), {}, class: 'question_type form-control select2'
+    .col-xs-2.pull-right.add_padding_right_10.no_padding_left{style: "width:210px"}
+      %button.preview.pull-right.btn_survey.btn_edit.btn_edit_question{type: "button", "data-type"=>"question"}
+        %i.glyphicon.glyphicon-pencil.color_survey_lightskyblue.add-margin-right-5
+        Edit
+      %button.editable.pull-right.btn_survey.btn_save.btn_save_question{type: "button", "data-type"=>"question"}
+        %i.glyphicon.glyphicon-ok.color_survey_green.add-margin-right-5
+        Save
+      = link_to_remove_association "Delete", f, class: "pull-right btn_survey btn_delete glyphicon btn_question btn_delete_question glyphicon-trash color_survey_red add-margin-right-5", data: { confirm: "Are you sure?" }
+
+  = f.hidden_field :id
+  = f.hidden_field :order, value: f.object.try(:order), class: "order_number"
+
+
+  .col-xs-12.add_padding_left_15.free_text_field{class: ( "hidden" if f.object.try(:question_type).present? && f.object.try(:question_type) != "free_text")}
+    = render "free_text", f: f
+  .col-xs-12.add_padding_left_20.multiple_choice_fields{class: ( "hidden" if f.object.try(:question_type) != "multiple_choice")}
+    = render partial: "multiple_choice", locals: {f: f, q: f}
+  .col-xs-12.add_padding_left_20.multiple_answers_fields{class: ( "hidden" if f.object.try(:question_type) != "multiple_answers")}
+    = render partial: "multiple_answers", locals: {f: f, q: f}

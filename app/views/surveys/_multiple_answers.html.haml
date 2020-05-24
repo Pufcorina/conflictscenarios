@@ -1,0 +1,5 @@
+- options_list = (f.object.options.present? && f.object.question_type == "multiple_answers") ? f.object.options : [Option.new(order: 1), Option.new(order: 2), Option.new(order: 3)]
+= f.fields_for :options, options_list do |option|
+  = render partial: "option_fields_multiple_answers", locals: {f: option, q: q, is_template: false}
+.col-lg-6
+  = link_to_add_association 'Add Option', f, :options, partial: 'option_fields_multiple_answers', render_options: {locals: {q: q, is_template: true}}, class: "editable pull-right btn_survey btn_delete btn_question btn_new_option glyphicon glyphicon-plus-sign add-margin-right-5"

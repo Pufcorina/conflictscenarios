@@ -59,10 +59,25 @@ module ApplicationHelper
   def options_for_role
     [
         ["Admin", "admin"],
-        ["Manager", 'manager'],
-        ["Employee", 'employee']
+        ["User", 'employee']
     ]
   end
 
+  def options_for_survey_questions
+    [
+        ['Free text', 'free_text'],
+        ['Multiple choice', 'multiple_choice'],
+        ['Multiple answers', 'multiple_answers']
+    ]
+  end
+
+  def chart_schema_color
+    [
+        "#B48DF8", "#D32F2F", "#FFE0B2", "#536DFE", "#757575", "#E1BEE7", "#009688", "#4CAF50", "#FFC107", "#CDDC39", \
+        "#673AB7", "#00BCD4", "#795548", "#607D8B", "#BDBDBD", "#FF9155", "#FFA58C", "#FFBFBE", "#A56B5D", "#FFBFBE", \
+        "#FF8889", '#e6194b', '#3cb44b', '#ffe119', '#4363d8', '#f58231', '#911eb4', '#46f0f0', '#f032e6', '#bcf60c', \
+        '#fabebe', '#008080', '#e6beff', '#9a6324', '#fffac8', '#800000', '#aaffc3', '#808000', '#ffd8b1', '#000075',
+    ].uniq.shuffle
+  end
 
 end

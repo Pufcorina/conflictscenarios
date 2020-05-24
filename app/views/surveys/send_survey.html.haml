@@ -1,0 +1,20 @@
+.row.orders.custom_name.add-margin-top-20
+  .col-xs-12.col-sm-6
+    %h5.page-title
+      %span
+        SURVEYS
+      %span.icon-record
+      %span
+        #{@survey.title.upcase}
+      %span.icon-record
+      %span
+        SEND SURVEY
+  .col-xs-12
+    .page-title
+= render 'email_templates/form'
+:javascript
+  window.crm.surveys.init();
+  window.crm.email_templates.init("#{FROALA_KEY}");
+  window.crm.email_templates.emailTemplateContent();
+  window.crm.new_design_shared.applyCustomScrollbar("#email_template_edit_container", "vertical");
+  window.crm.new_design_shared.applyCustomScrollbar("#data_fields_container");

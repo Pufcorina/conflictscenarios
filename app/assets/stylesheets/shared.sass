@@ -53,7 +53,7 @@ body
   color: white !important
 .color_grey
   color: grey !important
-.color_blue
+.color_lightskyblue
   color: #17A2B8 !important
 
 a.fa
@@ -328,3 +328,1866 @@ th
 .nav-item
   color: #666
   font-size: 16px
+
+*:focus
+  outline: none !important
+.bootstrap-select
+  button.dropdown-toggle:focus
+    outline: none !important
+// page title
+.custom_name
+  div.page-title
+    border-bottom: 1px solid black
+  h5.page-title
+    font-weight: bold
+    font-size: 14px
+//font-size: (12*1.5)px
+//font-size: 18px
+
+#table_view_table_body
+  i.fa-forward
+    margin-top: 3px
+  i.fa-cog
+    margin-top: 3px
+
+.datepicker
+  z-index: 10000!important
+
+//quick search dropdown
+.quick-search-dropdown
+  padding: 10px 10px 10px 20px
+  font-size: 13px
+  //font-size: 13*1.5
+  //font-size: 19.5px
+  background-color: white
+  border-bottom: 1px solid lightgrey
+  line-height: 15px
+
+=add-margin($side, $px)
+  @if $side == "all"
+    .add-margin-all-#{$px}
+      margin: #{$px}px !important
+    .add-margin
+      margin: #{$px}px !important
+  @else
+    .add-margin-#{$side}-#{$px}
+      margin-#{$side}: #{$px}px !important
+
+=status-field($name, $color)
+  .status-field-#{$name}
+    //border: 1px solid #{$color}!important
+    //padding: 5px!important
+    //color: white!important
+    color: #{$color}!important
+//background-color: #{$color}!important
+//border-radius: 10px!important
+
+
++add-margin("top", "15")
+
++add-margin("all", "5")
+
++add-margin("bottom", "15")
+
++add-margin("top", "75")
+
++add-margin("right", "38")
++add-margin("right", "20")
+
++add-margin("top", "8")
+
++add-margin("bottom", "8")
+
++add-margin("top", "5")
+
++add-margin("top", "45")
+
++add-margin("bottom", "5")
+
++add-margin("top", "100")
+
++add-margin("top", "65")
+
++add-margin("top", "50")
+
++add-margin("top", "4")
+
++add-margin("top", "10")
+
++add-margin("all", "6")
++add-margin("all", "2")
+
++add-margin("top", "6")
+
++add-margin("top", "70")
+
++add-margin("all", "80")
+
++add-margin("right", "6")
+
++add-margin("right", "25")
+
++add-margin("right", "40")
+
+.font_size_10
+  font-size: 10px
+.fileupload-preview
+  line-height: 67px !important
+.text_bold
+  font-weight: bold
+header.custom_nav
+  nav
+    height: 50px
+    text-align: center
+    padding: 10px
+    .active
+      a
+        color: green
+    li
+      a
+        color: black
+        padding: 0 17px
+      a:hover
+        color: green
+        padding-bottom: 0
+        background-color: white
+      a:focus
+        color: green
+        padding-bottom: 0
+        background-color: white
+  ul.nav.navbar-nav.navbar-left
+    img
+      height: 120px
+      float: left
+      padding-bottom: 0
+  ul.nav.navbar-nav.navbar-right
+    padding-top: 48px
+    font-size: 12px
+    margin: 0
+    text-align: center
+    ul.dropdown-menu
+      padding-top: 10px
+      font-size: 12px
+      margin: 0
+  li.log_out
+    margin-left: 56px
+  .dropdown-menu
+    .active
+      a,
+      a:hover,
+      a:focus
+        background-color: white
+.vendor_for_select_container, .order_for_select_container, #member_show_modal, #member_show
+  .dropdown-menu
+    max-width: 100px!important
+    max-height: 320px!important
+.navbar
+
+  margin-bottom: 0
+  min-height: 8px
+  margin-top: 0
+
+.navbar-inverse
+  font-size: 12px
+  min-height: 10px
+  height: 26px
+  background-color: black
+  border-color: black
+
+.navbar.navbar-inverse.custom_nav_inverse
+  border: 0
+  .navbar-nav.div_menu
+    float: left
+    padding-left: 250px
+  .navbar-nav
+    li
+      a:hover, a:focus
+        color: white
+        padding-bottom: 4px
+        background-color: green
+
+  .navbar-nav
+    .active
+      a
+        color: white
+        padding-bottom: 4px
+        padding-top: 2px
+        background-color: green
+  .navbar-nav
+    li
+      a
+        padding-top: 2px
+        padding-bottom: 8px
+        color: white
+
+.container-fluid.custom_container_fluid
+  background-color: white
+  //padding-left: 10px!important
+  padding-left: 23px!important
+  height: 100%
+
+.datepicker, .datepicker_ordered_date, .textarea.form-control, .form-control, .custom_checkbox
+
+
+
+.link-black
+  color: black!important
+  &:hover
+    text-decoration: none
+.custom_input
+  border: 0
+  border-bottom: 1px solid #ccc
+
+  box-shadow: none
+.no_color
+  background-color: transparent
+.color_transparent
+  color: transparent
+// body
+//   font-size: 12px
+//   font-weight: 300
+//   font-family: "proxima-nova", sans-serif
+//   letter-spacing: 1px
+
+body
+  margin-left: 170px
+  //font-size: 12px
+  font-size: 13px
+  font-weight: 300
+  font-family: "proxima-nova", sans-serif!important
+  letter-spacing: 1px !important
+  position: relative
+  background-color: white
+
+.max_height.down
+  padding-top: 30px
+.font_weight_300
+  font-weight: 300!important
+.max_height
+  height: 700px
+  padding: 0
+
+.standard_height
+  height: 750px
+  padding-top: 15px
+
+p
+  margin: 0
+.over_flow
+  overflow: auto
+.custom_btn
+  padding: 3px!important
+  font-size: 12px!important
+  padding-left: 15px!important
+  padding-right: 15px!important
+  margin: 5px!important
+  background-color: white!important
+  font-weight: 300!important
+  a
+    color: black!important
+
+.btn_green
+  padding-left: 15px!important
+  padding-right: 15px!important
+  color: white!important
+  background-color: lightgreen!important
+  border-color: lightgreen
+
+.btn_orange
+  padding-left: 15px!important
+  padding-right: 15px!important
+  color: white!important
+  background-color: #B48DF8 !important
+  border-color: #B48DF8 !important
+
+.btn_big_custom
+  //padding: 5px!important old_version
+  padding: 3px!important
+  padding-left: 15px!important
+  padding-right: 15px!important
+  font-size: 14px!important
+//font-size: 15px!important old_version
+
+.custom_select
+  border: 0 !important
+.btn.dropdown-toggle.bs-placeholder.btn-default
+
+  background-color: transparent
+
+.dropdown-menu.open
+
+  background-color: white
+
+.dropdown-menu.inner
+  background-color: white
+  font-weight: 300
+  max-height: 200px
+
+.btn.dropdown-toggle.btn-default
+
+  background-color: transparent
+
+.filter-option.pull-left
+  font-weight: 300
+
+.btn_right
+  float: right!important
+  margin-bottom: 5px!important
+  margin-right: 10px!important
+  .btn_search
+    //margin-top: 16px!important
+    margin-top: 0px!important
+
+.basic_btn
+  float: left!important
+  a
+    color: lightskyblue!important
+    font-size: 15px!important
+  a.standard
+    font-size: 12px!important
+    color: black!important
+    padding-top: 3px!important
+  li
+    color: lightskyblue!important
+    //margin-left: 10px!important
+    margin-left: 7px!important
+    padding-top: 3px!important
+  li.separator
+    color: black!important
+
+.trash
+  a
+    color: red!important
+
+.pdf
+  a
+    font-size: 25px
+    padding-top: 5px
+
+.right
+  float: right!important
+
+.left
+  float: left!important
+
+.color_black
+  color: black
+
+.color_green
+  color: green!important
+
+.color_gray
+  color: gray!important
+
+.font_size_xx
+  font-size: xx-large
+
+.custom_form_new
+  background-color: white
+  h4
+    font-weight: 300
+    border-bottom: 1px solid grey
+
+.less_important_text
+  color: grey
+
+.img_back_login
+  position: fixed
+  height: 100%
+  max-width: initial !important
+  left: -10px
+// -moz-transform: scaleX(-1)
+// -o-transform: scaleX(-1)
+// -webkit-transform: scaleX(-1)
+// transform: scaleX(-1)
+// filter: FlipH
+// -ms-filter: "FlipH"
+
+.img_login
+  width: 310px
+  margin-top: 50px
+
++add-margin("bottom", "75")
+
++add-margin("all", "0")
+
+.form_new_edit
+  font-size: 15px
+  font-weight: 700
+  margin-top: 40px
+  margin-bottom: 40px
+  text-transform: uppercase
+
+.custom_checkbox
+  box-shadow: none
+
+.no_padding_left
+  padding-left: 0!important
+
+.no_padding_right
+  padding-right: 0!important
+
+.picker
+  position: relative
+  left: 5px
+
+.min_width_30
+  min-width: 30px!important
+.min_width_250
+  min-width: 250px!important
+.width_200
+  width: 200px!important
+.no_min_height
+  min-height: 0!important
+
+.picker__holder
+  font-size: 12px!important
+  min-width: 100px!important
+  max-width: 350px!important
+  .picker__frame
+    .picker__wrap
+      .picker__box
+        table.picker__table
+          tbody
+            tr
+              td
+                //line-height: 1.2px !important
+                padding: .3125em 0!important
+        .picker__header
+          .picker__select--month
+            width: 40%
+          .picker__select--year
+            width: 34%
+
+.edit_order_line, #modalOrderLine1
+  .picker__holder
+    max-width: 350px!important
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control
+  background-color: transparent!important
+
+.cursor_pointer
+  cursor: pointer
+
+.cursor_pointer_hover
+  &:hover
+    cursor: pointer
+
+.form_size
+  font-size: 16px!important
+  padding-top: 5px!important
+
+.popup_form_size
+  font-size: 13px
+  padding-top: 8px
+
++add-margin("bottom", "20")
+
+.fr-wrapper
+  min-height: 100px
+@media screen and (max-height: 450px)
+  .sidenav
+    padding-top: 15px
+
++add-margin("bottom", "5")
+
++add-margin("bottom", "10")
+
++add-margin("bottom", "50")
+
++add-margin("top", "10")
+
++add-margin("top", "13")
+
++add-margin("top", "30")
+
++add-margin("all", "10")
+
+.no-margin
+  margin-top: 0 !important
+  margin-bottom: 0 !important
+.no-margin-top
+  margin-top: 0 !important
+.checkbox
+  margin: 0 0 19px 0
+  label
+    font-weight: 300
+  label::after
+    background-color: #B48DF8
+    border-color: #B48DF8
+    color: white
+    width: 25px
+    height: 25px
+    font-size: 18px
+
+  label::before
+    width: 25px
+    height: 25px
+
+
+
+.checkbox_select
+  z-index: 1
+  margin: 0
+  label
+    font-weight: 100
+  label::after
+    background-color: #B48DF8
+    border-color: #B48DF8
+    color: white
+    width: 20px
+    height: 20px
+    font-size: 14px
+
+  label::before
+    width: 20px
+    height: 20px
+
+
+input[type='radio']:after
+  width: 20px
+  height: 20px
+  border-radius: 15px
+  top: -2px
+  left: -2px
+  position: relative
+  background-color: lightgrey
+  content: ""
+  display: inline-block
+  visibility: visible
+  border: 2px solid white
+
+
+input[type='radio']:checked:after
+  width: 20px
+  height: 20px
+  border-radius: 15px
+  top: -2px
+  left: -1px
+  position: relative
+  background-color: #B48DF8
+  content: ''
+  display: inline-block
+  visibility: visible
+  border: 2px solid white
+
+.white
+  color: white
+
+.custom_info
+  height: auto
+  font-size: 14px
+  padding: 0
+
+.no_padding
+  padding: 0
+
+.no_padding_bottom
+  padding-bottom: 0!important
+
+.no_border
+  border: 0!important
+  box-shadow: none!important
+
+.color_red
+  color: red!important
+
+.color_lightskyblue
+  color: dodgerlightskyblue!important
+
+.no_background_color
+  background-color: transparent!important
+
+.white_back
+  background-color: white!important
+
+.text_align_center
+  text-align: center!important
+
+.height_60
+  height: 60px!important
+.height_25
+  height: 25px!important
+
+.font_size_14
+  font-size: 14px!important
+
+.add_padding_left_10
+  padding-left: 10px!important
+
+.add_padding_left_3
+  padding-left: 3px!important
+a
+  cursor: pointer
+.border_bottom
+  border-bottom: 1px solid black
+.width_250
+  width: 250px
+.width_height_85
+  width: 85px
+  height: 85px
+
+.tooltip.fade.top.in, .tooltip.fade.top
+  z-index: 1200
+  overflow: visible!important
+  min-width: 100px!important
+
+
+.width_height_67
+  width: 67px
+  height: 67px
+.border_gray
+  border: 1px solid grey
+  background-color: white
+  color: black
+  text-align: left
+  height: 30px
+  font-weight: 200
+
+.basic_arrow
+  //border: solid grey
+  border: solid white
+  border-width: 0 1px 1px 0
+  display: inline-block
+  padding: 10px
+  margin-top: 3px
+  float: right
+
+.background_black_grey
+  background-color: black-grey!important
+
+.border_black_grey
+  border-color: black-grey
+
++add-margin("left", "4")
++add-margin("left", "15")
++add-margin("left", "170")
++add-margin("left", "6")
++add-margin("right", "6")
++add-margin("right", "15")
++add-margin("left", "10")
++add-margin("left", "-10")
++add-margin("left", "19")
++add-margin("left", "26")
++add-margin("left", "20")
++add-margin("left", "-15")
++add-margin("right", "-10")
+
+.right_arrow
+  transform: rotate(-45deg)
+  -webkit-transform: rotate(-45deg)
+.width_70
+  width: 70px!important
+.custom_width_105
+  width: 104% !important
+.custom_width_107
+  width: 107%!important
+.custom_width_109
+  width: 109%!important
+.custom_width_60
+  width: 60%!important
+.custom_width_40
+  width: 40%!important
+.custom_width_50
+  width: 50%!important
+.custom_width_55
+  width: 55%!important
+.custom_width_45
+  width: 45%!important
+.custom_width_30
+  width: 30%!important
+.custom_width_70
+  width: 70%!important
+.custom_vertical_align
+  vertical-align: sub
+.custom_vertical_align_middle
+  vertical-align: middle!important
+.hidden_field
+  background-color: grey!important
+  color: grey!important
+  border-color: white!important
+.custom_modal_content
+  border-radius: 0
+  padding: 15px
+.custom_modal_header
+  border-bottom: 1px solid black
+  padding: 0 0 10px 0
+.custom_modal_footer
+  border-top: 1px solid lightgrey
+  padding: 10px 0 0 0
+.modal
+  overflow-y: hidden!important
+
+// content-info modal
+.custom_summary
+  // min-height: 480px
+  min-height: 580px
+  .tab-content
+    overflow: hidden
+    padding: 15px
+    background-color: white
+  // height: 370px
+  // min-height: 442px
+  .vendor_order_modal_contact_info
+  // height: 370px
+  // min-height: 380px
+  .vendor_order_modal_contact_info_place_order
+    // min-height: 500px
+    .form-control
+      padding-left: 5px
+
+    #item_table_content, #customer_table_content
+    // height: 390px
+    // min-height: 500px
+
+    .table
+      thead
+        tr
+          th
+            line-height: 2
+            top: -3px
+            z-index: 1100
+            min-width: 80px
+          th:first-child
+            width: 80px
+
+  .nav-tabs > li > a
+    text-align: center
+  li.nav-item.active
+    a
+      color: #B48DF8
+
+.custom_min_width
+  width: 650px
+.custom_width
+  //width: 650px
+  width: 1050px
+.custom_width_order_modal
+  width: 1250px
++add-margin("bottom","-4")
++add-margin("bottom","10")
++add-margin("right", "5")
++add-margin("left", "2")
++add-margin("left", "29")
++add-margin("left", "11")
++add-margin("left", "-17")
++add-margin("top", "340")
+.add_padding_top_30
+  padding-top: 30px
+.add_padding_top_4
+  padding-top: 4px
+.add_padding_top_4
+  padding-top: 3px
+.add_padding_right_3
+  padding-right: 3px
+.add_padding_right_5
+  padding-right: 5px
+.add_padding_right_30
+  padding-right: 30px
+.add_padding_right_20
+  padding-right: 20px
+.show_hidden_children_category.on.fa.fa-plus,  .show_hidden_children_category.fa.off.fa-minus
+  padding-right: 5px
+.div_border
+  border: 1px solid
+  margin-bottom: 10px
+.custom_summary_full
+  background-color: white
+  min-height: 350px!important
+  position: absolute
+  top: 0
+  right: 0
+.order_line_details_scroll
+  height: 65%!important
+  width: 95%
+  position: absolute
+  left: 15px
+  top: 170px
+  background-color: white
+.custom_summary
+  background-color: white
+  height: auto
+.form-control.custom_internal_notes
+  height: 100px
+.form-control.custom_survey_text
+  height: 80px
+  max-width: 725px
+  resize: none
+  outline: none
+.form-control.custom_survey_text.answer
+  background-color: grey
+// max-width: 400px
+.custom_internal_notes
+  resize: none
+  outline: none
+.custom_current_internal_notes
+  margin-bottom: 5px
+.background_white
+  background-color: white!important
+.add_padding_top_15
+  padding-top: 15px !important
+.add_padding_top_bottom_15
+  padding-top: 15px !important
+  padding-bottom: 15px !important
+.no_padding_top
+  padding-top: 0 !important
+
+.unset_line-height
+  line-height: unset!important
+.dataTables_filter
+  float: right !important
+  text-align: left!important
+//.table.dataTable
+//  thead
+//    .sorting_asc
+//      background-image: url(image_path("up_arrow2.gif"))!important
+//    .sorting_desc
+//      background-image: url(image_path("down_arrow2.gif"))!important
+//    .sorting
+//      background-image: url(image_path("up_down.png"))!important
+
+.editable_info
+  .glyphicon
+    margin: 5px
+    font-size: 15px
+    top: 6px
+
+.cursor_default
+  cursor: default
+.add_padding_top_2
+  padding-top: 2px
+.font_size_16
+  font-size: 16px!important
+.font_size_18
+  font-size: 18px!important
+.font_size_12
+  font-size: 12px!important
+.paginate_button.page-item
+  padding: 0!important
+  margin: 6px!important
+  border: 0!important
+.separator_style
+  font-size: 5px
+  margin: 0px 0px 0px 6px
+  vertical-align: middle
+.admin_bullets
+  margin: 0px 6px 0px 9px !important
+.td_min_width
+  min-width: 70px
+.pagination
+  .active  a
+    background-color: #B48DF8 !important
+    border-color: #B48DF8 !important
+    color: white!important
+.pagination
+  li
+    a
+      color: #B48DF8 !important
+
++add-margin("all", "10")
++add-margin("right", "0")
++add-margin("right", "10")
++add-margin("left", "0")
++add-margin("left", "-27")
+.group_show_buttons
+  margin: 0!important
+  border-radius: 0!important
+
+.left_group_show_buttons
+  border-radius: 20px 0 0 20px!important
+.right_group_show_buttons
+  border-radius: 0 20px 20px 0!important
+.no_border_right
+  border-right: 0px!important
+.no_border_top
+  border-top: 0!important
+.add_padding_top_8
+  padding-top: 8px!important
+.dropdown-submenu
+  position: relative
+
+.dropdown-submenu .dropdown-menu
+  top: 0
+  left: 100%
+  margin-top: -1px
+.text_align_left
+  text-align: left!important
+li
+  .active
+    a
+      background-color: #B48DF8 !important
+  a
+    font-weight: 300!important
+.background_orange
+  background-color: #B48DF8 !important
+  color: white!important
+.first_level
+  color: rgb(183, 183, 183)!important
+  background-color: white!important
+  font-weight: 400!important
+// .category:nth-child(1n)
+//   .first_level
+//     border-left: 5px solid $gems-category-hard-goods
+// .category:nth-child(2n)
+//   .first_level
+//     border-left: 5px solid $gems-category-accessories
+// .category:first-child
+//   .first_level
+//     border-left: 5px solid $gems-category-soft-goods
+.no_border_radius
+  border-radius: 0!important
+.color_orange
+  color: #B48DF8 !important
+//.show_hidden_children_category.fa
+//  font-size: xx-small!important
+span.show_hidden_children_category:hover
+  -webkit-text-stroke: 1px white!important
+li.category
+  margin-bottom: 1px!important
+  a:hover
+    span.show_hidden_children_category
+      -webkit-text-stroke: 1px white!important
+  a.first_level:hover
+    background-color: white!important
+  a:hover
+    background-color: white!important
+li.active_category
+  a
+    color: #B48DF8!important
+  a:hover
+    span.show_hidden_children_category
+      -webkit-text-stroke: 1px black!important
+  span.show_hidden_children_category
+    -webkit-text-stroke: 1px black!important
+  span.show_hidden_children_category:hover
+    -webkit-text-stroke: 1px black!important
+
+.font_size_4
+  font-size: 4px!important
+.font_size_large
+  font-size: large!important
+.font_size_x_large
+  font-size: x-large!important
+li.category
+  a:after
+    height: 50%!important
+//ul
+//  li.category:hover
+//    background-color: grey!important
+//    a
+      //border-left-color: grey!important
+
+.width_fill_avaible
+  width: -webkit-fill-available
+span.divider
+  width: 0
+  height: 1em
+  border-left: 1px solid #ccc
+li.category.first
+  margin-top: 5px!important
+li.category.last
+  margin-bottom: 5px!important
+.category_style
+  padding-right: 10px!important
+  padding-bottom: 0!important
+.other_category
+  border-left: 1px dashed rgb(183, 183, 183)
+  line-height: 13px!important
+.font_size_first_category
+  font-size: 16px!important
+.font_size_other_category
+  font-size: 13px!important
+.product_category_position_relative
+  //position: relative!important
+  //top: -320px!important
+  max-height: 300px!important
+  overflow-y: auto!important
+  overflow-x: hidden!important
+  position: absolute
+.body_item_position_relative
+  //position: relative!important
+  //top: -320px!important
+  // max-height: 580px!important
+  height: 100%
+  overflow-y: auto!important
+  overflow-x: auto!important
+  .ps-scrollbar-y-rail
+    margin-top: 10px!important
+    margin-bottom: 3px!important
+.body_logo_position_relative
+  //position: relative!important
+  //top: -320px!important
+  //max-height: 50.5vh!important
+  max-height: 32.3vh!important
+  overflow-y: auto!important
+  overflow-x: auto!important
+  .ps-scrollbar-y-rail
+    margin-top: 0px!important
+    margin-bottom: 0px!important
+.add_padding_top_34
+  padding-top: 34px!important
+.custom_vertical_align_base_sub
+  vertical-align: sub!important
+.auto_heights
+  height: auto!important
+.btn_icons_datatable
+  border: 1px solid lightgrey!important
+  border-radius: 3px!important
+  padding: 1px 3px 0px 4.5px !important
+  line-height: 18px
+.font_size_larger
+  font-size: larger
++add-margin("top","3")
++add-margin("top","20")
+.padding_forward
+  padding:  1px 2px 0px 6px !important
+.auto_height
+  height: auto!important
+.add_padding_bottom_30
+  padding-bottom: 30px
+.background_light_gray
+  background-color: gray!important
+.icon-sort:before
+  content: ""!important
+.icon-sort-asc:before
+  content: ""!important
+.icon-sort-desc:before
+  content: ""!important
+.icon-sort:after
+  content: "\69"
+  position: absolute!important
+.icon-sort-asc:after
+  content: "\6a"!important
+  position: absolute!important
+.icon-sort-desc:after
+  content: "\6b"!important
+  position: inherit!important
+[class^="icon-"]:after, [class*=" icon-"]:after
+  font-family: "gsg-font-6" !important
+  font-style: normal !important
+  font-weight: normal !important
+  font-variant: normal !important
+  text-transform: none !important
+  speak: none
+  font-size: unset
+  line-height: 1.5
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+//padding-top: 10%
+//.current.icon-sort, .current.icon-sort-asc, .current.icon-sort-desc
+//  display: flex!important
+.custom_table_container
+  height: auto
+  border: 1px solid grey
+  background-color: white
+.ps-scrollbar-y-rail
+  margin-top: 30px
+.ps-scrollbar-y-rail
+  margin-bottom: 6px
+.ps-scrollbar-x-rail
+  margin-right: 6px
+.ps-scrollbar-x-rail
+  margin-left: 6px
+#container_view_dashboard
+  .ps-scrollbar-y-rail
+    margin-top: 33px
+#orders_show_table
+  .ps-scrollbar-y-rail
+    margin-top: 45px
+.custom_logo_left
+  padding: 10px 18px 0px 18px
+
+  img
+    margin: 0!important
+    height: 55px!important
+.width_fit_content
+  width: fit-content!important
+.height_100
+  height: 100%!important
+.width_100
+  width: 100%!important
+.custom_flex_head_position
+  height: 100%!important
+  display: flex!important
+  flex-direction: column!important
+  flex-wrap: nowrap!important
+  justify-content: flex-start!important
+  align-items: stretch!important
+  align-content: stretch!important
+  .dropdown-menu
+// max-width: 215px
+.custom_flex_fist_position
+  flex: 1 1 auto!important
+  display: flex!important
+  flex-direction: column!important
+.custom_flex_last_position
+  flex: 1 1 80px!important
+  display: flex!important
+  flex-direction: column!important
+table.dataTable.order-column tbody tr, table.dataTable.display tbody tr
+  .sorting_1
+    background-color: transparent!important
+table.dataTable.order-column tbody tr, table.dataTable.display tbody tr
+  .sorting_2
+    background-color: transparent!important
+table.dataTable.order-column tbody tr, table.dataTable.display tbody tr
+  .sorting_3
+    background-color: transparent!important
+.custom_low_z_index
+  z-index: 999!important
+.custom_high_z_index
+  z-index: 1001!important
+.dropdown-menu.open
+  z-index: 1003!important
+
++add-margin("bottom", "15")
+
++add-margin("top", "0")
+.pagination
+  font-size: 12px
+  a
+    color: #0098c4 !important
+.fa.fa-edit
+  font-size: larger!important
+.form-control:focus, .form-group:focus
+  border-color: #B48DF8  !important
+  box-shadow: inset 0 1px 1px rgba(240, 137, 52, 0.075), 0 0 8px rgba(240, 137, 52, 0.6) !important
+//.picker__input.picker__input--active, .picker:focus, .picker--focused:focus, .picker--opened:focus, .picker__holder:focus
+//  border-color: #B48DF8  !important
+//  box-shadow: inset 0 1px 1px rgba(240, 137, 52, 0.075), 0 0 8px rgba(240, 137, 52, 0.6) !important
+
+table
+  .fa.fa-edit
+    vertical-align: middle
+
+.tableFixHead
+//overflow-y: auto
+//height: 100px
+
+.height_360
+  height: 360px!important
+.height_522
+  height: 522px!important
+.height_480
+  height: 480px!important
+
+.tableFixHead table
+  border-collapse: collapse
+  width: 100%
+
+
+.tableFixHead th,
+.tableFixHead td
+  padding: 8px 16px
+
+.add_padding_left_15
+  padding-left: 15px
+.tableFixHead th
+  position: sticky
+  top: 0px
+  background: #eee
+#icons_header_view_dashboard
+  position: sticky
+  top: 0px
+  z-index: 1000
+.add_padding_bottom_5
+  padding-bottom: 5px
+.add_padding_bottom_10
+  padding-bottom: 10px
+.add_padding_top_6
+  padding-top: 6px
+.color_dark_grey
+  color: grey
+
+table.dataTable thead th
+  //background: transparent !important
+  white-space: nowrap
+
+
+table.dataTable thead span.sort-icon
+  display: inline-block
+  padding-left: 5px
+  width: 16px
+  height: 16px
+  position: absolute
+
+table.dataTable thead .sorting span
+  background: url(image_path("up_down.png")) no-repeat center right
+table.dataTable thead .sorting_asc span
+  background: url(image_path("up_arrow2.gif")) no-repeat center right
+table.dataTable thead .sorting_desc span
+  background: url(image_path("down_arrow2.gif")) no-repeat center right
+
+table.dataTable thead .sorting_asc_disabled span
+  background: url(image_path("up_arrow2.gif")) no-repeat center right
+table.dataTable thead .sorting_desc_disabled span
+  background: url(image_path("down_arrow2.gif")) no-repeat center right
+
++add-margin("left","8")
++add-margin("bottom","40")
++add-margin("top","40")
+
+//#orders_show_header_table, #orders_show_table, #order_edit_header
+//  .picker__holder
+//    position: fixed !important
+
+.ps-container:hover > .ps-scrollbar-x-rail, .ps-container:hover > .ps-scrollbar-y-rail
+  opacity: 1 !important
+.ps-container > .ps-scrollbar-x-rail, .ps-container > .ps-scrollbar-y-rail
+  opacity: 0.6 !important
+.text_align_right
+  text-align: right
+.container_img_login
+  background-image: url('#{image_path("background_login.jpg")}')
+  -webkit-background-size: contain
+  -moz-background-size: contain
+  -o-background-size: contain
+  background-size: cover
+  height: 100%
+  width: 100%
+//-moz-transform: scaleX(-1)
+//-o-transform: scaleX(-1)
+//-webkit-transform: scaleX(-1)
+//transform: scaleX(-1)
+//filter: FlipH
+//-ms-filter: "FlipH"
+
+.custom_padding_login
+  padding-right: 6%
+  padding-left: 6%
+.custom_margin_login
+  margin-top: 6%
+  margin-bottom: 2%
+.user_remember_me
+  label:before
+    top: -3px
+  label:after
+    top: -3px
+
+.bottom_buttons_bar
+  //margin-top: 5px!important
+  padding-top: 5px!important
+  padding-bottom: 5px!important
+  background-color: black-grey!important
+
+.truncate_text
+  white-space: nowrap!important
+  text-overflow: ellipsis!important
+  // Small devices (landscape phones, 576px and up)
+  //@media (min-width: 576px)
+  //  width: 100px
+  //// Medium devices (tablets, 768px and up)
+  //@media (min-width: 768px)
+  //  width: 130px
+  //// Large devices (desktops, 992px and up)
+  //@media (min-width: 992px)
+  //  width: 160px
+  //// Extra large devices (large desktops, 1200px and up)
+  //@media (min-width: 1200px)
+  //  width: 200px
+  //@media (min-width: 1900px)
+  //  width: 350px
+  width: 10vw
+  display: block!important
+  overflow-x: hidden!important
+#order_line_details
+  .truncate_text
+    //width: 85px
+    width: 5vw
+.div_custom_container_tables, .nested-fields
+  .truncate_text
+    width: 6.8vw
+.border_color_ddd
+  border-color: #ddd!important
+.background_color_ccc
+  background-color: #ccc
+.standard_logo
+  border-radius: 170px
+  width: 66px
+  height: 66px
+  padding: 0
+  img
+    border-radius: 170px
+    width: 77px
+    height: 77px
+.mini_logo
+  border-radius: 170px!important
+  width: 20px!important
+  height: 20px!important
+  position: absolute
+  right: 15px
+
+  img
+    border-radius: 170px
+    width: 20px
+    height: 20px
+    position: absolute
+
+.dropdown-menu.inner
+  li
+    a
+      span
+        white-space: nowrap
+        text-overflow: ellipsis
+        // width: 270px
+        display: block
+        overflow: hidden
+ul.dropdown-menu.inner
+  position: relative!important
+.logo_container
+  height: 100%
+  background-size: contain
+  background-position: center
+  background-repeat: no-repeat
+
+.truncate_text_details
+  text-overflow: ellipsis!important
+  display: block!important
+  overflow-x: hidden!important
+  height: 60px!important
+  max-height: 60px!important
+
+.truncate_text_logo
+  white-space: nowrap!important
+  text-overflow: ellipsis!important
+  //@media (min-width: 576px)
+  //width: 100px
+  //@media (min-width: 768px)
+  //  width: 120px
+  //@media (min-width: 992px)
+  //  width: 150px
+  //@media (min-width: 1200px)
+  //  width: 190px
+  //@media (min-width: 1900px)
+  //  width: 290px
+  width: 87%
+  display: block!important
+  overflow-x: hidden!important
+
+#vendors_index_table
+  table
+    tbody
+      tr
+        td
+          &:last-child
+            min-width: 95px
+#body_container_item
+  .bootstrap-select.btn-group .dropdown-menu
+    width: 100%
+
+.add_padding_top_5
+  padding-top: 5px
+
+.switch
+  position: relative
+  display: inline-block
+  width: 60px
+  height: 34px
+
+.switch input
+  opacity: 0
+  width: 0
+  height: 0
+
+.slider
+  position: absolute
+  cursor: pointer
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  background-color: #ccc
+  -webkit-transition: .4s
+  transition: .4s
+
+.slider:before
+  position: absolute
+  content: ""
+  height: 26px
+  width: 26px
+  left: 4px
+  bottom: 4px
+  background-color: white
+  -webkit-transition: .4s
+  transition: .4s
+
+input:checked + .slider
+  background-color: #B48DF8
+
+input:focus + .slider
+  box-shadow: 0 0 1px transparent
+
+input:checked + .slider:before
+  -webkit-transform: translateX(26px)
+  -ms-transform: translateX(26px)
+  transform: translateX(26px)
+
+input:disabled + span.slider.round
+  cursor: not-allowed
+
+/* Rounded sliders */
+.slider.round
+  border-radius: 34px
+
+
+.slider.round:before
+  border-radius: 50%
+
+.add_padding_right_10
+  padding-right: 10px
+
+.border_right_1
+  border-right: 1px solid
+
+.border_left_1
+  border-left: 1px solid
+
+.border_top_1
+  border-top: 1px solid
+
+.border_bottom_1
+  border-bottom: 1px solid
+
+.container_notifications
+  // max-height: 190px
+  .slider.round
+    border-radius: 50px
+  .slider
+    top: 5px
+    left: 0px
+    right: -13px
+    bottom: 8px
+
+  .slider:before
+    height: 14px
+    width: 14px
+    left: 3px
+    bottom: 4px
+
+  input:checked + .slider:before
+    transform: translateX(15px)
+
+  .switch
+    width: 22px
+    top: -3px
+
+// custom style for image in froala
+.fr-popup.fr-desktop.fr-active
+  z-index: 1111!important
+
+.border_color_gray_modal
+  border-color: #e3e3e3!important
+.add_padding_right_15
+  padding-right: 15px
+.add-line-height-35
+  line-height: 35px
+
+.border_all_dashed
+  border: 1px dashed
+
+.border_left_soft_goods
+  border-left: 2px solid #ff7200!important
+.border_left_hard_goods
+  border-left: 2px solid #11a8ff!important
+.border_left_accessories
+  border-left: 2px solid #ffd800!important
+
+.custom_padding_table_view
+  .border_left_soft_goods, .border_left_hard_goods, .border_left_accessories
+    border-width: 3px!important
+
+.basic_label_container
+  font-style: unset
+  font-weight: bold
+  padding: 2px 8px 2px 7px
+  border-radius: 5px
+  letter-spacing: 0px
+
+
+//demo tracker and special orders hover
+
+.active_members, #members:hover, #members.active, .active_special_orders, #special_orders:hover, #special_orders.active, .active_demo_tracker, #demo_tracker:hover, #demo_tracker.active, .active_config, #config:hover, #config.active, .active_account, #account:hover, #account.active, .active_vendors, #vendors:hover, #vendors.active,.active_email_center, #email_center:hover, #emails_center.active
+  a
+    color: #B48DF8 !important
+  .col-lg-10
+    color: #B48DF8 !important
+    text-decoration: underline
+    span
+      color: black!important
+      text-decoration: none
+
+a:hover, a:focus
+  text-decoration: none
+
+.border_grey_dashed
+  border-bottom: 1px dashed #dddddd
+.border
+  border: 1px solid
+
+
+.border_bottom_color_white
+  border-bottom: 1px solid white
+.font_size_50
+  font-size: 50px
+.border_right_dashed
+  border-right-style: dashed
+
+.select2
+  width: 100%!important
+
+.select2-container--default
+  .select2-selection--single
+    .select2-selection__arrow
+      b
+        border-color: black transparent transparent transparent!important
+.select2-container--default
+  .select2-selection--single
+    border-radius: 0!important
+
+.select2-selection__rendered
+  font-family: "proxima-nova", sans-serif !important
+  color: black!important
+  padding: 2px!important
+  padding-left: 12px!important
+  padding-right: 20px!important
+  letter-spacing: normal
+  word-spacing: normal
+  font-size: 14px
+
+.select2-container
+  .select2-selection--single
+    height: initial!important
+    border-color: #ccc!important
+    .select2-selection__arrow
+      width: 31px!important
+      height: 32px!important
+      font-size: 14px
+      b
+        border-width: 4px 4px 0 4px!important
+.select2-dropdown
+  border-color: #ccc!important
+.select2-results
+  .select2-results__option
+    padding-left: 20px
+    letter-spacing: normal
+    word-spacing: normal
+    font-size: 14px
+    background-color: #F7F7F7!important
+    &:hover
+      background-color: #f5f5f5!important
+      color: #333333!important
+  .select2-results__option--highlighted[aria-selected]
+    background-color: #f5f5f5!important
+    color: #333333!important
+.background_grey
+  background-color: #F7F7F7!important
+.letter_spacing_2
+  letter-spacing: 2px!important
+.icon-record, .icon-record:before
+  padding: 0!important
+  font-size: 8px!important
+  margin: 0!important
+.add_padding_left_7
+  padding-left: 7px
+.add_padding_left_20
+  padding-left: 20px !important
+.add_padding_left_25
+  padding-left: 25px !important
+.add_padding_left_36
+  padding-left: 36px !important
+.add_padding_left_30
+  padding-left: 30px !important
+.add_padding_left_27
+  padding-left: 27px !important
+.center_form_group_items
+  display: flex
+  align-items: center
+  justify-content: center
+.color-grey
+  color: grey
+.add_padding_60
+  padding: 60px
+
+.add_padding_5
+  padding: 5px
+
+.hide_btn
+  background-color: #30303f !important
+  border-color: #30303f !important
+  color: #30303f !important
+// spiner
+#wait
+  display: none
+  width: 69px
+  height: 89px
+  position: absolute
+  top: 35%
+  left: 45%
+  padding: 2px
+
+// froala editor floating fix
+.fr-sticky-off, .fr-sticky-on
+  position: sticky!important
+.fr-sticky-dummy, .fr-counter
+  display: none!important
+
+.glyphicon-calendar.glyphicon.datepicker
+  cursor: pointer
+
+.form-group.banner
+  .fileupload .thumbnail > img
+    height: 100% !important
+    max-width: initial
+.background_trasparent
+  background: transparent
+.info_text
+
+.custom_pagination
+  background: #F7F7F7
+  cursor: default
+  a, span, em
+    padding: 0.2em 0.5em
+    display: block
+    float: left
+    margin-right: 1px
+  .disabled
+    color: #999999
+    border: 1px solid #dddddd
+  .current
+    font-style: normal
+    font-weight: bold
+    background: #B48DF8 !important
+    color: white
+    border: 1px solid #B48DF8 !important
+  a
+    margin-left: 2px
+    margin-right: 2px
+    text-decoration: none
+    color: #B48DF8 !important
+    border: 1px solid #E7E8E9
+    &:hover, &:focus
+      color: #B48DF8 !important
+      border-color: #B48DF8 !important
+  .page_info
+    background: #B48DF8 !important
+    color: white
+    padding: 0.4em 0.6em
+    width: 22em
+    margin-bottom: 0.3em
+    text-align: center
+    b
+      color: #B48DF8 !important
+      background: #B48DF8 !important + 60
+      padding: 0.1em 0.25em
+
+.myLogoImg:hover
+  opacity: 0.7
+
+#myModalIMG.modal
+  display: none
+  position: fixed
+  z-index: 1000px
+  padding-top: 100px
+  left: 0
+  top: 0
+  width: 100%
+  height: 100%
+  overflow: auto
+  background-color: rgb(0,0,0)
+  background-color: rgba(0,0,0,0.5)
+
+  @keyframes zoom
+    from
+      transform: scale(0)
+    to
+      transform: scale(1)
+
+  /* Modal Content (Image) */
+  .modal-content
+    margin: auto
+    display: block
+    width: 80%
+    max-width: 90%
+    border-radius: 0px!important
+
+  /* Add Animation - Zoom in the Modal */
+  .modal-content
+    animation-name: zoom
+    animation-duration: 0.6s
+
+  /* The Close Button */
+  .close
+    position: absolute
+    top: 15px
+    right: 35px
+    color: white!important
+    font-size: 60px!important
+    font-weight: bold
+    transition: 0.3s
+    opacity: 0.5
+
+  .close:hover,
+  .close:focus
+    color: #bbb
+    text-decoration: none
+    cursor: pointer
+
+@media only screen and (max-width: 500px)
+  #modal-flash
+    width: 300px!important
+    margin-left: -140px!important
+
+@media only screen and (min-width: 500px) and (max-width: 700px)
+  #modal-flash
+    width: 300px!important
+    margin-left: -160px!important
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px)
+  #myModalIMG
+    .modal-content
+      width: 100%
+
+.fixed-prieview
+  margin-top: 10%
+  height: 90%
+  width: auto!important
+
+.input-group-addon
+  height: 34px
+
+.input-group
+  height: 35px
+
+.panel-heading
+  padding: 0
+
+
+// survey answer styling
+.answer_body
+  margin: 0
+  height: 100%
+
+.answer_body.row
+  margin-left: 0
+  margin-right: 0
+
+.no_margin_left_right
+  margin-left: 0
+  margin-right: 0
+
+.survey_sent
+  margin-left: 0
+  .container-fluid
+    padding-left: 0!important
+
+.survey_banner
+  overflow: hidden
+  img
+    width: 100%
+
+.fill_survey
+  .container-fluid.custom_container_fluid
+    padding-left: 15px!important
+
+// bootstrap convenience classes
+.max-col-lg-2
+  max-width: 16%
+  display: inline
+  float: left
+
+.fr-select-color
+  padding-left: 15px
+  margin-left: 5px
+
+
+.fr-colors-tabs
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-around
+
+.fr-popup.fr-desktop.fr-active
+  padding: 10px
+
+.fr-buttons.fr-colors-buttons
+  padding: 15px!important
+  margin-bottom: 10px!important
+
+.fr-colors-tab.fr-selected-tab
+  color: #B48DF8
+
+.fr-colors-tab.fr-command
+  &:hover
+    color: #B48DF8 !important
+
+.fr-color-set
+  display: none
+
+.fr-color-set.fr-selected-set
+  display: block
+
+#body_container_logo
+  height: 50%
+// email template
+.preview-email-body
+  padding: 70px 0 20px 0
+  background-color: white
+  .banner
+    width: 100%
+    margin-bottom: 20px
+    max-height: 500px
+  .logo
+    width: 130px
+    margin-top: 30px
+.specific_golfers_align
+  margin-left: -10px
+  margin-right: -10px
+.body_content_email
+  border: 1px solid grey
+  padding-top: 70px
+  padding-left: 15px!important
+  padding-right: 15px!important
+
+.border_gray_right
+  border-right: 1px solid grey
+
+.panel_categories
+  background-color: transparent!important
+  box-shadow: none!important
+  padding-bottom: 0!important
+.space_between_category
+  height: 20px
+  background-color: transparent
+
+.space_between_category_active
+  margin-top: 10px!important
+  margin-bottom: 10px!important
+  height: 35px
+  background-color: lightgrey
+.grey_by_default
+  margin-top: 10px!important
+  margin-bottom: 10px!important
+  height: 35px
+  background-color: lightgrey
+@media (min-width: 768px)
+  .modal-dialog
+    margin: 20px auto
+
+.icon_missing_space
+  width: 14px !important
+  height: 14px !important
+  margin-bottom: 0 !important
+.width_100
+  width: 100%
+
+.font_size_30
+  font-size: 30px !important
+
+.fa
+  text-decoration: none
+  &:hover
+    text-decoration: none
+    background-color: transparent
+
+.border_custom
+  border: 2px solid #B48DF8
+  border-radius: 24px

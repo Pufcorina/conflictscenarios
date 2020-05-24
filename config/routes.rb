@@ -19,5 +19,6 @@ Rails.application.routes.draw do
   post '/new_user', to: 'users#create'
 
 
+  resources :surveys
 
 end

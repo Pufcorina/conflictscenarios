@@ -1,0 +1,600 @@
+body.surveys
+  .select2-selection__rendered
+    margin-right: 15px
+  .btn-actions
+    border: 1px solid lightgrey
+    padding: 3px 11px 3px 11px
+  // title survey
+  .custom_survey_title
+    display: flex
+
+  #description
+    display: flex
+    #description_text_content
+      color: #B48DF8
+
+  .custom_survey_title_content
+    margin-bottom: 0
+    border-width: 0 0 1.5px 0
+    border-style: solid
+    border-color: #B48DF8
+    padding-bottom: 20px
+    width: 160px
+    font-size: 20px
+
+  #title_text_content
+    width: fit-content
+    font-size: 26px
+    color: #B48DF8
+
+  #title
+    min-height: 80px!important
+
+  .tooltip-inner
+    width: 250px
+    max-width: 250px
+
+
+  .question
+    .btn_delete_option, .btn_new_option
+      .glyphicon
+        font-size: 16px
+        margin-top: 7px
+    .option_title_preview
+      font-weight: bold
+      font-size: 16px
+    input[type=checkbox]
+      -webkit-appearance: none
+      -moz-appearance: none
+      vertical-align: middle
+      width: 20px
+      height: 20px
+      font-size: 20px
+      background-color: #eee
+      margin-top: -5px
+      border-radius: 4px
+      background-color: white
+      border: 1px solid lightgrey
+      margin-left: -6px
+      margin-top: 1px
+
+    input[type=radio]:after
+      background-color: white
+
+    input[type=radio]
+      left: -5px
+      position: relative
+    //by default those buttons are not shown
+  .question.editing
+    .editable
+      display: initial
+    .preview
+      display: none
+  .question.previewing
+    .editable
+      display: none
+    .preview
+      display: flex
+    .select2
+      display: none
+    .btn_delete_question, .btn_edit_question
+      display: none
+    &:hover
+      .btn_delete_question, .btn_edit_question
+        display: initial
+
+  .description.previewing
+    .description_preview
+      margin-top: 10px!important
+      margin-bottom: 10px!important
+
+  .title.editing, .description.editing
+    .editable
+      display: initial
+    .preview
+      display: none
+    #btn_delete_description
+      display: initial
+    #btn_edit_title, #btn_edit_description
+      display: none
+
+
+  .title.previewing, .description.previewing
+    .editable
+      display: none
+    .preview
+      display: initial
+    #btn_edit_title, #btn_edit_description, #btn_delete_description
+      display: none
+    &:hover
+      #btn_edit_title, #btn_edit_description, #btn_delete_description
+        display: initial
+
+
+  .description.empty_description
+    .editable
+      display: none
+    .preview
+      display: none
+    #btn_delete_description, #btn_edit_description
+      display: none
+
+
+
+  .dummy
+    label
+      // left: 10px
+  .input_fields_height
+    height: 330px
+
+  .free_text
+    margin-left: 5px
+    height: 50px
+    &:disabled
+      background: white!important
+
+  #survey_container
+    padding-bottom: 100px
+  .input_fields
+    overflow: hidden
+    border-style: solid
+    border-width: 1px
+    color: #ccc
+  .insert-in-ckeditor
+    padding: 3px
+    white-space: nowrap
+    margin-top: 2px
+    display: inline-block
+    background: white
+    border: 1px solid #ccc
+    border-radius: 15px
+    padding: 3px 7px
+    color: #333
+  .email-template-variables
+    margin-bottom: 10px
+    margin-top: 10px
+  .clear
+    clear: both
+  .preview_container_body
+    border: 1px solid rgb(231, 231, 231)
+    border-top: 0
+  #preview_container
+    width: 99%
+    float: left
+    min-height: 150px
+    background-color: white
+    margin-bottom: 50px
+    background-color: #eee
+    p
+      margin: 0
+      line-height: 1.6
+    .row
+      .col-lg-12.info_refresh_text
+        padding-top: 65px
+  .preview_email_metadata
+    background-color: white
+    .col-lg-12
+      margin-left: 20px
+  .preview-email-body
+    padding-top: 20px
+    padding-bottom: 20px
+    margin-top: 40px
+    margin-bottom: 40px
+    background-color: white
+    .banner
+      width: 100%
+      margin-bottom: 20px
+      max-height: 500px
+    .logo
+      width: 130px
+      margin-top: 30px
+  .ps-scrollbar-y-rail
+    margin-top: 6px
+  .custom_panel
+    padding: 10px
+  .panel
+    border: 0
+    box-shadow: none
+  #wait
+    top: 18%
+
+  .border_black_grey
+    width: calc(100% - 160px)
+    margin-bottom: 0
+    border-width: 0 0 1.5px 0
+    border-style: solid
+    border-color: grey
+
+  .background_light_grey
+    padding-bottom: 10px
+    padding-top: 10px
+    background-color: #f7f7f8
+    margin-left: 15px
+    margin-right: 15px
+    &:hover
+      background-color: #d8d8d8
+      #btn_edit_title, #btn_edit_description, #btn_delete_description, .btn_edit_question, .btn_delete_question
+        display: initial
+
+  .background_grey
+    padding-bottom: 10px
+    padding-top: 10px
+    background-color: #D7D7D7D7
+    margin-left: 15px
+    margin-right: 15px
+    display: inline-block
+    width: -webkit-fill-available
+
+  .btn_survey_option
+    padding: 5px!important
+    font-size: 16px!important
+    padding-left: 15px!important
+    padding-right: 15px!important
+
+  .btn_survey
+    padding: 5px!important
+    font-size: 12px!important
+    padding-left: 15px!important
+    padding-right: 15px!important
+    margin: 5px!important
+    background-color: white!important
+    font-weight: 300!important
+    border: 1px solid
+    .glyphicon
+      position: relative
+      top: 3px
+      width: 9px
+
+  .btn_survey.btn_description
+      background-color: grey!important
+
+  .btn_save
+    color: green!important
+    border-color: green
+
+  .btn_delete
+    color: #e31415!important
+    border-color: #e31415
+
+  .color_survey_lightskyblue
+    color: #2eb4d9!important
+  .color_survey_red
+    color: #e31415!important
+  .color_survey_green
+    color: #67c499!important
+
+  .btn_edit
+    color: #2eb4d9!important
+    border-color: #2eb4d9
+
+  .btn_new_question
+    margin-left: 15px!important
+    margin-top: 15px!important
+    color: #67c499!important
+    border-color: #67c499
+    font-size: 16px!important
+
+  .btn_new_option
+    margin-left: 15px!important
+    margin-top: 15px!important
+    color: #67c499!important
+    border-color: #67c499
+    font-size: 14px!important
+
+  .btn_logo
+    margin-top: 15px!important
+    color: grey!important
+    border-color: grey
+    font-size: 14px!important
+
+  .btn_description
+    margin-top: 15px!important
+    color: white!important
+    border-color: grey
+    font-size: 16px!important
+
+  .question_rank
+    width: 50px
+
+  .survey_radio_btn:after
+    transform: scale(1.1)
+    top: -4px!important
+    background-color: white!important
+    border: 1px solid lightgrey!important
+  .survey_radio_btn:checked:after
+    background-color: #B48DF8!important
+
+
+  .survey_radio_btn
+    margin-left: 30px!important
+    margin-top: 7px!important
+    margin-right: 19px!important
+  .survey_radio_btn.radio_button_editable:after
+    top: 0!important
+    left: -2px
+  .logo_image_survey > img
+    width: 100%
+
+  .survey_logo
+    width: 100%
+    padding-top: 15px
+
+  .logo_image_hover
+    &:hover
+      .logo_image_survey
+        opacity: 80%
+      #btn_edit_logo, #btn_delete_logo
+        display: block
+
+  // logo
+  #logo_title
+    color: white
+    opacity: 80%
+    position: relative
+    width: fit-content
+    left: 50px
+    z-index: 2000
+    font-size: 70px
+    font-weight: bold
+  .logo_image_survey
+    width: 100%
+    overflow: hidden
+  .logo_survey_buttons
+    float: right
+    width: fit-content
+    height: 100%
+    position: relative
+
+  .response_title
+    padding-bottom: 3px
+    border-bottom: 2px #B48DF8 solid
+
+  .answers_hr
+    border-top: 2px solid #eeeeee!important
+    margin-top: 5px
+    margin-bottom: 5px
+
+  .chart_legend
+    min-height: 170px
+    max-height: 300px
+    display: flex
+    flex-direction: column
+    flex-wrap: wrap
+    align-content: start
+
+  .chart_legend_label
+    margin-right: 10px
+    width: 20px
+    height: 20px
+    border-radius: 6px
+
+  .chart_legend_title
+    margin-right: 10px
+    margin-top: 2px
+
+  .question_type
+    min-width: 300px
+
+  .btn_question
+    width: fit-content
+    height: fit-content
+    font-family: "proxima-nova", sans-serif !important
+    letter-spacing: normal
+    padding-top: 5px!important
+    padding-bottom: 7px!important
+    &:before
+      position: relative
+      top: 2px
+      padding-right: 5px
+      padding-bottom: 0
+      font-family: 'Glyphicons Halflings',serif
+
+  .fixed_survey_bar
+    position: fixed
+    right: 0
+    left: 197px
+    bottom: 0
+
+  .table.table.results.custom_table3
+    min-width: 0
+    border-left: 1px solid lightgrey
+    border-right: 1px solid lightgrey
+    border-bottom: 1px solid lightgrey
+    thead
+      tr
+        th
+          background-color: #B48DF8!important
+          color: white
+          border-bottom: 1px
+    tbody
+      tr
+        td
+          padding: 8px
+          line-height: 1.428571429
+          padding-left: 10px
+
+
+  b.question_title_text_preview
+    font-size: 18px
+    position: relative
+    top: 3px!important
+
+  .question_title
+    flex-wrap: wrap
+    font-size: 18px
+    display: flex
+
+
+  .input_field_form
+    min-width: 300px
+    max-width: 500px
+    line-height: 35px
+
+  .option_input
+    height: 30px
+    flex: 1
+
+  .option_input_field_form
+    min-width: 400px
+    max-width: 500px
+
+
+  b.question_rank_title
+    padding: 5px
+    font-size: 18px
+    width: 50px
+
+  .answer_text
+    margin-left: 15px!important
+    margin-right: 15px!important
+    color: #B48DF8
+
+  .answer_form
+    margin-top: 50px
+    margin-left: 15px
+    margin-right: 15px
+  #answer_survey_container
+    background-color: white
+    min-width: 250px
+
+  .answer_title
+    font-weight: bold
+
+  .answer_question > .row
+    margin-left: 40px!important
+    margin-right: 15px!important
+    .cursor_pointer.radio_option
+      position: relative
+      top: -1px
+
+  .bottom_buttons_bar_answer_survey
+    margin-top: 10px
+    margin-left: 0!important
+    margin-right: 0!important
+    display: flex
+    flex-direction: column
+    justify-content: center
+
+  .no_margin_right_left
+    margin-left: 0!important
+    margin-right: 0!important
+
+  #btn_save_answer
+    margin: 0 auto!important
+    margin-top: 20px!important
+
+  .answer_logo_shop
+    width: 130px
+    margin-top: 30px
+
+  .option
+    &:hover
+      background-color: grey
+
+  .radio-primary input[type="radio"]:checked + label::before, .radio-primary input[type="radio"]:checked + label::after, .radio-primary input[type="radio"] + label::after
+    border-color: #B48DF8!important
+    color: #B48DF8
+    background-color: #B48DF8
+
+  .question_title > .question_title_text_form
+    flex: 1
+
+  .align_dropdown_survey
+    padding-top: 0
+    padding-bottom: 0
+    min-width: 110px!important
+    left: -68px!important
+    .disabled
+      font-style: italic
+
+  a.dropdown-item
+    margin-top: 5px
+    margin-bottom: 5px
+    padding-left: 10px!important
+
+  .banner
+    width: 100%
+    margin-bottom: 20px
+    max-height: 164px
+    margin-top: 5px
+  .answer_body
+    .multiple_answers
+      .checkbox
+        label::before, label::after
+          width: 20px
+          height: 20px
+          font-size: 13px
+          top: 1px
+        label
+          margin-bottom: 3px
+
+  .option_list
+    label
+      font-weight: 100
+      margin-bottom: 6px
+      margin-left: 17px
+
+  .container_closed_survey_height
+    min-height: 700px
+  .container_closed_survey
+    margin: 0 auto
+    max-width: 600px
+    border: 1px solid
+    min-height: 75px
+    background-color: #3a3a40
+    b
+      font-size: 40pt
+      color: #ffffff
+
+  .sent_survey, .close_survey
+    position: relative
+    margin: 0 auto
+    max-width: 400px
+    min-height: 75px
+    span
+      font-size: 40pt
+
+  .close_survey
+    border-bottom: 1px solid #e31415
+  .sent_survey
+    border-bottom: 1px solid #0a7039
+    span
+      color: #0a7039
+
+@media (min-width: 450px)
+  .answer_form
+    margin-left: 15px
+@media (max-width: 450px)
+  .answer_form
+    margin-left: 5px
+  .close_survey, .sent_survey
+    position: relative
+    margin: 0 auto
+    max-width: 280px
+    min-height: 75px
+    span
+      font-size: 26pt
+body.surveys.fill_survey
+  margin-left: 0px
+
+input[type='radio']:checked:after
+  left: -2px!important
+
+.custom_table_container
+  min-width: 500px
+  height: auto
+  border: 1px solid transparent
+  background-color: white
+
+.radio_button_align
+  vertical-align: top
+.radio_button_text
+  padding-right: 15px
+  white-space: normal
+  text-align: left
+.checkbox_text
+  text-align: left
+  hyphens: auto
+  -webkit-hyphens: auto
+  -ms-hyphens: auto
+

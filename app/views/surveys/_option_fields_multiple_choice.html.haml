@@ -1,0 +1,12 @@
+.row.no-margin
+  .col-lg-12.option_form.nested-fields
+    .col-xs-2.form_size.question_rank.text-center
+      .div
+        = radio_button_tag "", false, false, disabled: true, class: "radio_button"
+    .col-xs-8.input_field_form.no_padding.add-margin-left-15
+      .form-group
+        %span.option_title_preview.preview
+          = f.object.try(:title)
+        = f.text_field :title, class: "editable form-control option_input option_input_field_form"
+    = f.hidden_field :order
+    = link_to_remove_association "", f, class: "editable pull-left btn_survey_option no_margin_right_left glyphicon glyphicon-trash color_survey_red add-margin-right-5"

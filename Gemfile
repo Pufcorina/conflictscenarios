@@ -56,6 +56,12 @@ gem 'pry'
 gem "cancancan"
 gem "letter_opener"
 
+gem "cocoon"
+
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
+gem 'jquery-ui-rails', '~> 5.0', '>= 5.0.5'
+
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
 end

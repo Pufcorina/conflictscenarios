@@ -127,22 +127,22 @@ window.crm = window.crm or {}
   new_design_shared.toggleCustomerNavigationMenu = ->
     $(window).load ->
       setTimeout ->
-        new_design_shared.nav_html = $(".customer_menu_items").html()
+        new_design_shared.nav_html = $(".menu_items").html()
         dropdowns = ["nav_leagues_and_events", "nav_master_roster", "nav_settings", "nav_registration",  "nav_data_analysis", "nav_payments", "nav_managed_clubs"]
         dropdowns = dropdowns.filter (d) -> ($("##{d}").length > 0)
         new_design_shared.initCustomerMenuDropdowns(dropdowns, true)
-        current_nav = $(".customer-navbar .customer_menu_items .customer_dropdown.current").attr("id")
+        current_nav = $(".customer-navbar .menu_items .dropdown.current").attr("id")
         new_design_shared.dropdown_list = dropdowns
     
         $(window).resize ->
           # clearTimeout(new_design_shared.init_timeout) 
           # new_design_shared.init_timeout = setTimeout -> 
-          $(".customer_menu_items").html(new_design_shared.nav_html)
+          $(".menu_items").html(new_design_shared.nav_html)
           new_design_shared.initCustomerMenuDropdowns(new_design_shared.dropdown_list, true)
           # , 200
         
-        $(document).off "click", ".customer_dropdown"
-        $(document).on "click", ".customer_dropdown", ->
+        $(document).off "click", ".dropdown"
+        $(document).on "click", ".dropdown", ->
           id = $(@).attr('id')
           left_navbar = ""
           if id != "nav_leagues_and_events"
@@ -150,9 +150,9 @@ window.crm = window.crm or {}
           dropdown = ".#{id}_dropdown"
           if $(dropdown).hasClass("hidden")
             
-            if $(".customer_menu_tile:visible").length > 0 
-              previous_menu_id = $(".customer_menu_tile:visible").data("navbar")
-              $(".customer_menu_tile:visible").addClass("hidden")
+            if $(".menu_tile:visible").length > 0
+              previous_menu_id = $(".menu_tile:visible").data("navbar")
+              $(".menu_tile:visible").addClass("hidden")
               $("##{previous_menu_id}").closest(".tile_content").removeClass("highlighted")
               $("##{previous_menu_id}").parent().removeClass("active")
               if previous_menu_id != "nav_leagues_and_events"
@@ -501,22 +501,22 @@ window.crm = window.crm or {}
       $(this).find(".text").addClass("after_text_#{i}")
       width = $(this).find(".text").width()
       styleElem = document.head.appendChild(document.createElement("style"));
-      color = "#ff8400"
+      color = "#B48DF8"
       if $("#powered_by").is(":visible") || $("body").hasClass("usga")
         color = "#0088CE"
       else if $("body").hasClass('golf_advisor')
         color = "#74abb9"
       else if $("body").hasClass("orange")
-        color = "#ff8400"
+        color = "#B48DF8"
       else if $("body").hasClass("spring")
         color = "#87b124"
       else if $("body").hasClass("green")
         color = "#369807"
       else if $("body").hasClass("legacy")
         color = "#4c9cb3"
-      else if $("body").hasClass("blue")
+      else if $("body").hasClass("lightskyblue")
         color = "#1053a4"
-      else if $("body").hasClass("navyblue")
+      else if $("body").hasClass("navylightskyblue")
         color = "#1E4164"
       else if $("body").hasClass("purple")
         color = "#87489c"
