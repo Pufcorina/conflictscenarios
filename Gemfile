@@ -58,6 +58,8 @@ gem "letter_opener"
 
 gem "cocoon"
 
+gem "chartkick"
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'jquery-ui-rails', '~> 5.0', '>= 5.0.5'

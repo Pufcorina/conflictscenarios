@@ -16,4 +16,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui/sortable
+//= require chartkick
+//= require Chart.bundle
 //= require_tree .

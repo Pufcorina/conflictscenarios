@@ -11,7 +11,7 @@
       .col-xs-12.col-lg-4.no_padding.add_margin_top_10
         #image_profile
           = image_tag 'background.jpg', class: "image_profile"
-          %a.change_color_image_profile.color_white Choose image
+          -#%a.change_color_image_profile.color_white Choose image
       .col-xs-12.col-lg-7.add_margin_top_10#name_user{class: ("color_purple" if @user[:first_name].blank?)}
         %h3
           - if @user[:first_name].present? && @user[:last_name]..present?

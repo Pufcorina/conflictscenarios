@@ -3,9 +3,14 @@
     %span.fa.fa-bars.color_white
   #navbarSupportedContent.collapse.navbar-collapse
     %ul.navbar-nav.ml-auto.mt-2.mt-lg-0
+      %li.nav-item.pull-right
+        %a.fa.fa-home.left_menu_icon{:href => root_path, class: side_header_menu_active(["dashboard"]), title: "Dashboard", "data-toggle" => "tooltip", "data-placement" => "bottom"}
+      %li.nav-item.pull-right
+        %a.fa.fa-book.left_menu_icon{:href => surveys_path, class: side_header_menu_active(["surveys"]), title: "Brochures", "data-toggle" => "tooltip", "data-placement" => "bottom"}
+      %li.nav-item.pull-right
+        %a.fa.fa-cog.left_menu_icon{:href => security_path, class: side_header_menu_active(["settings"]), title: "Settings", "data-toggle" => "tooltip", "data-placement" => "bottom"}
+
       - if is_admin?
-        %li.nav-item.pull-right
-          %a.fa.fa-home.left_menu_icon{:href => root_path, class: side_header_menu_active(["dashboard"]), title: "Dashboard", "data-toggle" => "tooltip", "data-placement" => "bottom"}
         %li.nav-item.pull-right
           %a.fa.fa-copy.left_menu_icon{:href => surveys_path, class: side_header_menu_active(["surveys"]), title: "Scenarios", "data-toggle" => "tooltip", "data-placement" => "bottom"}
         %li.nav-item.pull-right

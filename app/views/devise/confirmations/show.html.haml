@@ -4,7 +4,7 @@
       = render "devise/shared/error_messages", resource: resource
       .card
         .card-header
-          %h4.color_white Account Activation #{"for #{resource.try(:first_name)} #{resource.try(:last_name)}" if resource.try(:first_name).present? && resource.try(:last_name).present? }
+          %h4.color_white Account Activation
         .card-body
           - if @requires_password
             = f.label :password,'Choose a Password:', class: "color_white add_padding_top_20"

@@ -31,8 +31,6 @@ class UsersController < ApplicationController
       @users = User.search(@search_params).order(sort_column + " " + sort_direction).distinct
     end
 
-    binding.pry
-
     respond_to do |format|
       format.js {render 'users/users_search'}
       format.html {render "users/index"}
