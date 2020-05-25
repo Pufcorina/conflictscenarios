@@ -5,7 +5,6 @@ class UsersController < ApplicationController
 
 
   def index
-    # binding.pry
     if params[:sort].blank?
       sort_column = "users.first_name"
       @default_sort = "users.first_name"
@@ -32,6 +31,7 @@ class UsersController < ApplicationController
       @users = User.search(@search_params).order(sort_column + " " + sort_direction).distinct
     end
 
+    binding.pry
 
     respond_to do |format|
       format.js {render 'users/users_search'}
@@ -137,6 +137,6 @@ class UsersController < ApplicationController
   end
 
   def search_params
-    params.permit(:user_search_name,:user_search_email, :user_search_phone, :user_search_admin, :user_search_manager, :user_search_employee)
+    params.permit(:utf8, :commit,:user_search_name,:user_search_email, :user_search_phone, :user_search_admin, :user_search_manager, :user_search_employee)
   end
 end

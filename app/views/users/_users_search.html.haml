@@ -1,5 +1,5 @@
 .col-xs-10
-  = form_tag users_path, :method => 'GET', :id => "users_search", :remote => true do
+  = form_tag users_path, :method => 'get', :id => "users_search", :remote => true do
     .row.add_padding_top_20
       .col-xs-12.col-lg-3.no_padding_left
         .form-group
@@ -24,13 +24,7 @@
             %label.custom-control-label{:for => "user_search_admin"}
       .col-xs-12.col-lg-1.no_padding_left
         .form-group
-          %p.text_center Manager
-          .custom-control.custom-checkbox
-            = text_field_tag :user_search_manager, "", value: @search_params.present? ? @search_params['user_search_manager'] : params[:user_search_manager], class: 'custom-control-input', type: "checkbox"
-            %label.custom-control-label{:for => "user_search_manager"}
-      .col-xs-12.col-lg-1.no_padding_left
-        .form-group
-          %p.text_center Employee
+          %p.text_center User
           .custom-control.custom-checkbox
             = text_field_tag :user_search_employee, "", value: @search_params.present? ? @search_params['user_search_employee'] : params[:user_search_employee], class: 'custom-control-input', type: "checkbox"
             %label.custom-control-label{:for => "user_search_employee"}

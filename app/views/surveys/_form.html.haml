@@ -10,13 +10,6 @@
                 #{form_type} SURVEY
               .border_black_grey
 
-          -#.row
-          -#  .col-lg-12
-          -#    %button.pull-left.btn_survey.btn_logo#btn_logo{class: ("hidden" if f.object.try(:logo) != "fallback/avatar.png" or f.object.try(:logo).present?), type: "button"}
-          -#      %i.glyphicon.glyphicon-plus-sign.add-margin-right-5
-          -#      Add logo
-          -#    .col-lg-12.add-margin-top-10#logo{class: ("hidden" if f.object.try(:logo) == "fallback/avatar.png" or f.object.try(:logo).blank?), type: "button"}
-          -#      = render partial: 'logo', locals: {:f => f}
           .row
             = render partial: 'title', locals: {:f => f}
           .row

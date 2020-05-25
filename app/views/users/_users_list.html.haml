@@ -16,7 +16,7 @@
           %td #{user.last_name}
           %td #{user.email}
           %td.text_center #{user.phone}
-          %td.text_center #{user.admin ? "Admin" : (user.manager ? "Manager" : "Employee")}
+          %td.text_center #{user.admin ? "Admin" : (user.manager ? "Manager" : "User")}
           %td.text_align_right
             - if user.email != "admin@admin.com"
               = link_to "", user_path(user), data: { confirm: "Are you sure?" }, method: :delete, class: "pull-right fa fa-trash color_purple font_size_20 add_padding_right_20", type: "button"

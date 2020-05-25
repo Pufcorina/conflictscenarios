@@ -1,8 +1,2 @@
 #sidebar-wrapper
   .menu_left.color_menu.menu_content_left{style: "border-right: 1px solid #B48DF8;"}
-    %a.fa.fa-home.left_menu_icon{:href => root_path, class: side_header_menu_active(["dashboard"]), title: "Dashboard", "data-toggle" => "tooltip", "data-placement" => "right"}
-    -#%a.website_image_menu{:href => "#"}
-    %a.fa.fa-book.left_menu_icon{:href => surveys_path, class: side_header_menu_active(["surveys"]), title: "Scenarios", "data-toggle" => "tooltip", "data-placement" => "right"}
-    - if is_admin?
-      %a.fa.fa-users.left_menu_icon{:href => users_path, class: side_header_menu_active(["users"]), title: "User Accounts", "data-toggle" => "tooltip", "data-placement" => "right"}
-    %a.fa.fa-cog.left_menu_icon{:href => security_path, class: side_header_menu_active(["settings"]), title: "Settings", "data-toggle" => "tooltip", "data-placement" => "right"}

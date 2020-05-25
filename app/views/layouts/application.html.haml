@@ -17,13 +17,12 @@
   - if logged_in?
     %body
       #wrapper.d-flex
-        = render 'menus/menu_left'
 
         #page-content-wrapper
           = render 'menus/menu_top'
 
           #page
-            .container-fluid.add_padding_top_20.h-100{style: "border-top: 1px solid #B48DF8;"}
+            .container-fluid.add_padding_top_20.h-100
               = yield
 
       %script{type: "text/javascript", 'data-turbolinks-eval'=>false}

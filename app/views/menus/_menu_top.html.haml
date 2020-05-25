@@ -1,32 +1,19 @@
-%nav.navbar.navbar-expand-lg.navbar-light
+%nav.navbar.navbar-expand-lg.navbar-light{style: "border-bottom: 1px solid #B48DF8;"}
   %button.navbar-toggler.border.border-white{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
     %span.fa.fa-bars.color_white
   #navbarSupportedContent.collapse.navbar-collapse
     %ul.navbar-nav.ml-auto.mt-2.mt-lg-0
-
-      - if ["securities", 'policies'].include? left_controller
-        %li.nav-item
-          = link_to "Home Page", root_path, class: "link"
-        %li.nav-item
-          = link_to "Properties", root_path, class: "link"
-        - if is_admin?
-          %li.nav-item
-            = link_to "About Us", root_path, class: "link"
-          %li.nav-item
-            = link_to "Contact Us", root_path, class: "link"
-
-
-      - if ["securities", 'policies'].include? left_controller && is_admin?
-        %li.nav-item.dropdown.pull-right.dropdown_custom
-          .dropdown-toggle{"data-toggle" => "dropdown", style: "pointer-events:none"}
-            Policies
-          %ul.dropdown-menu{style: "top: 50px!important;"}
-            %li
-              = link_to "Privacy Policy", security_privacy_policy_path, :method => :get, class: "link"
-            %li
-              = link_to "Terms & Conditions", security_terms_and_conditions_path, :method => :get, class: "link"
-            %li
-              = link_to "Cookies Policy", security_cookies_path, :method => :get, class: "link"
+      - if is_admin?
+        %li.nav-item.pull-right
+          %a.fa.fa-home.left_menu_icon{:href => root_path, class: side_header_menu_active(["dashboard"]), title: "Dashboard", "data-toggle" => "tooltip", "data-placement" => "bottom"}
+        %li.nav-item.pull-right
+          %a.fa.fa-copy.left_menu_icon{:href => surveys_path, class: side_header_menu_active(["surveys"]), title: "Scenarios", "data-toggle" => "tooltip", "data-placement" => "bottom"}
+        %li.nav-item.pull-right
+          %a.fa.fa-book.left_menu_icon{:href => surveys_path, class: side_header_menu_active(["surveys"]), title: "Brochures", "data-toggle" => "tooltip", "data-placement" => "bottom"}
+        %li.nav-item.pull-right
+          %a.fa.fa-users.left_menu_icon{:href => users_path, class: side_header_menu_active(["users"]), title: "Members", "data-toggle" => "tooltip", "data-placement" => "bottom"}
+        %li.nav-item.pull-right
+          %a.fa.fa-cog.left_menu_icon{:href => security_path, class: side_header_menu_active(["settings"]), title: "Settings", "data-toggle" => "tooltip", "data-placement" => "bottom"}
 
       %li.nav-item.dropdown.pull-right
         .fa.fa-user-circle.color_purple.account_icon.dropdown-toggle{"data-toggle" => "dropdown", style: "pointer-events:none"}
