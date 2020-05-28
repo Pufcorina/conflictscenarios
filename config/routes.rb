@@ -20,5 +20,6 @@ Rails.application.routes.draw do
 
 
   resources :surveys
+  # resources :brocures
 
 end
