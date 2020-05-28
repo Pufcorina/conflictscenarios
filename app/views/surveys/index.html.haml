@@ -4,7 +4,7 @@
       SCENARIOS
   .col-xs-12
     .page-title
-.col-lg-12#survey_index_container.add_margin_top_20
+.col-lg-12.add_margin_top_20#survey_index_container
   - if @surveys.blank?
     No surveys
   - else
@@ -27,12 +27,14 @@
               %i.gga-info-circle.cursor_pointer{'data-toggle' => "tooltip", title: "Survey has already been sent and cannot be edited anymore."}
           %a.fa.fa-eye.color_purple.font_size_30.pull-right.add_margin_right_15{href: survey_path(id: survey.id, id: survey.id), method: :get, "data-toggle" => "tooltip"}
 
-
-.row.bottom_buttons_bar
+.row.fixed_survey_bar.background_light_grey
   .col-xs-12.col-sm-12
     .btsp_custom_tabs_menu
-      .add-margin-right-0.pull-right
-        = link_to  "New Survey", new_survey_path(@customer), class:"btn btn-default btn_big_custom custom_btn btn_orange"
+    .add-margin-right-0.pull-right
+      = link_to  "New Survey", new_survey_path(@customer), class:"btn btn-default btn_big_custom custom_btn btn_orange"
+    .add-margin-right-0.pull-left
+
+
 
 :javascript
   window.crm.surveys.init();

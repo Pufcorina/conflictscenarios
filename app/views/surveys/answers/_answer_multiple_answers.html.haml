@@ -4,7 +4,7 @@
       .col-lg-12.col-xs-12.form_size.text-center.radio_button_answer.no_padding_left.no_padding_right
         .checkbox.btsp_radio.no-margin.pull-left.no_padding_left
           %input{:type => "checkbox", name: "answer[multipleanswer_#{question.id}_#{o.id}]", id:"radio_option_#{question.id}_#{o.title}", class: "radio_option", value: o.title, checked: ((answ = @answers.select{|x| x[question.id]}).present? && answ[0][question.id].include?(o.title))}
-          %label.checkbox_text{:for => "radio_option_#{question.id}_#{o.title}"} #{o.title}
+          %label.checkbox_text.add_margin_left_5{:for => "radio_option_#{question.id}_#{o.title}"} #{o.title}
 
 -# :javascript
 -#   window.crm.answer_survey.init();

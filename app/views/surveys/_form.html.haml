@@ -1,38 +1,36 @@
 = form_for([@customer, @survey], html: { class: "custom_flex_fist_position", id: "surveys_form_container" }) do |f|
   .row.custom_flex_fist_position.height_100.add-margin-all-0
-    .col-lg-12.height_100.btsp_ps_container.btsp_fheader_table_container#form_survey
+    .col-lg-12.height_100
       .row
-        .col-lg-12.btsp_fheader_table_container.btsp_ps_container.custom_table_container#survey_container
+        .col-lg-12
           - add_error(@survey.errors.full_messages.to_sentence, 'error') if @survey.errors.present?
           .row
             .col-lg-12.add-margin-top-20.custom_survey_title
               .custom_survey_title_content
                 #{form_type} SURVEY
-              .border_black_grey
 
           .row
             = render partial: 'title', locals: {:f => f}
           .row
             = render partial: 'description', locals: {:f => f}
-            .col-xs-12
+            .col-xs-12.add-margin-left-10
               %button.pull-left.btn_survey.btn_description#btn_description{class: ("hidden" if f.object.try(:description).present?), type: "button"}
-                %i.glyphicon.glyphicon-plus-sign.add-margin-right-5
+                %i.fa.fa-plus-sign.add-margin-right-5
                 Add description
-          .row#question_list
-            = f.fields_for :questions, f.object.questions.present? ? f.object.questions : [Question.new(order: 1, question_type: "free_text")] do |question|
-              = render "question_fields", f: question
-            .col-xs-6.add_padding_left_10#disable_sortable_new_question_btn
-              = link_to_add_association 'Add New Question', f, :questions, class: "pull-left btn_survey btn_delete btn_question btn_new_question glyphicon glyphicon-plus-sign add-margin-right-5"
+          .row.add-margin-top-40#question_list
+            .col-xs-12.col-lg-12.no_padding_right.no_margin_right
+              = f.fields_for :questions, f.object.questions.present? ? f.object.questions : [Question.new(order: 1, question_type: "free_text")] do |question|
+                = render "question_fields", f: question
+            .col-xs-12.add_padding_left_10#disable_sortable_new_question_btn
+              = link_to_add_association 'Add New Question', f, :questions, class: "pull-left btn_survey btn_delete btn_question btn_new_question fa fa-plus-sign add-margin-right-5"
 
           = hidden_field_tag :survey_id,"", value: @survey.id, autocomplete: "off", class: "form-control custom_input"
 
-  .row.bottom_buttons_bar.fixed_survey_bar
+  .row.fixed_survey_bar.add_margin_top_20
     .col-xs-12.col-sm-12
-      .btsp_custom_tabs_menu
       .add-margin-right-0.pull-right
         = f.submit yield(:button_text), class: "btn btn-default custom_btn btn_big_custom btn_orange", value: "Save", id: "btn_save_survey", data: {disable_with: "Saving..."}
       .add-margin-right-0.pull-left
-        = link_to "Cancel", surveys_path(@customer), class: "btn btn-default custom_btn btn_big_custom btn_default" , :data => { :confirm => "Are you sure ?" }
-:javascript
 
-  window.crm.new_design_shared.applyCustomScrollbar("#form_survey");
+:javascript
+  window.crm.surveys.init();

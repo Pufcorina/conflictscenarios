@@ -1,13 +1,13 @@
 .row.no-margin
-  .col-lg-12.option_form.nested-fields
+  .col-xs-12.col-lg-12.d-flex.option_form.nested-fields
     .col-xs-2.form_size.question_rank.text-center
       .div
         = check_box_tag '', false, false, disabled: true, class: "radio-primary checkbox_option"
-    .col-xs-8.input_field_form.no_padding.add-margin-left-15
+    .col-xs-8.col-lg-8.input_field_form.no_padding.add-margin-left-15
       .form-group
         %span.option_title_preview.preview
           = f.object.try(:title)
         = f.text_field :title, class: "editable form-control input_field_for option_input"
         = f.hidden_field :order
-    .col-xs-2
-      = link_to_remove_association "", f, class: "editable pull-left btn_survey_option glyphicon glyphicon-trash color_survey_red add-margin-right-5", id: "btn_delete_#{q.object.try(:order)}_option_#{f.object.try(:order)}"
+    .col-xs-2.col-lg-2
+      = link_to_remove_association "", f, class: "editable pull-left btn_survey_option fa fa-trash color_survey_red add-margin-right-5", id: "btn_delete_#{q.object.try(:order)}_option_#{f.object.try(:order)}"

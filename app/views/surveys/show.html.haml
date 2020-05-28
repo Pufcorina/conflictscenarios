@@ -7,9 +7,10 @@
       .container-fluid#answer_survey_container
         .row.answer_form
           = render partial: 'surveys/answers/answer_form', locals: {questions: @questions, survey: @survey}
-        .row.bottom_buttons_bar_answer_survey.add_padding_bottom_30
-          %a.btn.btn-default.btn_orange.custom_btn.btn_big_custom{href: surveys_path(id: @survey.id), method: :get, "data-toggle" => "tooltip", id: "btn_save_answer"} Back
-        .row
-          .col-lg-12.col-xs-12.text-center.add-margin-bottom-40
-            %img.answer_logo_shop{src: @logo_url, class: ("hidden" if @logo_url.blank?)}
+
   .col-xs-2.col-sm-2.col-md-2.col-lg-2
+.row.fixed_survey_bar.background_light_grey
+  .col-xs-12.col-sm-12
+    .btsp_custom_tabs_menu
+    .add-margin-right-0
+      %a.btn.btn-default.btn_orange.custom_btn.btn_big_custom{href: surveys_path(id: @survey.id), method: :get, "data-toggle" => "tooltip", id: "btn_save_answer"} Back

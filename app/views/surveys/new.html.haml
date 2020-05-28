@@ -1,17 +1,7 @@
-.row.orders.custom_name.add-margin-top-20
-  .col-xs-12.col-sm-4
-    %h5.page-title
-      %span
-        SURVEYS
-      %span.icon-record
-      %span
-        NEW SURVEY
-  .col-xs-12
-    .page-title
-= render partial: 'surveys/form', locals: {:form_type => "NEW"}
+.surveys
+  = render partial: 'surveys/form', locals: {:form_type => "NEW"}
 
 
 
 :javascript
-  window.crm.new_design_shared.applyCustomScrollbar("#survey_form_container");
   window.crm.surveys.init();

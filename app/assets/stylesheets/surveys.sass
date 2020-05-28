@@ -1,4 +1,4 @@
-body.surveys
+.surveys
   .select2-selection__rendered
     margin-right: 15px
   .btn-actions
@@ -37,7 +37,7 @@ body.surveys
 
   .question
     .btn_delete_option, .btn_new_option
-      .glyphicon
+      .fa
         font-size: 16px
         margin-top: 7px
     .option_title_preview
@@ -65,59 +65,7 @@ body.surveys
       left: -5px
       position: relative
     //by default those buttons are not shown
-  .question.editing
-    .editable
-      display: initial
-    .preview
-      display: none
-  .question.previewing
-    .editable
-      display: none
-    .preview
-      display: flex
-    .select2
-      display: none
-    .btn_delete_question, .btn_edit_question
-      display: none
-    &:hover
-      .btn_delete_question, .btn_edit_question
-        display: initial
 
-  .description.previewing
-    .description_preview
-      margin-top: 10px!important
-      margin-bottom: 10px!important
-
-  .title.editing, .description.editing
-    .editable
-      display: initial
-    .preview
-      display: none
-    #btn_delete_description
-      display: initial
-    #btn_edit_title, #btn_edit_description
-      display: none
-
-
-  .title.previewing, .description.previewing
-    .editable
-      display: none
-    .preview
-      display: initial
-    #btn_edit_title, #btn_edit_description, #btn_delete_description
-      display: none
-    &:hover
-      #btn_edit_title, #btn_edit_description, #btn_delete_description
-        display: initial
-
-
-  .description.empty_description
-    .editable
-      display: none
-    .preview
-      display: none
-    #btn_delete_description, #btn_edit_description
-      display: none
 
 
 
@@ -215,7 +163,14 @@ body.surveys
       background-color: #d8d8d8
       #btn_edit_title, #btn_edit_description, #btn_delete_description, .btn_edit_question, .btn_delete_question
         display: initial
-
+  .question_style
+    padding-bottom: 10px
+    padding-top: 10px
+    margin-left: 15px
+    margin-right: 15px
+    &:hover
+      #btn_edit_title, #btn_edit_description, #btn_delete_description, .btn_edit_question, .btn_delete_question
+        display: initial
   .background_grey
     padding-bottom: 10px
     padding-top: 10px
@@ -240,7 +195,7 @@ body.surveys
     background-color: white!important
     font-weight: 300!important
     border: 1px solid
-    .glyphicon
+    .fa
       position: relative
       top: 3px
       width: 9px
@@ -387,13 +342,9 @@ body.surveys
       top: 2px
       padding-right: 5px
       padding-bottom: 0
-      font-family: 'Glyphicons Halflings',serif
+      font-family: 'fas Halflings',serif
 
-  .fixed_survey_bar
-    position: fixed
-    right: 0
-    left: 197px
-    bottom: 0
+
 
   .table.table.results.custom_table3
     min-width: 0
@@ -598,3 +549,10 @@ input[type='radio']:checked:after
   -webkit-hyphens: auto
   -ms-hyphens: auto
 
+.fixed_survey_bar
+  padding: 10px
+  background-color: lightgrey
+  position: fixed !important
+  right: 0 !important
+  left: 0px !important
+  bottom: 0 !important

@@ -4,35 +4,6 @@ window.crm = window.crm or {}
   
     $('[data-toggle="tooltip"]').tooltip();
 
-    $(document).off 'click', '#btn_logo'
-    $(document).on 'click', '#btn_logo', ->
-    $('#logo').removeClass('hidden')
-    $('#btn_logo').addClass('hidden')
-
-    $(document).off 'click', '#btn_edit_logo'
-    $(document).on 'click', '#btn_edit_logo', ->
-      $('#btn_delete_logo').css('display', 'block')
-      $('#logo_object').removeClass('logo_image_hover')
-      $('#btn_select_logo, #btn_save_logo').removeClass('hidden')
-
-    $(document).off 'click', '#btn_delete_logo'
-    $(document).on 'click', '#btn_delete_logo', ->
-      $('#btn_delete_logo').css('display', 'none')
-      $('#logo').addClass('hidden')
-      $('#btn_logo').removeClass('hidden')
-      document.getElementById("logo_title").style.color = "rgb(102,102,102)!important"
-
-      elem = document.createElement("img")
-      elem.setAttribute("src", "noimage.png")
-      elem.setAttribute("alt", "NoImage");
-      document.getElementsByClassName("logo_image_survey").appendChild(elem)
-      return
-
-    $(document).off 'change', '.fileupload-new'
-    $(document).on 'change', '.fileupload-new', ->
-      document.getElementById("logo_title").style.color = "white"
-
-
     #question + index in case of removing
     item_global = null
     index_global = null
@@ -109,7 +80,7 @@ window.crm = window.crm or {}
         last_o.getElementsByClassName('radio_button_tag')[0].id = 'radio_'+question_rank+'_option_button_option_'+rank
       else
         last_o.getElementsByClassName('checkbox_option')[0].id = 'checkbox_'+question_rank+'_option_'+rank
-      last_o.getElementsByClassName('glyphicon-trash')[0].id = 'btn_delete_'+question_rank+'_option_'+rank
+      last_o.getElementsByClassName('fa-trash')[0].id = 'btn_delete_'+question_rank+'_option_'+rank
 
     # updates selector views for question type (multiple choice, multiple answers, free text)
     $(document).off 'change', '.question_type'
@@ -132,15 +103,6 @@ window.crm = window.crm or {}
         $(@).closest(".question").find(".multiple_answers_fields").addClass("hidden")
 
 
-    $(document).off 'change', '#logo_on'
-    $(document).on 'change', '#logo_on', ->
-      if $("#logo_on").prop('checked')
-        $('.logo_container_display').css('display', 'block')
-        $('#body_container_item').css('width', '50%').css('padding','0px 15px 0px 15px')
-      else
-        $('.logo_container_display').css('display', 'none')
-        $('#body_container_item').css('width', '102%').css('padding','0px 100px 0px 100px')
-      return
 
     # edit title / description
     $(document).off 'click', '#btn_edit_title, #btn_edit_description'
@@ -328,35 +290,35 @@ window.crm = window.crm or {}
         update_order_questions_previous(item, prev_index)
       return
 
-    # drag and drop questions
-    $("#question_list").sortable 
-      items: '.question_sortable_default_class'
-      start: (event, ui) ->
-        ui.item.data 'start_pos', ui.item.index()
-        return
-      stop: (event, ui) ->
-        start_pos = ui.item.data('start_pos')
-        if start_pos != ui.item.index()
-          # the item got moved
-        else
-          # the item was returned to the same position
-        return
-      update: (event, ui) ->
-        index_moved_element = ui.item.index() + 1
-        item = ui.item[0]
-        id_moved_element = item.id
-
-        if id_moved_element != "disable_sortable_new_question_btn"
-          $("#"+id_moved_element).find('.order_number').val(index_moved_element)
-          $("#"+id_moved_element).find('.question_rank_title').html("Q"+index_moved_element)
-          if item.nextElementSibling
-            item_next = item.nextElementSibling
-            update_order_questions_next(item_next, index_moved_element + 1)
-
-          if item.previousElementSibling
-            item_prev = item.previousElementSibling
-            update_order_questions_previous(item_prev, index_moved_element - 1)
-        return
+#    # drag and drop questions
+#    $("#question_list").sortable
+#      items: '.question_sortable_default_class'
+#      start: (event, ui) ->
+#        ui.item.data 'start_pos', ui.item.index()
+#        return
+#      stop: (event, ui) ->
+#        start_pos = ui.item.data('start_pos')
+#        if start_pos != ui.item.index()
+#          # the item got moved
+#        else
+#          # the item was returned to the same position
+#        return
+#      update: (event, ui) ->
+#        index_moved_element = ui.item.index() + 1
+#        item = ui.item[0]
+#        id_moved_element = item.id
+#
+#        if id_moved_element != "disable_sortable_new_question_btn"
+#          $("#"+id_moved_element).find('.order_number').val(index_moved_element)
+#          $("#"+id_moved_element).find('.question_rank_title').html("Q"+index_moved_element)
+#          if item.nextElementSibling
+#            item_next = item.nextElementSibling
+#            update_order_questions_next(item_next, index_moved_element + 1)
+#
+#          if item.previousElementSibling
+#            item_prev = item.previousElementSibling
+#            update_order_questions_previous(item_prev, index_moved_element - 1)
+#        return
 
     $('.custom_pagination a').click (e)->
       window.history.pushState(null, null, this.href)

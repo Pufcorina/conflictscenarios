@@ -1121,7 +1121,7 @@ a
   resize: none
   outline: none
 .form-control.custom_survey_text.answer
-  background-color: grey
+  background-color: white
 // max-width: 400px
 .custom_internal_notes
   resize: none
@@ -1153,7 +1153,7 @@ a
 //      background-image: url(image_path("up_down.png"))!important
 
 .editable_info
-  .glyphicon
+  .fa
     margin: 5px
     font-size: 15px
     top: 6px
@@ -1937,7 +1937,7 @@ a:hover, a:focus
 .fr-sticky-dummy, .fr-counter
   display: none!important
 
-.glyphicon-calendar.glyphicon.datepicker
+.fa-calendar.fa.datepicker
   cursor: pointer
 
 .form-group.banner
@@ -2202,3 +2202,67 @@ a:hover, a:focus
 a
   &:hover
     background-color: transparent
+
+.bottom_buttons_bar
+  left: 0 !important
+.question.editing
+  .editable
+    display: initial
+  .preview
+    display: none
+  &:hover
+    .btn_edit_question
+      display: none
+.question.previewing
+  .editable
+    display: none
+  .preview
+    display: flex
+  .select2
+    display: none
+  .btn_delete_question, .btn_edit_question
+    display: none
+  &:hover
+    .btn_delete_question, .btn_edit_question
+      display: initial
+
+.description.previewing
+  .description_preview
+    margin-top: 10px!important
+    margin-bottom: 10px!important
+
+.title.editing, .description.editing
+  .editable
+    display: initial
+  .preview
+    display: none
+  #btn_delete_description
+    display: initial
+  #btn_edit_title, #btn_edit_description
+    display: none
+
+
+.title.previewing, .description.previewing
+  .editable
+    display: none
+  .preview
+    display: initial
+  #btn_edit_title, #btn_edit_description, #btn_delete_description
+    display: none
+  &:hover
+    #btn_edit_title, #btn_edit_description, #btn_delete_description
+      display: initial
+
+
+.description.empty_description
+  .editable
+    display: none
+  .preview
+    display: none
+  #btn_delete_description, #btn_edit_description
+    display: none
+
+.list_container
+  overflow: scroll
+#survey_index_container
+  overflow: hidden
