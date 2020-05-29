@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @brochure.title
+%p
+  %b Subdescription:
+  = @brochure.subdescription
+%p
+  %b Description:
+  = @brochure.description
+%p
+  %b Sent at:
+  = @brochure.sent_at
+%p
+  %b Brochures nb:
+  = @brochure.brochures_nb
+
+= link_to 'Edit', edit_brochure_path(@brochure)
+\|
+= link_to 'Back', brochures_path
