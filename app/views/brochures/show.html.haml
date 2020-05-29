@@ -1,21 +1,100 @@
-%p#notice= notice
+.row
+  .modal-content.border_custom{style: "height: 70vh; overflow-y: scroll"}
+    .modal-header
 
-%p
-  %b Title:
-  = @brochure.title
-%p
-  %b Subdescription:
-  = @brochure.subdescription
-%p
-  %b Description:
-  = @brochure.description
-%p
-  %b Sent at:
-  = @brochure.sent_at
-%p
-  %b Brochures nb:
-  = @brochure.brochures_nb
+      %h4#myModalLabel.modal-title.pull-left{"scenario-id" => ''} INTRODUCERE
+      - @scenarios.each_with_index do |scenario, index|
+        %h4#myModalLabel.modal-title.pull-left.hidden{"scenario-id" => "#{index}"} #{scenario.title.capitalize}
 
-= link_to 'Edit', edit_brochure_path(@brochure)
-\|
-= link_to 'Back', brochures_path
+    .modal-body{style: "height: 50vh; overflow-y: scroll"}
+      .modal-body-content{"scenario-id" => ''}
+        .row
+          = @brochure.subdescription
+        .row.add_margin_top_20
+          = @brochure.description
+      - @scenarios.each_with_index do |scenario, index|
+        .modal-body-content.hidden{"scenario-id" => "#{index}"}
+          .row
+            .col-xs-2.col-sm-2.col-md-2.col-lg-2
+            .col-xs-8.col-sm-8.col-md-8.col-lg-8.no_padding.add-margin-all-0.answer_body
+              .row.background_white
+                .container-fluid#answer_survey_container
+                  .row.answer_form
+                    = render partial: 'surveys/answers/answer_form', locals: {questions: @questions[scenario.id], survey: scenario}
+
+    .modal-footer.d-flex.justify-content-between
+      %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Renunta
+      %button.btn.btn-default.btn-prev.hidden{:type => "button", "current-page" => ''} Scenariul anterior
+      %button.btn.btn-default.btn-next{:type => "button", "current-page" => ''} Scenariul urmator
+      %button.btn.btn-default.btn-save.hidden{:type => "submit", "current-page" => ''} Salveaza
+
+- if is_admin?
+  .row.fixed_survey_bar.background_light_grey
+    .col-xs-12.col-sm-12
+      .btsp_custom_tabs_menu
+      .add-margin-right-0
+        = link_to 'Back', brochures_path, class: "btn btn-default custom_btn btn_big_custom"
+
+:javascript
+  $(".modal-content").each(function(){
+
+    var currentModal = $(this);
+
+    //click next
+    currentModal.find('.btn-next').click(function(){
+      current_page_id = currentModal.find('.btn-next').attr('current-page');
+      $(".modal-body-content[scenario-id='"+current_page_id+"']").addClass('hidden')
+      next_modal = $(".modal-body-content[scenario-id='"+current_page_id+"']").nextAll('.modal-body-content').first()
+      next_modal.removeClass('hidden')
+      show_buttons(next_modal.attr("scenario-id"))
+      set_title_modal(next_modal.attr("scenario-id"))
+      currentModal.find('.btn-next').attr('current-page', next_modal.attr("scenario-id"))
+      currentModal.find('.btn-prev').attr('current-page', next_modal.attr("scenario-id"))
+
+    });
+
+    //click prev
+    currentModal.find('.btn-prev').click(function(){
+      current_page_id = currentModal.find('.btn-next').attr('current-page');
+      $(".modal-body-content[scenario-id='"+current_page_id+"']").addClass('hidden')
+
+      prev_modal = $(".modal-body-content[scenario-id='"+current_page_id+"']").prevAll('.modal-body-content').first()
+      prev_modal.removeClass('hidden')
+      show_buttons(prev_modal.attr("scenario-id"))
+      set_title_modal(prev_modal.attr("scenario-id"))
+      currentModal.find('.btn-next').attr('current-page', prev_modal.attr("scenario-id"))
+      currentModal.find('.btn-prev').attr('current-page', prev_modal.attr("scenario-id"))
+
+    });
+    function set_title_modal(current_page_id) {
+      $(".modal-title").addClass("hidden")
+      $(".modal-title[scenario-id='"+current_page_id+"']").removeClass('hidden')
+    }
+
+
+    function show_buttons(current_page_id) {
+
+      if (current_page_id) {
+        modal = $('.modal-body')
+        pages = modal.children().length
+        last_child_index = modal.children().index($(".modal-body-content[scenario-id='"+current_page_id+"']"))
+
+        if (pages - 1 == last_child_index) {
+          $('.btn-prev').removeClass('hidden')
+          $('.btn-next').addClass('hidden')
+          $('.btn-save').removeClass('hidden')
+        } else {
+          $('.btn-prev').removeClass('hidden')
+          $('.btn-next').removeClass('hidden')
+          $('.btn-save').addClass('hidden')
+        }
+      } else
+      {
+        $('.btn-prev').addClass('hidden')
+        $('.btn-next').removeClass('hidden')
+        $('.btn-save').addClass('hidden')
+      }
+    }
+
+  });
+

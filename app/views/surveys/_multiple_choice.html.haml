@@ -1,4 +1,4 @@
-- options_list = (f.object.options.present? && f.object.question_type == "multiple_choice") ? f.object.options : [Option.new(order: 1), Option.new(order: 2), Option.new(order: 3)]
+- options_list = (f.object.options.present? && f.object.question_type == "multiple_choice") ? f.object.options : [Option.new(order: 1), Option.new(order: 2), Option.new(order: 3), Option.new(order: 4), Option.new(order: 5), Option.new(order: 6), Option.new(order: 7)]
 = f.fields_for :options, options_list do |option|
   = render partial: "option_fields_multiple_choice", locals: {f: option, q: q, is_template: false}
 .col-lg-6
