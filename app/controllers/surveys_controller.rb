@@ -76,6 +76,7 @@ class SurveysController < ApplicationController
       end
     end
 
+    survey_attrs["author"] = current_user.full_name
     if suvey.update survey_attrs
       flash[:notice] = "Successfully created."
       redirect_to surveys_path and return

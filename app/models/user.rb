@@ -4,6 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :validatable, :rememberable, :confirmable
 
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
   def self.find_by_authentication_token(authentication_token = nil)
     if authentication_token
       where(authentication_token: authentication_token).first

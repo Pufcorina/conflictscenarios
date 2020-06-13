@@ -114,10 +114,10 @@
         .col-9
           = f.select :gender, options_for_gender, {}, class: "form-control"
 
-  .row.pull-right
+  .row.pull-right.add_margin_right_20
     = f.submit "Update account", class: "pull-right btn btn-outline-success add_margin_right_5 add_margin_top_20", id: "edit_user_update_button"
     - if is_admin? && @user.email != "maria@eightinvestmentgroup.com"
-      = link_to "Cancel account", user_path(@user), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger add_margin_top_20"
+      = link_to "Cancel account", user_path(@user), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger add_margin_top_20", style: "color:white"
 
 :javascript
 

@@ -20,7 +20,7 @@
         %i.fa.fa-check.color_survey_green.add-margin-right-5
         Save
 
-      = link_to_remove_association "Delete", f, class: "pull-right btn_survey btn_delete fa btn_question btn_delete_question fa-trash color_survey_red add-margin-right-5", data: { confirm: "Are you sure?" }
+      = link_to_remove_association "Delete", f, class: "pull-right btn_survey btn_delete link btn_question btn_delete_question color_survey_red add-margin-right-5", data: { confirm: "Are you sure?" }, style: ""
 
   = f.hidden_field :id
   = f.hidden_field :order, value: f.object.try(:order), class: "order_number"

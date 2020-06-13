@@ -6,17 +6,19 @@
     .page-title
 .col-lg-12.add_margin_top_20#survey_index_container
   - if @surveys.blank?
-    No surveys
+    No scenario
   - else
     - @surveys.each do |survey|
       .row.add_margin_top_10.add_padding_bottom_10.border_custom.add_padding_top_15
         .col-xs-12.col-lg-3
           %h4.bold{style: "width: 500px"}
             #{survey.title}
+        .col-xs-12.col-lg-3.d-flex.flex-column
+
+          #{survey.author}
+          %span{style: "font-size:11px; font-style: italic; color: lightgray;"} Author
         .col-xs-12.col-lg-3
-          Author
-        .col-xs-12.col-lg-3
-          Nb Brocures
+          Nb Brocures (WIP)
         .col-xs-12.col-lg-2
           = link_to "", survey_path(id: survey.id), method: :delete, data: { confirm: "Are you sure?" }, "data-remote" => "true", class: "fa fa-trash color_red font_size_30 pull-right"
 

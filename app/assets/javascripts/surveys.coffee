@@ -14,6 +14,7 @@ window.crm = window.crm or {}
     #get selected question for removing
     $(document).off 'click', '.btn_delete_question'
     $(document).on 'click', '.btn_delete_question', ->
+      debugger
       item_global = $(@)[0].parentElement.parentElement.parentElement
       index_global = $('#question_list').find($('#'+item_global.id)).index()
       item_next_global = item_global.nextElementSibling
@@ -21,9 +22,10 @@ window.crm = window.crm or {}
       return
 
     #wait for removing question and reset questions order 
-    $("#survey_container").on "cocoon:after-remove", (e, rule)->
+    $("#question_list").on "cocoon:after-remove", (e, rule)->
+      debugger
       console.log("delete:"+ index_global)
-
+      item_global = $(@)[0].parentElement.parentElement.parentElement
       $('#' + item_global.id).removeClass('question').removeClass('question_sortable_default_class').removeClass('ui-sortable-handle')
       $('#' + item_global.id).css('display', 'none')
       old_item = $('#' + item_global.id)[0]
@@ -45,7 +47,7 @@ window.crm = window.crm or {}
     if ($('.question').length <= 1) then rank = 1 else rank = $('.question').length
 
     # question setup ids, when adding a new question
-    $("#survey_container").on "cocoon:after-insert", (e, rule)->
+    $("#question_list").on "cocoon:after-insert", (e, rule)->
       last_q = $('.question:last')
       rank = rank + 1
       order = $('.question').length
