@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2020_06_13_075758) do
     t.bigint "question_id"
     t.string "title"
     t.integer "order"
+    t.string "aux_description"
   end
 
   create_table "policies", force: :cascade do |t|

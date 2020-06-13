@@ -14,18 +14,10 @@ window.crm = window.crm or {}
     #get selected question for removing
     $(document).off 'click', '.btn_delete_question'
     $(document).on 'click', '.btn_delete_question', ->
-      debugger
       item_global = $(@)[0].parentElement.parentElement.parentElement
       index_global = $('#question_list').find($('#'+item_global.id)).index()
       item_next_global = item_global.nextElementSibling
       item_prev_global = item_global.previousElementSibling
-      return
-
-    #wait for removing question and reset questions order 
-    $("#question_list").on "cocoon:after-remove", (e, rule)->
-      debugger
-      console.log("delete:"+ index_global)
-      item_global = $(@)[0].parentElement.parentElement.parentElement
       $('#' + item_global.id).removeClass('question').removeClass('question_sortable_default_class').removeClass('ui-sortable-handle')
       $('#' + item_global.id).css('display', 'none')
       old_item = $('#' + item_global.id)[0]
@@ -36,6 +28,12 @@ window.crm = window.crm or {}
         update_order_questions_next(item_next_global, index_global+1)
       if item_prev_global
         update_order_questions_previous(item_prev_global, index_global)
+      return
+
+    #wait for removing question and reset questions order 
+    $("#question_list").on "cocoon:after-remove", (e, rule)->
+#      debugger
+
       return
 
     $(document).off 'click', '.change'
@@ -63,7 +61,7 @@ window.crm = window.crm or {}
       last_q.find('.free_text').attr('id', 'free_text_question_option_'+rank)
       last_q.find('.question_title_text_form').attr('id', 'question_title_text_form'+rank)
       last_q.attr('id', 'question_'+rank)
-      $('.select2').select2({})
+#      $('.select2').select2({})
 
     # option setup ids, when adding a new option
     $(".question").on "cocoon:after-insert", (e, rule)->
@@ -233,6 +231,9 @@ window.crm = window.crm or {}
             id = $(this)[0].id
             id_destroy = id.replace('title', '_destroy')
             $('#'+id_destroy).val(1)
+          question.find(".multiple_answers_fields").find('.option_input .aux_description').each ->
+            option_title = $(@).val()
+            $(@).parent().find("span.preview").html(option_title)
         else
           if question_type == "multiple_answers"
             question.find(".multiple_choice_fields").find('.option_input').each ->

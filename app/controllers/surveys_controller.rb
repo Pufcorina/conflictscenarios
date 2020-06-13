@@ -35,7 +35,7 @@ class SurveysController < ApplicationController
     @answers = []
     @survey = Survey.includes(:questions => :options).order('questions.order ASC, options.order ASC').find_by_id(params[:id])
 
-    @questions = Question.where(survey_id: params[:id]).sort_by(&:order)
+    @questions = Question.where(survey_id: params[:id]).order(:order)
 
     redirect_to surveys_path and return if @survey.blank?
   end
@@ -522,6 +522,6 @@ class SurveysController < ApplicationController
   end
 
   def survey_params
-    params.require(:survey).permit(:title, :description, :logo, :questions_attributes => [:id, :title, :question_type, :order, :_destroy, :options_attributes => [:id, :title, :order, :_destroy]])
+    params.require(:survey).permit(:title, :description, :logo, :questions_attributes => [:id, :title, :question_type, :order, :_destroy, :options_attributes => [:id, :title, :order, :_destroy, :aux_description]])
   end
 end

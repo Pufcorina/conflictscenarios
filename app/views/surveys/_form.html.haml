@@ -21,8 +21,8 @@
             .col-xs-12.col-lg-12.no_padding.no_margin_right
               = f.fields_for :questions, f.object.questions.present? ? f.object.questions : [Question.new(order: 1, question_type: "free_text")] do |question|
                 = render "question_fields", f: question
-            .col-xs-12.add_padding_left_10#disable_sortable_new_question_btn
-              = link_to_add_association 'Add New Question', f, :questions, class: "pull-left btn_survey btn_delete btn_question btn_new_question add-margin-right-5", style:"border-radius:4px"
+              .add_padding_left_10#disable_sortable_new_question_btn
+                = link_to_add_association 'Add New Question', f, :questions, class: "pull-left btn_survey btn_delete btn_question btn_new_question add-margin-right-5", style:"border-radius:4px"
 
           = hidden_field_tag :survey_id,"", value: @survey.id, autocomplete: "off", class: "form-control custom_input"
 

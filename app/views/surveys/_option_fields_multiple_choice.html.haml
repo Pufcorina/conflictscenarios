@@ -1,12 +1,17 @@
 .row.no-margin
   .col-xs-12.col-lg-12.d-flex.option_form.nested-fields
-    .col-xs-1.col-lg-1.form_size.question_rank.text-center
+    .col-xs-1.form_size.question_rank.text-center.no_margin_right.no_padding_right
       = radio_button_tag "", false, false, disabled: true, class: "radio_button"
-    .col-xs-8.col-lg-8.input_field_form.no_padding.no_padding_left
+    .col-xs-1.no_padding.no_padding_left
       .form-group
-        %span.option_title_preview.preview
+        %span.option_title_preview.preview.add_padding_top_5
           = f.object.try(:title)
         = f.text_field :title, class: "editable form-control option_input option_input_field_form"
         = f.hidden_field :order
+    .col-xs-3.col-lg-3.no_padding.no_padding_left
+      .form-group
+        %span.option_aux_title_preview.preview.add_padding_top_5
+          = f.object.try(:aux_description)
+        = f.text_field :aux_description, class: "editable form-control option_input option_input_field_form aux_description"
     .col-xs-2.col-lg-1
       = link_to_remove_association "", f, class: "editable pull-left btn_survey_option no_margin_right_left fa fa-trash color_survey_red add-margin-right-5"

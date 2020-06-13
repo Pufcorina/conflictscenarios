@@ -1,9 +1,8 @@
 .row.no-margin
   .col-xs-12.col-lg-12.d-flex.option_form.nested-fields
-    .col-xs-2.form_size.question_rank.text-center
-      .div
-        = check_box_tag '', false, false, disabled: true, class: "radio-primary checkbox_option"
-    .col-xs-8.col-lg-8.input_field_form.no_padding.add-margin-left-15
+    .col-xs-1.form_size.question_rank.text-center.no_margin_right.no_padding_right
+      = check_box_tag '', false, false, disabled: true, class: "radio-primary checkbox_option"
+    .col-xs-8.col-lg-8.input_field_form.no_padding
       .form-group
         %span.option_title_preview.preview
           = f.object.try(:title)

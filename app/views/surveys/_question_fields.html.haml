@@ -1,4 +1,4 @@
-.row.question.add-margin-top-10.nested-fields{ class:"question_sortable_default_class #{(f.object.try(:id).blank? ? "editing background_grey" : "previewing background_light_grey")}", id: "question_#{f.object.try(:order) || ((f.try(:index).to_i || 0) + 1)}"}
+.row.question.add-margin-top-10.nested-fields{ class:"question_sortable_default_class #{(f.object.try(:id).blank? ? "editing background_grey" : "previewing background_light_grey")}", id: "question_#{f.object.try(:order) || ((f.try(:index).to_i || 0) + 1)}", style:"border-radius:4px"}
   .col-xs-12.col-lg-12.d-flex.add_padding_left_10.no_padding.add-margin-bottom-15{style: "min-height: 60px"}
     .col-xs-1.no_padding_right.question_title{style: "width: 75px"}
       %b.question_rank_title
