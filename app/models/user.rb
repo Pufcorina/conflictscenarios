@@ -3,6 +3,13 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :validatable, :rememberable, :confirmable
+  validates :first_name, presence:true, :on => :update
+  validates :last_name, presence:true, :on => :update
+  validates :phone, presence:true, :on => :update
+  validates :date_of_birth, presence:true, :on => :update
+  validates :city, presence:true, :on => :update
+  validates :country, presence:true, :on => :update
+
 
   def full_name
     "#{first_name} #{last_name}"

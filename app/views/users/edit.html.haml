@@ -34,17 +34,17 @@
     .col-xs-12.col-lg-6.d-flex.flex-column.add_margin_top_20.add_margin_bottom_20.border_lightgrey_views
       .col-xs-12.d-flex.flex-row.add_padding_top_10
         .col-3
-          = f.label :first_name
+          First Name
         .col-9
           = f.text_field :first_name, autofocus: true, autocomplete: false, placeholder: "First Name", class: "form-control"
       .col-xs-12.d-flex.flex-row.add_padding_top_10
         .col-3
-          = f.label :last_name
+          Last Name
         .col-9
           = f.text_field :last_name, autofocus: true, autocomplete: false, placeholder: "Last Name", class: "form-control"
       .col-xs-12.d-flex.flex-row.add_padding_top_10{class: ("add_margin_bottom_10" if !is_admin?)}
         .col-3
-          = f.label :phone
+          Phone
         .col-9
           = f.text_field :phone, autofocus: true, autocomplete: false, placeholder: "Phone", class: "form-control"
       - if is_admin?
@@ -95,17 +95,17 @@
     .col-xs-12.col-lg-6.d-flex.flex-column.add_padding_top_20.add_padding_bottom_20.border_lightgrey_views.add_margin_top_20
       .col-xs-12.d-flex.flex-row.add_padding_top_10
         .col-3
-          = f.label :date_of_birth
+          Date of Birth
         .col-9
           = f.text_field :date_of_birth, value: f.object.try(:date_of_birth).try(:strftime, "%m/%d/%Y"), autofocus: true, autocomplete: false, placeholder: "mm/dd/yyyy", class: "form-control datepicker", oninput:"this.value = this.value.replace(/[^0-9\/]/, '')"
       .col-xs-12.d-flex.flex-row.add_padding_top_10
         .col-3
-          = f.label :city
+          City
         .col-9
           = f.text_field :city, autofocus: true, autocomplete: false, placeholder: "City", class: "form-control"
       .col-xs-12.d-flex.flex-row.add_padding_top_10
         .col-3
-          = f.label :country
+          Country
         .col-9
           = f.text_field :country, autofocus: true, autocomplete: false, placeholder: "Country", class: "form-control"
       .col-xs-12.d-flex.flex-row.add_padding_top_10
