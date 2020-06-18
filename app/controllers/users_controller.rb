@@ -81,7 +81,7 @@ class UsersController < ApplicationController
     new_user[:manager] = params["role"] == "manager" ? true : false
     new_user[:employee] = params["role"] == "employee" ? true : false
     user_param.each do |attribute, value|
-      value = Date.strptime(value, "%m/%d/%Y") if attribute == "date_of_birth" && value.present?
+      value = Date.strptime(value, "%Y-%m-%d") if attribute == "date_of_birth" && value.present?
       new_user[attribute.to_sym] = value
     end
     if new_user.save

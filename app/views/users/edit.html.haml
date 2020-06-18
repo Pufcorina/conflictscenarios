@@ -97,7 +97,7 @@
         .col-3
           Date of Birth
         .col-9
-          = f.text_field :date_of_birth, value: f.object.try(:date_of_birth).try(:strftime, "%m/%d/%Y"), autofocus: true, autocomplete: false, placeholder: "mm/dd/yyyy", class: "form-control datepicker", oninput:"this.value = this.value.replace(/[^0-9\/]/, '')"
+          = f.text_field :date_of_birth, value: f.object.try(:date_of_birth), placeholder: "dd/mm/yyyy", class: "form-control datepicker", type: 'date', oninput:"this.value = this.value.replace(/[^0-9\/-]/, '')"
       .col-xs-12.d-flex.flex-row.add_padding_top_10
         .col-3
           City
