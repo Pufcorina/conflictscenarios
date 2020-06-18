@@ -85,7 +85,6 @@ class UsersController < ApplicationController
       new_user[attribute.to_sym] = value
     end
     if new_user.save
-      bypass_sign_in(@user)
       flash[:notice] = "Updated successfully"
       redirect_to edit_user_path and return
     else

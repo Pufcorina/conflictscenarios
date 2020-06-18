@@ -19,10 +19,10 @@ module ApplicationHelper
   def sortable(column, title = nil, status_view_demo_tracker = nil, demo_club_type_filter = nil)
     title ||= column.titleize
     if @default_sort.present?
-      css_class = column == @default_sort ? "current icon-sort-asc" : "current icon-sort"
+      css_class = column == @default_sort ? "current color_white fa fa-sort-up" : "current fa fa-sort-down"
       direction = "desc"
     else
-      css_class = column == sort_column ? "current icon-sort-#{sort_direction}" : "current icon-sort"
+      css_class = column == sort_column ? "current fa fa-sort-#{sort_direction == "desc" ? "down":"up"}" : "current fa fa fa-sort-up"
       direction = column == sort_column && sort_direction == "desc" ? "asc" : "desc"
     end
     if !Rails.env.test?
@@ -34,14 +34,14 @@ module ApplicationHelper
     title ||= column.titleize
     if @default_sort.present?
       if @default_sort == "orders.internal_id"
-        css_class = column == @default_sort.to_s ? "current icon-sort-desc" : "current icon-sort"
+        css_class = column == @default_sort.to_s ? "current fa fa-sort-down" : "current fa fa-sort-up"
         direction = "asc"
       else
-        css_class = column == @default_sort.to_s ? "current icon-sort-asc" : "current icon-sort"
+        css_class = column == @default_sort.to_s ? "current fa fa-sort-up" : "current fa fa-sort-down"
         direction = "desc"
       end
     else
-      css_class = column == sort_column ? "current icon-sort-#{sort_direction}" : "current icon-sort"
+      css_class = column == sort_column ? "current fa fa-sort-#{sort_direction == "desc" ? "down":"up"}" : "current fa fa-sort-u"
       direction = column == sort_column && sort_direction == "desc" ? "asc" : "desc"
     end
     if !Rails.env.test?
