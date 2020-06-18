@@ -5,9 +5,8 @@ class SurveysController < ApplicationController
   skip_authorization_check :only => [:fill_survey, :submit_survey, :survey_sent]
 
   def index
-
-
     @surveys = Survey.includes(:questions).order(id: :asc)
+    @survey_brochures = RelationBrochureScenarios.all.group_by(&:survey_id)
   end
 
   def new

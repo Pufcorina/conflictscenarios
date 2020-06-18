@@ -19,10 +19,13 @@ class BrochuresController < ApplicationController
   # GET /brochures/new
   def new
     @brochure = Brochure.new
+    @survey_brochures = [RelationBrochureScenarios.new(), RelationBrochureScenarios.new(), RelationBrochureScenarios.new(), RelationBrochureScenarios.new()]
   end
 
   # GET /brochures/1/edit
   def edit
+    @survey_brochures = RelationBrochureScenarios.where(brochure_id: @brochure.id)
+    @survey_brochures = [RelationBrochureScenarios.new(), RelationBrochureScenarios.new(), RelationBrochureScenarios.new(), RelationBrochureScenarios.new()] if @survey_brochures.blank?
   end
 
   # POST /brochures
@@ -30,20 +33,29 @@ class BrochuresController < ApplicationController
   def create
     @brochure = Brochure.new(brochure_params)
 
-    respond_to do |format|
-      if @brochure.save
+    if @brochure.save
+      survey_brochure_params.each do |key, sb|
+        RelationBrochureScenarios.create({brochure_id: @brochure.id, survey_id:sb})
+      end
+      respond_to do |format|
         format.html { redirect_to @brochure, notice: 'Brochure was successfully created.' }
         format.json { render :show, status: :created, location: @brochure }
-      else
-        format.html { render :new }
-        format.json { render json: @brochure.errors, status: :unprocessable_entity }
       end
+    else
+        respond_to do |format|
+          format.html { render :new }
+          format.json { render json: @brochure.errors, status: :unprocessable_entity }
+        end
     end
   end
 
   # PATCH/PUT /brochures/1
   # PATCH/PUT /brochures/1.json
   def update
+    RelationBrochureScenarios.where(brochure_id: @brochure.id).delete_all
+    survey_brochure_params.each do |key, sb|
+      RelationBrochureScenarios.create({brochure_id: @brochure.id, survey_id:sb})
+    end
     respond_to do |format|
       if @brochure.update(brochure_params)
         format.html { redirect_to @brochure, notice: 'Brochure was successfully updated.' }
@@ -75,4 +87,8 @@ class BrochuresController < ApplicationController
     def brochure_params
       params.require(:brochure).permit(:title, :subdescription, :description, :sent_at, :brochures_nb)
     end
+
+  def survey_brochure_params
+    params.reject{|param| !param.include?("survey_") || params[param] == "0"}
+  end
 end

@@ -2232,35 +2232,35 @@ a
     margin-top: 10px!important
     margin-bottom: 10px!important
 
-.title.editing, .description.editing
+.title.editing, .description.editing, .subdescription.editing
   .editable
     display: initial
   .preview
     display: none
-  #btn_delete_description
+  #btn_delete_description, #btn_delete_subdescription
     display: initial
-  #btn_edit_title, #btn_edit_description
+  #btn_edit_title, #btn_edit_description, #btn_edit_subdescription
     display: none
 
 
-.title.previewing, .description.previewing
+.title.previewing, .description.previewing, .subdescription.previewing
   .editable
     display: none
   .preview
     display: initial
-  #btn_edit_title, #btn_edit_description, #btn_delete_description
+  #btn_edit_title, #btn_edit_description, #btn_edit_subdescription, #btn_delete_description, #btn_delete_subdescription
     display: none
   &:hover
-    #btn_edit_title, #btn_edit_description, #btn_delete_description
+    #btn_edit_title, #btn_edit_description, #btn_edit_subdescription, #btn_delete_description, #btn_delete_subdescription
       display: initial
 
 
-.description.empty_description
+.description.empty_description, .subdescription.empty_description
   .editable
     display: none
   .preview
     display: none
-  #btn_delete_description, #btn_edit_description
+  #btn_delete_description, #btn_delete_subdescription, #btn_edit_description, #btn_edit_subdescription
     display: none
 
 .list_container

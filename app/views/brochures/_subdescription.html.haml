@@ -1,0 +1,19 @@
+.col-xs-12.col-lg-12.d-flex.add-margin-top-10.subdescription#subdescription{style:"border-radius:4px; min-height:80px", class: "#{f.object.present? and f.object.description.present? ? "background_light_grey previewing" : "empty_description"}"}
+  .col-xs-9.col-lg-9.subdescription_preview
+    .row.editable#subdescription_edit
+      .col-xs-2.no_padding_right{style: "width: 200px"}
+        %b.font_size_16 Initial Description
+      .col-xs-10.form-group
+        = f.text_area :subdescription, value: f.object.description, class: 'form-control custom_survey_text', placeholder: "Enter brochure initial description"
+    .row.add_padding_left_30
+      %b.font_size_18.preview#subdescription_text_content #{f.object.try(:subdescription)}
+  .col-xs-3.col-lg-3.pull-right
+    %button.pull-right.btn_survey.btn_save.hidden#btn_save_subdescription{type: "button", "data-type"=>"subdescription"}
+      %i.fa.fa-check.color_survey_green.add-margin-right-5
+      Save
+      %button.pull-right.btn_survey.btn_edit#btn_edit_subdescription{type: "button", "data-type"=>"subdescription"}
+        %i.fa.fa-pencil.color_survey_lightskyblue.add-margin-right-5
+        Edit
+      %button.pull-right.btn_survey.btn_delete#btn_delete_subdescription{type: "button", "data-type"=>"subdescription", data: { confirm: "Are you sure?" }}
+        %i.fa.fa-trash.color_survey_red.add-margin-right-5
+        Delete

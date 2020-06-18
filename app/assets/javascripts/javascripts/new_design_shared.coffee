@@ -441,8 +441,6 @@ window.crm = window.crm or {}
         scrollContainer: ($table) ->
             return $(container_class)
 
-  new_design_shared.init_selectpicker = ->
-    $(".selectpicker").selectpicker()
 
   new_design_shared.refreshMembersTable = ->
     setTimeout ->

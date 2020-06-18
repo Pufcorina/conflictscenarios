@@ -1,5 +1,7 @@
-%h1 New brochure
+.surveys
+  = render partial: 'brochures/form', locals: {:form_type => "NEW"}
 
-= render 'form'
 
-= link_to 'Back', brochures_path
+
+:javascript
+  window.crm.brochures.init();

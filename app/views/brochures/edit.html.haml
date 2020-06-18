@@ -1,7 +1,7 @@
-%h1 Editing brochure
+.surveys
+  = render partial: 'brochures/form', locals: {:form_type => "EDIT"}
 
-= render 'form'
 
-= link_to 'Show', @brochure
-\|
-= link_to 'Back', brochures_path
+
+:javascript
+  window.crm.brochures.init();

@@ -1,23 +1,51 @@
-= form_for @brochure do |f|
-  - if @brochure.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@brochure.errors.count, "error")} prohibited this brochure from being saved:"
-      %ul
-        - @brochure.errors.full_messages.each do |message|
-          %li= message
+= form_for([@brochure], html: { class: "custom_flex_fist_position", id: "surveys_form_container" }) do |f|
+  .row.custom_flex_fist_position.height_100.add-margin-all-0
+    .col-lg-12.height_100{style: "margin-bottom: 100px"}
+      .row
+        .col-lg-12
+          - add_error(@brochure.errors.full_messages.to_sentence, 'error') if @brochure.errors.present?
+          .row
+            .col-lg-12.add-margin-top-20.custom_survey_title
+              .custom_survey_title_content{style: "width: 180px"}
+                #{form_type} BROCHURE
 
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :subdescription
-    = f.text_field :subdescription
-  .field
-    = f.label :description
-    = f.text_field :description
-  .field
-    = f.label :sent_at
-    = f.date_select :sent_at
+          .row
+            = render partial: 'title', locals: {:f => f}
+          .row
+            = render partial: 'subdescription', locals: {:f => f}
+            .col-xs-12.add-margin-left-10
+              %button.pull-left.btn_survey.btn_description#btn_subdescription{class: ("hidden" if f.object.try(:subdescription).present?), type: "button", "data-type"=>"subdescription"}
+                %i.fa.fa-plus.add-margin-right-5
+                %span.add_padding_10 Add initial description
+          .row
+            = render partial: 'description', locals: {:f => f}
+            .col-xs-12.add-margin-left-10
+              %button.pull-left.btn_survey.btn_description#btn_description{class: ("hidden" if f.object.try(:description).present?), type: "button", "data-type"=>"description"}
+                %i.fa.fa-plus.add-margin-right-5
+                %span.add_padding_10 Add description
 
-  .actions
-    = f.submit 'Save'
+
+          .row.add-margin-top-40
+            %button#add_survey{type: 'button', class: "pull-left btn_survey btn_delete btn_question btn_new_question add-margin-right-5", style:"border-radius:4px"} Add Scenario
+          .row#surveys
+            - @survey_brochures.each_with_index do |survey_brochure, index|
+              = render "survey_fields", survey_brochure: survey_brochure, index: index, hidden: false
+
+            - max_index = @survey_brochures.count
+            - [*max_index..(max_index+20)].each do |index|
+              = render "survey_fields", survey_brochure: RelationBrochureScenarios.new(), index: index, hidden: true
+          -##empty_survey.hidden
+          -#  = render "empty_survey"
+          = hidden_field_tag :brochure_id,"", value: @brochure.id, autocomplete: "off", class: "form-control custom_input"
+
+  .row.fixed_survey_bar.add_margin_top_20
+    .col-xs-12.col-sm-12
+      .add-margin-right-0.pull-right
+        = f.submit yield(:button_text), class: "btn btn-default custom_btn btn_big_custom btn_orange", value: "Save", id: "btn_save_brochure", data: {disable_with: "Saving..."}
+      .add-margin-right-0.pull-left
+
+:javascript
+  window.crm.brochures.init();
+  $(document).ready(function() {
+      $('.js-example-basic-single').select2();
+  });

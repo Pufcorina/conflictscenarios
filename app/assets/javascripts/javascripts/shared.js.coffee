@@ -44,7 +44,6 @@ window.starterkitrails = window.starterkitrails or {}
 
 
     myCustomInitInstance = () ->
-      debugger
       console.log('after inint')
 
   return

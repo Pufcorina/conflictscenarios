@@ -76,7 +76,7 @@
           = f.label :password, value: "New Password"
         .col-7
           = f.text_field :password, autofocus: true, autocomplete: "new-password", placeholder: "New Password", type: "password", class: "form-control", disabled: (true if current_user.id != @user.id)
-          %i.fa.fa-key.pull-right.color_purple.icon_password{'aria-hidden': true, onmouseover: "mouseoverPass(event);", onmouseout: "mouseoutPass(event);"}
+          %i.fa.fa-key.pull-right.color_purple.icon_password{'aria-hidden' => true, onmouseover: "mouseoverPass(event);", onmouseout: "mouseoutPass(event);"}
           - if @minimum_password_length
             %em
               #{@minimum_password_length} characters minimum
@@ -85,7 +85,7 @@
           = f.label :password_confirmation
         .col-7
           = f.text_field :password_confirmation, autofocus: true, autocomplete: false, placeholder: "Password Confirmation", class: "form-control", type: "password", disabled: (true if current_user.id != @user.id)
-          %i.fa.fa-key.pull-right.color_purple.icon_password{'aria-hidden': true, onmouseover: "mouseoverPass(event);", onmouseout: "mouseoutPass(event);"}
+          %i.fa.fa-key.pull-right.color_purple.icon_password{'aria-hidden'=> true, onmouseover: "mouseoverPass(event);", onmouseout: "mouseoutPass(event);"}
       -## - is_admin?
       -##   .row.d-flex.flex-row.add_padding_top_10
       -##     .col-3

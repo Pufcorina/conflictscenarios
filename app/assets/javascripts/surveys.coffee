@@ -32,7 +32,6 @@ window.crm = window.crm or {}
 
     #wait for removing question and reset questions order 
     $("#question_list").on "cocoon:after-remove", (e, rule)->
-#      debugger
 
       return
 
