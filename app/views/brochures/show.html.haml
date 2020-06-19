@@ -12,8 +12,35 @@
           = @brochure.subdescription
         .row.add_margin_top_20
           = @brochure.description
+      .modal-body-content.hidden{"scenario-id" => "0"}
+        %table.table.table-striped.results.custom_table3
+          %thead
+            %td
+            %td
+            %td Codul Dvs.
+          %tbody
+            %tr
+              %td Prima literă a orașului în care v-ați născut:
+              %td #{@user.city}
+              %td #{@user.city.split('').first.capitalize}
+            %tr
+              %td Prima literă a județului în care v-ați născut:
+              %td #{@user.country}
+              %td #{@user.country.split('').first.capitalize}
+            %tr
+              %td Suma ultimelor două cifre ale anului nașterii:
+              - birthdate = @user.date_of_birth
+              - year = birthdate.year.to_s.split('')
+              %td #{birthdate.year}
+              %td #{year.first.to_i + year.last.to_i}
+            %tr
+              %td Suma dintre ziua și luna nașterii:
+              %td #{birthdate.day} #{months[birthdate.month.to_s]}
+              %td #{birthdate.day.to_i + birthdate.month.to_i}
+
+      .modal-body-content.hidden{"scenario-id" => "1"}
       - @scenarios.each_with_index do |scenario, index|
-        .modal-body-content.hidden{"scenario-id" => "#{index}"}
+        .modal-body-content.hidden{"scenario-id" => "#{index+2}"}
           .row
             .col-xs-2.col-sm-2.col-md-2.col-lg-2
             .col-xs-8.col-sm-8.col-md-8.col-lg-8.no_padding.add-margin-all-0.answer_body
@@ -24,9 +51,9 @@
 
     .modal-footer.d-flex.justify-content-between
       %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Renunta
-      %button.btn.btn-default.btn-prev.hidden{:type => "button", "current-page" => ''} Scenariul anterior
-      %button.btn.btn-default.btn-next{:type => "button", "current-page" => ''} Scenariul urmator
-      %button.btn.btn-default.btn-save.hidden{:type => "submit", "current-page" => ''} Salveaza
+      %button.btn.btn-default.btn-prev.hidden{:type => "button", "current-page" => ''} Pasul anterior
+      %button.btn.btn-default.btn-next{:type => "button", "current-page" => ''} Pasul urmator
+      %button.btn.btn-default.btn-save.hidden{:type => "submit", "current-page" => ''} Trimite raspunsuri
 
 - if is_admin?
   .row.fixed_survey_bar.background_light_grey

@@ -60,8 +60,8 @@ module ApplicationHelper
 
   def options_for_gender
     [
-        ["Feminine", "f"],
-        ["Masculine", 'm']
+        ["Feminin", "f"],
+        ["Masculin", 'm']
     ]
   end
 
@@ -308,6 +308,24 @@ module ApplicationHelper
         ["Continua sa-ti spui ca lucrurile vor merge rau si ai sanse mari sa devii un profet. ", "Isaac Singer"],
         ["In momentul in care ne acceptam limitele noi mergem dincolo de ele. ", "Albert Einstein"]
     ]
+  end
+
+  def months
+    {
+        "1" => "Ianuarie",
+        "2" => "Februarie",
+        "3" => "Martie",
+        "4" => "Aprilie",
+        "5" => "Mai",
+        "6" => "Iunie",
+        "7" => "Iulie",
+        "8" => "August",
+        "9" => "Septembrie",
+        "10" => "Octombrie",
+        "11" => "Noiembrie",
+        "12" => "Decembrie"
+
+    }
   end
 
 end

@@ -1,8 +1,8 @@
 .row
   .col-12
-    = link_to "Home", root_path, :method => :get, class: "top_link_grey"
+    = link_to "Acasa", root_path, :method => :get, class: "top_link_grey"
     %i.fa.fa-chevron-right.color_grey
-    %span.color_purple Profile
+    %span.color_purple Profil
 
 
 = form_for(@user, url: user_path(@user.id), html: { method: :put }) do |f|
@@ -14,39 +14,39 @@
           -#%a.change_color_image_profile.color_white Choose image
       .col-xs-12.col-lg-7.add_margin_top_10#name_user{class: ("color_purple" if @user[:first_name].blank?)}
         %h3
-          - if @user[:first_name].present? && @user[:last_name]..present?
+          - if @user[:first_name].present? && @user[:last_name].present?
             #{@user.try(:last_name)} #{@user.try(:first_name)}
           - else
-            Please complete your details
+            Te rog sa iti completezi detaliile pesronale
         %p.color_grey
           #{@user.try(:email)}
         %p.color_grey
           #{@user.try(:phone) || "No phone"}
-        %p Member from: #{@user.try(:created_at).try(:strftime, "%m/%d/%Y")}
+        %p Membru din: #{@user.try(:created_at).try(:strftime, "%m/%d/%Y")}
 
         .col-4.action_icons.hidden#name_user_edit_actions
           %button.pull-right.btn.btn-outline-success.add_margin_right_10#btn_save_user_name{type: "button", "data-type"=>"description"}
             %i.fa.fa-check.color_green.add_margin_right_5
-            Save
+            Salveaza
           %button.pull-right.btn.btn-outline-info.add_margin_right_10#btn_edit_user_name{type: "button", "data-type"=>"description"}
             %i.fa.fa-pencil.color_lightskyblue.add_margin_right_5
-            Edit
+            Editeaza
     .col-xs-12.col-lg-6.d-flex.flex-column.add_margin_top_20.add_margin_bottom_20.border_lightgrey_views
       .col-xs-12.d-flex.flex-row.add_padding_top_10
         .col-3
-          First Name
+          Prenume
         .col-9
-          = f.text_field :first_name, autofocus: true, autocomplete: false, placeholder: "First Name", class: "form-control"
+          = f.text_field :first_name, autofocus: true, autocomplete: false, placeholder: "Prenume", class: "form-control"
       .col-xs-12.d-flex.flex-row.add_padding_top_10
         .col-3
-          Last Name
+          Numele de falimie
         .col-9
-          = f.text_field :last_name, autofocus: true, autocomplete: false, placeholder: "Last Name", class: "form-control"
+          = f.text_field :last_name, autofocus: true, autocomplete: false, placeholder: "Nume de familie", class: "form-control"
       .col-xs-12.d-flex.flex-row.add_padding_top_10{class: ("add_margin_bottom_10" if !is_admin?)}
         .col-3
-          Phone
+          Telefon mobil
         .col-9
-          = f.text_field :phone, autofocus: true, autocomplete: false, placeholder: "Phone", class: "form-control"
+          = f.text_field :phone, autofocus: true, autocomplete: false, placeholder: "Telefon mobil", class: "form-control"
       - if is_admin?
         .col-xs-12.d-flex.flex-row.add_padding_top_10.add_margin_bottom_10
           .col-3.bold.color_purple
@@ -56,7 +56,7 @@
   .row.add_margin_top_20.add_margin_left_15.custom_name.add_margin_bottom_20
     .col-12.no_padding_left
       %h5.page-title
-        ACCOUNT DETAILS
+        Detalii personale
     .col-12.no_padding_left
       .page-title
   -#.row
@@ -67,24 +67,24 @@
     .col-xs-12.col-lg-5.d-flex.flex-column.add_padding_top_20.add_padding_bottom_20.border_lightgrey_views.add_margin_right_20.add_margin_top_20
       .col-xs-12.d-flex.flex-row.add_padding_top_10
         .col-5
-          = f.label :current_password
+          Parola curenta
         .col-7
-          = f.text_field :current_password, autofocus: true, autocomplete: false, placeholder: "Current Password", type: "password", class: "form-control", disabled: (true if current_user.id != @user.id)
+          = f.text_field :current_password, autofocus: true, autocomplete: false, placeholder: "Parola curenta", type: "password", class: "form-control", disabled: (true if current_user.id != @user.id)
           %i.fa.fa-key.pull-right.color_purple.icon_password{'aria-hidden': true, onmouseover: "mouseoverPass(event);", onmouseout: "mouseoutPass(event);"}
       .col-xs-12.d-flex.flex-row.add_padding_top_10
         .col-5
-          = f.label :password, value: "New Password"
+          Noua parola
         .col-7
-          = f.text_field :password, autofocus: true, autocomplete: "new-password", placeholder: "New Password", type: "password", class: "form-control", disabled: (true if current_user.id != @user.id)
+          = f.text_field :password, autofocus: true, autocomplete: "new-password", placeholder: "Noua parola", type: "password", class: "form-control", disabled: (true if current_user.id != @user.id)
           %i.fa.fa-key.pull-right.color_purple.icon_password{'aria-hidden' => true, onmouseover: "mouseoverPass(event);", onmouseout: "mouseoutPass(event);"}
           - if @minimum_password_length
             %em
-              #{@minimum_password_length} characters minimum
+              #{@minimum_password_length} caractere minime
       .col-xs-12.d-flex.flex-row.add_padding_top_10
         .col-5
-          = f.label :password_confirmation
+          Confirmare parola
         .col-7
-          = f.text_field :password_confirmation, autofocus: true, autocomplete: false, placeholder: "Password Confirmation", class: "form-control", type: "password", disabled: (true if current_user.id != @user.id)
+          = f.text_field :password_confirmation, autofocus: true, autocomplete: false, placeholder: "Confirmare parola", class: "form-control", type: "password", disabled: (true if current_user.id != @user.id)
           %i.fa.fa-key.pull-right.color_purple.icon_password{'aria-hidden'=> true, onmouseover: "mouseoverPass(event);", onmouseout: "mouseoutPass(event);"}
       -## - is_admin?
       -##   .row.d-flex.flex-row.add_padding_top_10
@@ -95,29 +95,29 @@
     .col-xs-12.col-lg-6.d-flex.flex-column.add_padding_top_20.add_padding_bottom_20.border_lightgrey_views.add_margin_top_20
       .col-xs-12.d-flex.flex-row.add_padding_top_10
         .col-3
-          Date of Birth
+          Ziua de nastere
         .col-9
           = f.text_field :date_of_birth, value: f.object.try(:date_of_birth), placeholder: "dd/mm/yyyy", class: "form-control datepicker", type: 'date', oninput:"this.value = this.value.replace(/[^0-9\/-]/, '')"
       .col-xs-12.d-flex.flex-row.add_padding_top_10
         .col-3
-          City
+          Oras
         .col-9
-          = f.text_field :city, autofocus: true, autocomplete: false, placeholder: "City", class: "form-control"
+          = f.text_field :city, autofocus: true, autocomplete: false, placeholder: "Oras", class: "form-control"
       .col-xs-12.d-flex.flex-row.add_padding_top_10
         .col-3
-          Country
+          Judet
         .col-9
-          = f.text_field :country, autofocus: true, autocomplete: false, placeholder: "Country", class: "form-control"
+          = f.text_field :country, autofocus: true, autocomplete: false, placeholder: "Judet", class: "form-control"
       .col-xs-12.d-flex.flex-row.add_padding_top_10
         .col-3
-          = f.label :gender
+          Gen
         .col-9
           = f.select :gender, options_for_gender, {}, class: "form-control"
 
   .row.pull-right.add_margin_right_20
-    = f.submit "Update account", class: "pull-right btn btn-outline-success add_margin_right_5 add_margin_top_20", id: "edit_user_update_button"
+    = f.submit "Salveaza detalii", class: "pull-right btn btn-outline-success add_margin_right_5 add_margin_top_20", id: "edit_user_update_button"
     - if is_admin? && @user.email != "maria@eightinvestmentgroup.com"
-      = link_to "Cancel account", user_path(@user), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger add_margin_top_20", style: "color:white"
+      = link_to "Sterge cont", user_path(@user), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger add_margin_top_20", style: "color:white"
 
 :javascript
 

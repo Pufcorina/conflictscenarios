@@ -14,6 +14,7 @@ class BrochuresController < ApplicationController
     @scenarios = Survey.includes(:questions => :options).order('questions.order ASC, options.order ASC').where(id: @scenarios_ids)
     @questions = Question.where(survey_id: @scenarios_ids).sort_by(&:order).group_by(&:survey_id)
     @answers = []
+    @user = current_user
   end
 
   # GET /brochures/new
