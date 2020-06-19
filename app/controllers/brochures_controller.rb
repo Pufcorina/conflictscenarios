@@ -10,6 +10,7 @@ class BrochuresController < ApplicationController
   # GET /brochures/1
   # GET /brochures/1.json
   def show
+    @preview = true
     @scenarios_ids = RelationBrochureScenarios.where(brochure_id: @brochure.id).pluck(:survey_id)
     @scenarios = Survey.includes(:questions => :options).order('questions.order ASC, options.order ASC').where(id: @scenarios_ids)
     @questions = Question.where(survey_id: @scenarios_ids).sort_by(&:order).group_by(&:survey_id)

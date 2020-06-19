@@ -1,10 +1,11 @@
 .row
   .modal-content.border_custom{style: "height: 70vh; overflow-y: scroll"}
     .modal-header
-
       %h4#myModalLabel.modal-title.pull-left{"scenario-id" => ''} INTRODUCERE
+      %h4#myModalLabel.modal-title.pull-left.hidden{"scenario-id" => '0'} COD PERSONAL
+      %h4#myModalLabel.modal-title.pull-left.hidden{"scenario-id" => '1'} DESPRE DUMNEAVOASTRA
       - @scenarios.each_with_index do |scenario, index|
-        %h4#myModalLabel.modal-title.pull-left.hidden{"scenario-id" => "#{index}"} #{scenario.title.capitalize}
+        %h4#myModalLabel.modal-title.pull-left.hidden{"scenario-id" => "#{index+2}"} #{scenario.title.capitalize}
 
     .modal-body{style: "height: 50vh; overflow-y: scroll"}
       .modal-body-content{"scenario-id" => ''}
@@ -39,6 +40,7 @@
               %td #{birthdate.day.to_i + birthdate.month.to_i}
 
       .modal-body-content.hidden{"scenario-id" => "1"}
+        Work in progress
       - @scenarios.each_with_index do |scenario, index|
         .modal-body-content.hidden{"scenario-id" => "#{index+2}"}
           .row
@@ -53,7 +55,8 @@
       %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Renunta
       %button.btn.btn-default.btn-prev.hidden{:type => "button", "current-page" => ''} Pasul anterior
       %button.btn.btn-default.btn-next{:type => "button", "current-page" => ''} Pasul urmator
-      %button.btn.btn-default.btn-save.hidden{:type => "submit", "current-page" => ''} Trimite raspunsuri
+
+      %button.btn.btn-default.btn-save.hidden{:type => "submit", "current-page" => '', disabled: @preview} Trimite raspunsuri
 
 - if is_admin?
   .row.fixed_survey_bar.background_light_grey
