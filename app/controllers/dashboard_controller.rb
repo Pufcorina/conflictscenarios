@@ -1,5 +1,6 @@
 class DashboardController < ApplicationController
   def index
-    @e = "test dashboard"
+    @surveys = Survey.all
+    @brochures = Brochure.all
   end
 end
