@@ -18,7 +18,7 @@
           #{survey.author}
           %span{style: "font-size:11px; font-style: italic; color: lightgray;"} Author
         .col-xs-12.col-lg-3.d-flex.flex-column
-          %span.add_padding_left_20 #{@survey_brochures[survey.id].count}
+          %span.add_padding_left_20 #{(@survey_brochures[survey.id] || []).count}
           %span{style: "font-size:11px; font-style: italic; color: lightgray;"} Brocures
         .col-xs-12.col-lg-2
           = link_to "", survey_path(id: survey.id), method: :delete, data: { confirm: "Are you sure?" }, "data-remote" => "true", class: "fa fa-trash color_red font_size_30 pull-right"
