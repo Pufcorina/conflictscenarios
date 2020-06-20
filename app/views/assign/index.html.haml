@@ -7,7 +7,7 @@
   .col-12
     .h6.add_padding_top_15
       %b Send email to:
-      .col-lg-12.no_padding
+      .col-lg-12.no_padding.d-flex
         .col-lg-3.no_padding_left
           %input#checkbox_all_golfers{:type => "radio", name: "all_golfers"}
           %label.add-margin-left-10{:for => "checkbox_all_golfers"} All members
@@ -24,11 +24,23 @@
           = hidden_field_tag '', '', id: "select_by_modal"
           = hidden_field_tag :active_filters,"",  value: @active_filters
 .row
-  .col-xs-8.col-lg-5.add_margin_top_20
-    .row
-      .col
+  .col-12.add_margin_top_20
+    .h6.add_padding_top_15
+      %b Select brochure:
+      .col-lg-12.no_padding{style:"width: 300px!important"}
         = select_tag "brochure", options_for_select(options_for_brochure, selected: "0"), class: "form-control js-example-basic-single"
+.row
+  .col-12.add_margin_top_20
+    = render partial: 'brochures/user_brochure'
+
 = render partial: "modal_select_members"
+
+.row.fixed_survey_bar.background_light_grey
+  .col-xs-12.col-sm-12
+    .btsp_custom_tabs_menu
+    .add-margin-right-0.pull-right
+      = link_to  "Assign brochure", new_brochure_path, class:"btn btn-default btn_big_custom custom_btn btn_orange"
+    .add-margin-right-0.pull-left
 :javascript
   window.gems.email_templates.init();
   $(document).ready(function() {

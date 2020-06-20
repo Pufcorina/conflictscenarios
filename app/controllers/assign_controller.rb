@@ -4,7 +4,13 @@ class AssignController < ApplicationController
   # GET /websites.json
   def index
     @specific_members = User.all
-
+    @brochure = nil
+    @preview = true
+    @scenarios_ids = []
+    @scenarios = []
+    @questions = []
+    @answers = []
+    @user = current_user
   end
 
   def show
