@@ -1,0 +1,25 @@
+.tableFixHead
+  %table.table.table-striped.custom_table2
+    %thead
+      %tr
+        %th.background_light_gray.custom_vertical_align_middle{style: "z-index: 2;"}
+        %th.background_light_gray.custom_vertical_align_middle FIRST NAME
+        %th.background_light_gray.custom_vertical_align_middle LAST NAME
+        %th.background_light_gray.custom_vertical_align_middle EMAIL
+        %th.background_light_gray.custom_vertical_align_middle CELL PHONE
+    %tbody
+      - @specific_members.each do |member|
+        %tr
+          %td.no_padding_top
+            .custom-control.custom-checkbox.d-flex.select_member_checkbox{id: "#{member.id}"}
+              = text_field_tag "checkbox_#{member.id}", "", class: 'custom-control-input', type: "checkbox"
+              %label.custom-control-label{:for => "checkbox_#{member.id}"}
+
+            -#.form-group.center_form_group_items
+            -#  .checkbox.checkbox_select
+            -#    %input{id: , class: "form-control assign ", :, :type => "checkbox"}
+            -#    %label
+          %td #{member.first_name}
+          %td #{member.last_name}
+          %td #{member.email}
+          %td #{member.phone}

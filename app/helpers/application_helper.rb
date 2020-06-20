@@ -49,13 +49,23 @@ module ApplicationHelper
     end
   end
 
-  def options_for_brochure
+  def options_for_surveys
     options_for_surveys = [["Please select a scenario", "0"]]
     Survey.all.each do |survey|
       options_for_surveys << [survey.title, survey.id]
     end
 
     options_for_surveys
+  end
+
+  def options_for_brochure
+    options_for_brochure = [["Please select a brochure", "0"]]
+    Brochure.all.each do |brochure|
+      options_for_brochure << [brochure.title, brochure.id]
+    end
+
+    options_for_brochure
+
   end
 
   def options_for_gender

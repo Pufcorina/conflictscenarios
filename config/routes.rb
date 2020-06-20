@@ -20,7 +20,10 @@ Rails.application.routes.draw do
   post '/new_user', to: 'users#create'
 
 
+
+
   resources :surveys
-  # resources :brocures
+  get '/assign_brochure', to: 'assign#index', :as => :assign
+  get '/search_members', to: 'assign#search_members'
 
 end

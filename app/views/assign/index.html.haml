@@ -1,0 +1,36 @@
+.row
+  .col-12
+    = link_to "Home", root_path, :method => :get, class: "top_link_grey"
+    %i.fa.fa-chevron-right.color_grey
+    %span.color_purple Assigns
+.row
+  .col-12
+    .h6.add_padding_top_15
+      %b Send email to:
+      .col-lg-12.no_padding
+        .col-lg-3.no_padding_left
+          %input#checkbox_all_golfers{:type => "radio", name: "all_golfers"}
+          %label.add-margin-left-10{:for => "checkbox_all_golfers"} All members
+        .col-lg-3.no_padding_left
+          %input#checkbox_specific_golfers{:type => "radio", name: "specific_golfers"}
+          %label.add-margin-left-10{:for => "checkbox_specific_golfers"} Specific Members...
+          %a.link.hidden#edit_specific_golfers Edit
+          = hidden_field_tag '', '', id: "specific_golfers_modal"
+          = hidden_field_tag :specific_members, "",  value: ""
+        .col-lg-3.no_padding_left
+          %input#checkbox_select_by{:type => "radio", name: "select_by"}
+          %label.add-margin-left-10{:for => "checkbox_select_by"} Select by...
+          %a.link.hidden#edit_select_by Edit
+          = hidden_field_tag '', '', id: "select_by_modal"
+          = hidden_field_tag :active_filters,"",  value: @active_filters
+.row
+  .col-xs-8.col-lg-5.add_margin_top_20
+    .row
+      .col
+        = select_tag "brochure", options_for_select(options_for_brochure, selected: "0"), class: "form-control js-example-basic-single"
+= render partial: "modal_select_members"
+:javascript
+  window.gems.email_templates.init();
+  $(document).ready(function() {
+    $('.js-example-basic-single').select2();
+  });

@@ -1,7 +1,7 @@
 .col-xs-8.col-lg-5.add_margin_top_20{class: ("hidden" if hidden)}
   .row
     .col
-      = select_tag "survey_#{index}", options_for_select(options_for_brochure, selected: (survey_brochure.try(:survey_id) || "0")), class: "form-control js-example-basic-single"
+      = select_tag "survey_#{index}", options_for_select(options_for_surveys, selected: (survey_brochure.try(:survey_id) || "0")), class: "form-control js-example-basic-single"
     .col-1
       - if index > 3
         %i.fa.fa-trash.color_red.add_padding_top_10.remove_survey_brochure{'data-index' => index}
