@@ -17,20 +17,20 @@
           %a.link.hidden#edit_specific_golfers Edit
           = hidden_field_tag '', '', id: "specific_golfers_modal"
           = hidden_field_tag :specific_members, "",  value: ""
-        .col-lg-3.no_padding_left
-          %input#checkbox_select_by{:type => "radio", name: "select_by"}
-          %label.add-margin-left-10{:for => "checkbox_select_by"} Select by...
-          %a.link.hidden#edit_select_by Edit
-          = hidden_field_tag '', '', id: "select_by_modal"
-          = hidden_field_tag :active_filters,"",  value: @active_filters
+        -#.col-lg-3.no_padding_left
+        -#  %input#checkbox_select_by{:type => "radio", name: "select_by"}
+        -#  %label.add-margin-left-10{:for => "checkbox_select_by"} Select by...
+        -#  %a.link.hidden#edit_select_by Edit
+        -#  = hidden_field_tag '', '', id: "select_by_modal"
+        -#  = hidden_field_tag :active_filters,"",  value: @active_filters
 .row
   .col-12.add_margin_top_20
     .h6.add_padding_top_15
       %b Select brochure:
       .col-lg-12.no_padding{style:"width: 300px!important"}
-        = select_tag "brochure", options_for_select(options_for_brochure, selected: "0"), class: "form-control js-example-basic-single"
-.row
-  .col-12.add_margin_top_20
+        = select_tag "brochure", options_for_select(options_for_brochure, selected: "0"), class: "form-control js-example-basic-single", onchange: "selectBrochure()"
+.row{style: "margin-bottom: 100px"}
+  .col-12.add_margin_top_20#brochure_form
     = render partial: 'brochures/user_brochure'
 
 = render partial: "modal_select_members"
@@ -46,3 +46,7 @@
   $(document).ready(function() {
     $('.js-example-basic-single').select2();
   });
+
+  function selectBrochure() {
+    window.gems.email_templates.get_brochure();
+  }

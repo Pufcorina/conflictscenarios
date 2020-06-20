@@ -136,7 +136,23 @@ window.gems = window.gems or {}
           return
       return
 
-
+    email_templates.get_brochure = ->
+      brochure_id = $('#brochure').val()
+      $.ajax
+        type: 'POST'
+        url: '/get_brochure'
+        data: {
+          brochure_id: brochure_id
+        }
+        dataType: 'html'
+        success: (result) ->
+          debugger
+          $('#brochure_form').html(result);
+          return
+        error: ->
+          console.log('an error has occurred!')
+          return
+      return
 
 
 
