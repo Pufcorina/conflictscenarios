@@ -79,6 +79,20 @@ class BrochuresController < ApplicationController
     end
   end
 
+  def fill_in
+    @brochure = Brochure.find(params[:brochure_id])
+    @preview = false
+    @scenarios_ids = RelationBrochureScenarios.where(brochure_id: @brochure.id).pluck(:survey_id)
+    @scenarios = Survey.includes(:questions => :options).order('questions.order ASC, options.order ASC').where(id: @scenarios_ids)
+    @questions = Question.where(survey_id: @scenarios_ids).sort_by(&:order).group_by(&:survey_id)
+    @answers = []
+    @user = current_user
+
+    respond_to do |format|
+      format.html {render 'brochures/show'}
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_brochure

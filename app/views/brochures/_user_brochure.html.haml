@@ -2,7 +2,7 @@
   - if @brochure.present?
     .modal-content.border_custom{style: "height: 70vh"}
       .modal-header
-        %h4#myModalLabel.modal-title.pull-left{"scenario-id" => '0'} IntroducetiCERE
+        %h4#myModalLabel.modal-title.pull-left{"scenario-id" => '0'} INTRODUCERE
         %h4#myModalLabel.modal-title.pull-left.hidden{"scenario-id" => '1'} COD PERSONAL
         %h4#myModalLabel.modal-title.pull-left.hidden{"scenario-id" => '2'} DESPRE DUMNEAVOASTRA
         - @scenarios.each_with_index do |scenario, index|
@@ -27,18 +27,26 @@
                 %td #{@user.city.split('').first.capitalize}
               %tr
                 %td Prima literă a județului în care v-ați născut:
-                %td #{@user.country}
-                %td #{@user.country.split('').first.capitalize}
+                %td #{@user.try(:country)}
+                %td #{(@user.try(:country) || "").split('').first.capitalize}
               %tr
                 %td Suma ultimelor două cifre ale anului nașterii:
-                - birthdate = @user.date_of_birth
-                - year = birthdate.year.to_s.split('')
-                %td #{birthdate.year}
-                %td #{year.first.to_i + year.last.to_i}
+                - birthdate = @user.try(:date_of_birth)
+                -if birthdate.present?
+                  - year = birthdate.year.to_s.split('')
+                  %td #{birthdate.year}
+                  %td #{year.first.to_i + year.last.to_i}
+                - else
+                  %td
+                  %td
               %tr
                 %td Suma dintre ziua și luna nașterii:
-                %td #{birthdate.day} #{months[birthdate.month.to_s]}
-                %td #{birthdate.day.to_i + birthdate.month.to_i}
+                -if birthdate.present?
+                  %td #{birthdate.day} #{months[birthdate.month.to_s]}
+                  %td #{birthdate.day.to_i + birthdate.month.to_i}
+                - else
+                  %td
+                  %td
 
         .modal-body-content.hidden{"scenario-id" => "2"}
           Work in progress #{@scenarios.count}
@@ -53,11 +61,11 @@
                       = render partial: 'surveys/answers/answer_form', locals: {questions: @questions[scenario.id], survey: scenario}
 
       .modal-footer.d-flex.justify-content-between
-        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Renunta
-        %button.btn.btn-default.btn-prev.hidden{:type => "button", "current-page" => '0'} Pasul anterior
-        %button.btn.btn-default.btn-next{:type => "button", "current-page" => '0'} Pasul urmator
+        = link_to "Renunta", brochure_members_path, :method => :get, class: "btn btn-outline-dark"
+        %button.btn.btn-outline-secondary.btn-prev.hidden{:type => "button", "current-page" => '0'} Pasul anterior
+        %button.btn.btn-outline-secondary.btn-next{:type => "button", "current-page" => '0'} Pasul urmator
 
-        %button.btn.btn-default.btn-save.hidden{:type => "submit", "current-page" => '0', disabled: @preview} Trimite raspunsuri
+        %button.btn.btn-outline-success.btn-save.hidden{:type => "submit", "current-page" => '0', disabled: @preview} Trimite raspunsuri
   - else
     .modal-content.border_custom{style: "height: 70vh"}
       .modal-header
@@ -114,6 +122,10 @@
           $('.btn-prev').removeClass('hidden')
           $('.btn-next').addClass('hidden')
           $('.btn-save').removeClass('hidden')
+        } else if (current_page_id == '0') {
+          $('.btn-prev').addClass('hidden')
+          $('.btn-next').removeClass('hidden')
+          $('.btn-save').addClass('hidden')
         } else {
           $('.btn-prev').removeClass('hidden')
           $('.btn-next').removeClass('hidden')

@@ -1,12 +1,12 @@
 .row
   .col-xs-8.col-lg-8
     .row
-      .col-xs-4.col-lg-3.border_custom{style: "padding:10px"}
+      .col-xs-6.col-lg-6.border_custom{style: "padding:10px"}
         %h4
           BROSURI COMPLETATE
           %i.fa.fa-check-square.pull-right.fa-lg.color_purple{style: "padding:10px"}
         %h5.color_gray
-          #{[*2..10].sample}
+          #{@completed_brochures.count}
   .col-xs-3.col-lg-3.border_custom{style: "padding:10px"}
     %h4
       Citatul zilei
@@ -20,85 +20,55 @@
   .col-xs-12.col-lg-12
     %h4
       BROSURI NOI
+  - if @uncompleted_brochures.first(2).present?
+    - @uncompleted_brochures.first(2).each do |ub|
+      - brochure = @brochures[ub.brochure_id]
+      .col-xs-10.col-lg-10{style: "margin-top: 20px"}
+        .row.border_custom{style: "padding:15px;"}
+          .col-xs-3.col-lg-3{style: "padding-top: 20px"}
+            %h5
+              #{brochure.title}
+          .col-xs-2.col-lg-2.d-flex.flex-column{style: "padding-top: 5px"}
+            %p.color_gray #{ub.created_at.try(:strftime, "%d/%m/%Y")}
+            %p.color_gray Data primire
+          .col-xs-3.col-lg-3.d-flex.flex-column{style: "padding-top: 5px"}
+            %p.color_gray #{brochure.try(:author) || "Claudia Rus"}
+            %p.color_gray Autor
+          .col-xs-3.col-lg-3.pull-right.d-flex{style: "padding-top: 10px"}
+            = button_to  "Vizualizeaza", brochure_path(brochure), method: :get, "data-toggle" => "tooltip", class:"btn btn-default btn_big_custom custom_btn btn_grey", style: "font-size: 20px!important;"
+            = button_to  "Completeaza", new_survey_path(@customer), class:"btn btn-default btn_big_custom custom_btn btn_orange", style: "font-size: 20px!important;"
 
-  .col-xs-8.col-lg-8{style: "margin-top: 20px"}
-    .row.border_custom{style: "padding:15px;"}
-      .col-xs-3.col-lg-3{style: "padding-top: 20px"}
-        %h5
-          Brochure 3
-      .col-xs-2.col-lg-2.d-flex.flex-column{style: "padding-top: 5px"}
-        %p.color_gray 12 aprilie 2020
-        %p.color_gray Received
-      .col-xs-3.col-lg-3.d-flex.flex-column{style: "padding-top: 5px"}
-        %p.color_gray Claudia Rus
-        %p.color_gray From
-      .col-xs-3.col-lg-3.pull-right.d-flex{style: "padding-top: 10px"}
-        = button_to  "View", new_survey_path(@customer), class:"btn btn-default btn_big_custom custom_btn btn_grey", style: "font-size: 20px!important;"
-        = button_to  "Fill in", new_survey_path(@customer), class:"btn btn-default btn_big_custom custom_btn btn_orange", style: "font-size: 20px!important;"
 
-
-  .col-xs-8.col-lg-8{style: "margin-top: 20px"}
-    .row.border_custom{style: "padding:15px;"}
-      .col-xs-3.col-lg-3{style: "padding-top: 20px"}
-        %h5
-          Brochure 2
-      .col-xs-2.col-lg-2.d-flex.flex-column{style: "padding-top: 5px"}
-        %p.color_gray 2 mai 2019
-        %p.color_gray Received
-      .col-xs-3.col-lg-3.d-flex.flex-column{style: "padding-top: 5px"}
-        %p.color_gray Claudia Rus
-        %p.color_gray From
-      .col-xs-3.col-lg-3.pull-right.d-flex{style: "padding-top: 10px"}
-        = button_to  "View", new_survey_path(@customer), class:"btn btn-default btn_big_custom custom_btn btn_grey", style: "font-size: 20px!important;"
-        = button_to  "Fill in", new_survey_path(@customer), class:"btn btn-default btn_big_custom custom_btn btn_orange", style: "font-size: 20px!important;"
-
+  - else
+    .col-xs-10.col-lg-10
+      %h5.add_padding_left_10
+        Nu exista brosuri noi
 
 .row{style: "margin-top: 20px"}
   .col-xs-12.col-lg-12{style: "margin-bottom: 15px"}
     %h4
       BROSURI DISPONIBILE
 
-  .col-xs-8.col-lg-8{style: "margin-top: 20px"}
-    .row.border_custom{style: "padding:15px;"}
-      .col-xs-3.col-lg-3{style: "padding-top: 20px"}
-        %h5
-          Brochure 5d
-      .col-xs-2.col-lg-2.d-flex.flex-column{style: "padding-top: 5px"}
-        %p.color_gray 2 mai 2019
-        %p.color_gray Received
-      .col-xs-3.col-lg-3.d-flex.flex-column{style: "padding-top: 5px"}
-        %p.color_gray Corina Todor
-        %p.color_gray From
-      .col-xs-3.col-lg-3.pull-right.d-flex{style: "padding-top: 10px"}
-        = button_to  "View", new_survey_path(@customer), class:"btn btn-default btn_big_custom custom_btn btn_grey", style: "font-size: 20px!important;"
-        = button_to  "Fill in", new_survey_path(@customer), class:"btn btn-default btn_big_custom custom_btn btn_orange", style: "font-size: 20px!important;"
+  - if @uncompleted_brochures.drop(2).first(2).present?
+    - @uncompleted_brochures.drop(2).first(2).each do |ub|
+      - brochure = @brochures[ub.brochure_id]
+      .col-xs-10.col-lg-10{style: "margin-top: 20px"}
+        .row.border_custom{style: "padding:15px;"}
+          .col-xs-3.col-lg-3{style: "padding-top: 20px"}
+            %h5
+              #{brochure.title}
+          .col-xs-2.col-lg-2.d-flex.flex-column{style: "padding-top: 5px"}
+            %p.color_gray #{ub.created_at.try(:strftime, "%d/%m/%Y")}
+            %p.color_gray Primit
+          .col-xs-3.col-lg-3.d-flex.flex-column{style: "padding-top: 5px"}
+            %p.color_gray #{brochure.try(:author) || "Claudia Rus"}
+            %p.color_gray Autor
+          .col-xs-3.col-lg-3.pull-right.d-flex{style: "padding-top: 10px"}
+            = button_to  "Vizualizeaza", new_survey_path(@customer), class:"btn btn-default btn_big_custom custom_btn btn_grey", style: "font-size: 20px!important;"
+            = button_to  "Completeaza", new_survey_path(@customer), class:"btn btn-default btn_big_custom custom_btn btn_orange", style: "font-size: 20px!important;"
 
-  .col-xs-8.col-lg-8{style: "margin-top: 20px"}
-    .row.border_custom{style: "padding:15px;"}
-      .col-xs-3.col-lg-3{style: "padding-top: 20px"}
-        %h5
-          Brochure 2b
-      .col-xs-2.col-lg-2.d-flex.flex-column{style: "padding-top: 5px"}
-        %p.color_gray 2 mai 2019
-        %p.color_gray Received
-      .col-xs-3.col-lg-3.d-flex.flex-column{style: "padding-top: 5px"}
-        %p.color_gray Claudia Rus
-        %p.color_gray From
-      .col-xs-3.col-lg-3.pull-right.d-flex{style: "padding-top: 10px"}
-        = button_to  "View", new_survey_path(@customer), class:"btn btn-default btn_big_custom custom_btn btn_grey", style: "font-size: 20px!important;"
-        = button_to  "Fill in", new_survey_path(@customer), class:"btn btn-default btn_big_custom custom_btn btn_orange", style: "font-size: 20px!important;"
 
-  .col-xs-8.col-lg-8{style: "margin-top: 20px"}
-    .row.border_custom{style: "padding:15px;"}
-      .col-xs-3.col-lg-3{style: "padding-top: 20px"}
-        %h5
-          Brochure 2a
-      .col-xs-2.col-lg-2.d-flex.flex-column{style: "padding-top: 5px"}
-        %p.color_gray 2 mai 2019
-        %p.color_gray Received
-      .col-xs-3.col-lg-3.d-flex.flex-column{style: "padding-top: 5px"}
-        %p.color_gray Claudia Rus
-        %p.color_gray From
-      .col-xs-3.col-lg-3.pull-right.d-flex{style: "padding-top: 10px"}
-        = button_to  "View", new_survey_path(@customer), class:"btn btn-default btn_big_custom custom_btn btn_grey", style: "font-size: 20px!important;"
-        = button_to  "Fill in", new_survey_path(@customer), class:"btn btn-default btn_big_custom custom_btn btn_orange", style: "font-size: 20px!important;"
+  - else
+    .col-xs-10.col-lg-10
+      %h5.add_padding_left_10
+        Nu exista alte brosuri disponibile
