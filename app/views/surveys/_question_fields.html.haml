@@ -5,7 +5,7 @@
         = "Q#{f.object.try(:order) || ((f.try(:index).to_i || 0) + 1)}"
     .col-xs-6.col-lg-6.question_title.no_padding_left.editable
       .input_field_form.form-group.question_title_text_form
-        = f.text_field :title, class: 'form-control custom_input question_name_input', placeholder: "Enter question text"
+        = f.text_field :title, class: 'form-control custom_input question_name_input', placeholder: "Introduceti intrebarea"
     .col-xs-8.col-md-8.col-lg-8.question_title.no_padding_left.preview
       %b.add_padding_top_5.question_title_preview
         = f.object.try(:title)
@@ -20,7 +20,7 @@
         %i.fa.fa-check.color_survey_green.add-margin-right-5
         Save
 
-      = link_to_remove_association "Delete", f, class: "pull-right btn_survey btn_delete link btn_question btn_delete_question color_survey_red add-margin-right-5", data: { confirm: "Are you sure?" }, style: ""
+      = link_to_remove_association "Sterge", f, class: "pull-right btn_survey btn_delete link btn_question btn_delete_question color_survey_red add-margin-right-5", data: { confirm: "Sunteti sigur/a?" }, style: ""
 
   = f.hidden_field :id
   = f.hidden_field :order, value: f.object.try(:order), class: "order_number"

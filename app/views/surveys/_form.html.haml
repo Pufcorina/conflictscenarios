@@ -7,7 +7,7 @@
           .row
             .col-lg-12.add-margin-top-20.custom_survey_title
               .custom_survey_title_content
-                #{form_type} SCENARIO
+                #{form_type} SCENARIU
 
           .row
             = render partial: 'title', locals: {:f => f}
@@ -16,7 +16,7 @@
             .col-xs-12.add-margin-left-10
               %button.pull-left.btn_survey.btn_description#btn_description{class: ("hidden" if f.object.try(:description).present?), type: "button"}
                 %i.fa.fa-plus.add-margin-right-5
-                %span.add_padding_10 Add description
+                %span.add_padding_10 Adauga descriere
           .row.add-margin-top-40.add_padding_left_20#question_list
             .col-xs-12.col-lg-12.no_padding.no_margin_right
               = f.fields_for :questions, f.object.questions.present? ? f.object.questions : [Question.new(order: 1, question_type: "free_text")] do |question|
@@ -29,7 +29,7 @@
   .row.fixed_survey_bar.add_margin_top_20
     .col-xs-12.col-sm-12
       .add-margin-right-0.pull-right
-        = f.submit yield(:button_text), class: "btn btn-default custom_btn btn_big_custom btn_orange", value: "Save", id: "btn_save_survey", data: {disable_with: "Saving..."}
+        = f.submit yield(:button_text), class: "btn btn-default custom_btn btn_big_custom btn_orange", value: "Salveaza", id: "btn_save_survey", data: {disable_with: "Se salveaza..."}
       .add-margin-right-0.pull-left
 
 :javascript

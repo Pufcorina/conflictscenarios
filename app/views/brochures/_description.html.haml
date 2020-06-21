@@ -2,18 +2,18 @@
   .col-xs-9.col-lg-9.description_preview
     .row.editable#description_edit
       .col-xs-2.no_padding_right{style: "width: 120px"}
-        %b.font_size_16 Description
+        %b.font_size_16 Descriere
       .col-xs-10.form-group
-        = f.text_area :description, value: f.object.description, class: 'form-control custom_survey_text', placeholder: "Enter brochure description"
+        = f.text_area :description, value: f.object.description, class: 'form-control custom_survey_text', placeholder: "Introduceti descrierea brosurii"
     .row.add_padding_left_30
       %b.font_size_18.preview#description_text_content #{f.object.try(:description)}
   .col-xs-3.col-lg-3.pull-right
     %button.pull-right.btn_survey.btn_save.hidden#btn_save_description{type: "button", "data-type"=>"description"}
       %i.fa.fa-check.color_survey_green.add-margin-right-5
-      Save
+      Salvare
       %button.pull-right.btn_survey.btn_edit#btn_edit_description{type: "button", "data-type"=>"description"}
         %i.fa.fa-pencil.color_survey_lightskyblue.add-margin-right-5
-        Edit
-      %button.pull-right.btn_survey.btn_delete#btn_delete_description{type: "button", "data-type"=>"description", data: { confirm: "Are you sure?" }}
+        Editare
+      %button.pull-right.btn_survey.btn_delete#btn_delete_description{type: "button", "data-type"=>"description", data: { confirm: "Sunteti sigur/a?" }}
         %i.fa.fa-trash.color_survey_red.add-margin-right-5
-        Delete
+        Stergere

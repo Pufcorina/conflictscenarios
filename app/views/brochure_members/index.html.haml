@@ -1,12 +1,12 @@
 .row.orders.custom_name.add-margin-top-20
   .col-xs-12.col-sm-4
     %h3.page-title
-      BROCHURES
+      BROSURI
   .col-xs-12
     .page-title
 .col-lg-12.add_margin_top_20#survey_index_container
   - if @brochures.blank?
-    No brochures
+    Nu exista borsuri
   - else
     - @brochures.each do |brochure|
       .row.add_margin_top_10.add_padding_bottom_10.border_custom.add_padding_top_15
@@ -14,7 +14,7 @@
           %h4.bold{style: "width: 500px"}
             #{brochure.title}
         .col-xs-12.col-lg-3
-          Author
+          Autor
         .col-xs-12.col-lg-3
           Nb Brocures
         .col-xs-12.col-lg-2

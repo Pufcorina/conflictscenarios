@@ -1,14 +1,14 @@
 .row
   .col-12.no_padding_left
-    = link_to "Home", root_path, :method => :get, class: "top_link_grey"
+    = link_to "Pagina principala", root_path, :method => :get, class: "top_link_grey"
     %i.fa.fa-chevron-right.color_grey
-    %span.color_purple Users
+    %span.color_purple Membrii
 
 .row
   .col-xs-12.d-flex.flex-row
     = render partial: 'users_search'
     .col-xs-2.col-lg-2.add_margin_top_20.add_padding_top_20.no_padding_right.no_margin_right
-      = button_to  "New User", new_user_path, class:"btn btn-outline-success pull-right", method: :get, remote: true
+      = button_to  "Mmebru nou", new_user_path, class:"btn btn-outline-success pull-right", method: :get, remote: true
 = render partial: 'modal_new_user'
 .col-lg-12.custom_table_container.custom_flex_fist_position#members_index_table.btsp_ps_container.btsp_fheader_table_container.add_margin_top_20.max_height.border-bottom
   .row

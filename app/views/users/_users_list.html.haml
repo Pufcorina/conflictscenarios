@@ -3,11 +3,11 @@
     %thead
       %tr
         
-        %th.background_light_gray.custom_vertical_align_middle.color_white= sortable_remote "first_name", "FIRST NAME"
-        %th.background_light_gray.custom_vertical_align_middle.color_white= sortable_remote "last_name", "LAST NAME"
+        %th.background_light_gray.custom_vertical_align_middle.color_white= sortable_remote "first_name", "PRENUME"
+        %th.background_light_gray.custom_vertical_align_middle.color_white= sortable_remote "last_name", "NUME DE FAMILIE"
         %th.background_light_gray.custom_vertical_align_middle.color_white= sortable_remote "email", "EMAIL"
-        %th.background_light_gray.text_center.custom_vertical_align_middle.custom_high_z_index.color_white= sortable "phone", "PHONE"
-        %th.background_light_gray.text_center.custom_vertical_align_middle.custom_high_z_index.color_white Role
+        %th.background_light_gray.text_center.custom_vertical_align_middle.custom_high_z_index.color_white= sortable "phone", "TELEFON"
+        %th.background_light_gray.text_center.custom_vertical_align_middle.custom_high_z_index.color_white Rol
         %th.background_light_gray.custom_high_z_index
     %tbody.max_height_500
       - @users.each do |user|

@@ -2,7 +2,7 @@
   - if @brochure.present?
     .modal-content.border_custom{style: "height: 70vh; overflow-y: scroll"}
       .modal-header
-        %h4#myModalLabel.modal-title.pull-left{"scenario-id" => '0'} INTRODUCERE
+        %h4#myModalLabel.modal-title.pull-left{"scenario-id" => '0'} IntroducetiCERE
         %h4#myModalLabel.modal-title.pull-left.hidden{"scenario-id" => '1'} COD PERSONAL
         %h4#myModalLabel.modal-title.pull-left.hidden{"scenario-id" => '2'} DESPRE DUMNEAVOASTRA
         - @scenarios.each_with_index do |scenario, index|
@@ -61,11 +61,11 @@
   - else
     .modal-content.border_custom{style: "height: 70vh; overflow-y: scroll"}
       .modal-header
-        %h4#myModalLabel.modal-title.pull-left{"scenario-id" => '0'} PREVIEW
+        %h4#myModalLabel.modal-title.pull-left{"scenario-id" => '0'} PREVIZUALUZARE
 
       .modal-body{style: "height: 50vh; overflow-y: scroll"}
         .modal-body-content
-          .h6.add_padding_top_15 No preview yet
+          .h6.add_padding_top_15 Nicio brosura selectata momentan
 
 :javascript
   $(".modal-content").each(function(){

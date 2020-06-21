@@ -3,7 +3,7 @@
     .row.editable#title_edit
       .col-xs-7.add-margin-top-10.question_title
         .input_field_form.form-group.question_title_text_form
-          = f.text_field :title, value: (f.object.try(:title) || "Scenariul x"), class: 'form-control custom_input', placeholder: "Enter survey title"
+          = f.text_field :title, value: (f.object.try(:title) || "Scenariul x"), class: 'form-control custom_input', placeholder: "Introduceti titlul"
     .row.preview.add_padding_left_30
       %b.add-margin-bottom-10.add-margin-left-15#title_text_content #{f.object.try(:title).present? ? f.object.try(:title) : "Scenariul x"}
   .col-xs-4.col-lg-4.pull-right.add-margin-top-10
