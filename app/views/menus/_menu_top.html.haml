@@ -15,9 +15,12 @@
           %a.fa.fa-tasks.left_menu_icon{:href => assign_path, class: side_header_menu_active(["assign"]), title: "Assign center", "data-toggle" => "tooltip", "data-placement" => "bottom"}
         %li.nav-item.pull-right
           %a.fa.fa-users.left_menu_icon{:href => users_path, class: side_header_menu_active(["users"]), title: "Members", "data-toggle" => "tooltip", "data-placement" => "bottom"}
+        %li.nav-item.pull-right
+          %a.fa.fa-clone.left_menu_icon{:href => brochure_members_path, class: side_header_menu_active(["members"]), title: "Brosurile mele", "data-toggle" => "tooltip", "data-placement" => "bottom"}
+
       - else
         %li.nav-item.pull-right
-          %a.fa.fa-book.left_menu_icon{:href => brochures_path, class: side_header_menu_active(["brochures"]), title: "Brochures", "data-toggle" => "tooltip", "data-placement" => "bottom"}
+          %a.fa.fa-clone.left_menu_icon{:href => brochure_members_path, class: side_header_menu_active(["members"]), title: "Brosurile mele", "data-toggle" => "tooltip", "data-placement" => "bottom"}
         -#%li.nav-item.pull-right
         -#  %a.fa.fa-cog.left_menu_icon{:href => security_path, class: side_header_menu_active(["settings"]), title: "Settings", "data-toggle" => "tooltip", "data-placement" => "bottom"}
 

@@ -28,4 +28,6 @@ Rails.application.routes.draw do
   post '/get_brochure', to: 'assign#get_brochure'
   post '/assign_members', to: 'assign#assign_members'
 
+  resources :brochure_members
+
 end
