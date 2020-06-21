@@ -1,0 +1,3 @@
+class BrochureAnswer < ApplicationRecord
+
+end

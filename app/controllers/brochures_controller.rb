@@ -95,7 +95,17 @@ class BrochuresController < ApplicationController
   end
 
   def answer_brochure
+    brochure_id = params["brochure_id"]
+    BrochureAnswer.where(brochure_id: brochure_id).delete_all
+    answers = params["answer"]
+    user = current_user
+    answers.each do |answer|
+      BrochureAnswer.create({brochure_id: brochure_id, answer: answer, user_id: user.id})
+    end
+    binding.pry
+    BrochureMember.where(user_id: user.id).where(brochure_id: brochure_id).update_all(:answered => true)
 
+    redirect_to brochure_members_path and return
   end
 
   private

@@ -35,8 +35,8 @@
             %p.color_gray #{brochure.try(:author) || "Claudia Rus"}
             %p.color_gray Autor
           .col-xs-3.col-lg-3.pull-right.d-flex{style: "padding-top: 10px"}
-            = button_to  "Vizualizeaza", brochure_path(brochure), method: :get, "data-toggle" => "tooltip", class:"btn btn-default btn_big_custom custom_btn btn_grey", style: "font-size: 20px!important;"
-            = button_to  "Completeaza", new_survey_path(@customer), class:"btn btn-default btn_big_custom custom_btn btn_orange", style: "font-size: 20px!important;"
+            = button_to  "Vizualizeaza", brochure_path(brochure, brochure_id: brochure.id), method: :get, "data-toggle" => "tooltip", class:"btn btn-default btn_big_custom custom_btn btn_grey", style: "font-size: 20px!important;"
+            = button_to  "Completeaza", brochure_fill_in_path(brochure), method: :get, class:"btn btn-default btn_big_custom custom_btn btn_orange", style: "font-size: 20px!important;"
 
 
   - else
@@ -64,8 +64,8 @@
             %p.color_gray #{brochure.try(:author) || "Claudia Rus"}
             %p.color_gray Autor
           .col-xs-3.col-lg-3.pull-right.d-flex{style: "padding-top: 10px"}
-            = button_to  "Vizualizeaza", new_survey_path(@customer), class:"btn btn-default btn_big_custom custom_btn btn_grey", style: "font-size: 20px!important;"
-            = button_to  "Completeaza", new_survey_path(@customer), class:"btn btn-default btn_big_custom custom_btn btn_orange", style: "font-size: 20px!important;"
+            = button_to  "Vizualizeaza", brochure_path(brochure, brochure_id: brochure.id), method: :get, class:"btn btn-default btn_big_custom custom_btn btn_grey", style: "font-size: 20px!important;"
+            = button_to  "Completeaza", brochure_fill_in_path(brochure), method: :get, class:"btn btn-default btn_big_custom custom_btn btn_orange", style: "font-size: 20px!important;"
 
 
   - else
