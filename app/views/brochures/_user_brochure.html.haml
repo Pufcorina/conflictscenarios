@@ -109,7 +109,7 @@
       if (current_page_id) {
         modal = $('.modal-body')
         pages = modal.children().length
-        last_child_index = modal.children().index($(".modal-body-content[scenario-id='"+current_page_id+"']"))
+        last_child_index = modal.children().index($(".modal-body-content[scenario-id='"+current_page_id+"']")) +2
 
         if (pages - 1 == last_child_index) {
           $('.btn-prev').removeClass('hidden')
