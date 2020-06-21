@@ -1,12 +1,12 @@
 .row.orders.custom_name.add-margin-top-20
   .col-xs-12.col-sm-4
     %h3.page-title
-      BROCHURES
+      BROSURI
   .col-xs-12
     .page-title
 .col-lg-12.add_margin_top_20#survey_index_container
   - if @brochures.blank?
-    No brochures
+    Nu exista brosuri
   - else
     - @brochures.each do |brochure|
       .row.add_margin_top_10.add_padding_bottom_10.border_custom.add_padding_top_15
@@ -14,9 +14,9 @@
           %h4.bold{style: "width: 500px"}
             #{brochure.title}
         .col-xs-12.col-lg-3
-          Author
+          Autor
         .col-xs-12.col-lg-3
-          Nb Brocures
+          Completari
         .col-xs-12.col-lg-2
           = link_to "", brochure_path(id: brochure.id), method: :delete, data: { confirm: "Are you sure?" }, "data-remote" => "true", class: "fa fa-trash color_red font_size_30 pull-right"
 
@@ -31,7 +31,7 @@
   .col-xs-12.col-sm-12
     .btsp_custom_tabs_menu
     .add-margin-right-0.pull-right
-      = link_to  "New Brochure", new_brochure_path, class:"btn btn-default btn_big_custom custom_btn btn_orange"
+      = link_to  "Brosura noua", new_brochure_path, class:"btn btn-default btn_big_custom custom_btn btn_orange"
     .add-margin-right-0.pull-left
 
 

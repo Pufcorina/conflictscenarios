@@ -4,20 +4,23 @@
   #navbarSupportedContent.collapse.navbar-collapse
     %ul.navbar-nav.ml-auto.mt-2.mt-lg-0
       %li.nav-item.pull-right
-        %a.fa.fa-home.left_menu_icon{:href => root_path, class: side_header_menu_active(["dashboard"]), title: "Dashboard", "data-toggle" => "tooltip", "data-placement" => "bottom"}
+        %a.fa.fa-home.left_menu_icon{:href => root_path, class: side_header_menu_active(["dashboard"]), title: "Pagina principala", "data-toggle" => "tooltip", "data-placement" => "bottom"}
 
       - if is_admin?
         %li.nav-item.pull-right
-          %a.fa.fa-copy.left_menu_icon{:href => surveys_path, class: side_header_menu_active(["surveys"]), title: "Scenarios", "data-toggle" => "tooltip", "data-placement" => "bottom"}
+          %a.fa.fa-copy.left_menu_icon{:href => surveys_path, class: side_header_menu_active(["surveys"]), title: "Scenarii", "data-toggle" => "tooltip", "data-placement" => "bottom"}
         %li.nav-item.pull-right
-          %a.fa.fa-book.left_menu_icon{:href => brochures_path, class: side_header_menu_active(["brochures"]), title: "Brochures", "data-toggle" => "tooltip", "data-placement" => "bottom"}
+          %a.fa.fa-book.left_menu_icon{:href => brochures_path, class: side_header_menu_active(["brochures"]), title: "Brosuri", "data-toggle" => "tooltip", "data-placement" => "bottom"}
         %li.nav-item.pull-right
-          %a.fa.fa-tasks.left_menu_icon{:href => assign_path, class: side_header_menu_active(["assign"]), title: "Assign center", "data-toggle" => "tooltip", "data-placement" => "bottom"}
+          %a.fa.fa-tasks.left_menu_icon{:href => assign_path, class: side_header_menu_active(["assign"]), title: "Trimitere brosuri", "data-toggle" => "tooltip", "data-placement" => "bottom"}
         %li.nav-item.pull-right
-          %a.fa.fa-users.left_menu_icon{:href => users_path, class: side_header_menu_active(["users"]), title: "Members", "data-toggle" => "tooltip", "data-placement" => "bottom"}
+          %a.fa.fa-users.left_menu_icon{:href => users_path, class: side_header_menu_active(["users"]), title: "Membrii", "data-toggle" => "tooltip", "data-placement" => "bottom"}
+        %li.nav-item.pull-right
+          %a.fa.fa-clone.left_menu_icon{:href => brochure_members_path, class: side_header_menu_active(["members"]), title: "Brosurile mele", "data-toggle" => "tooltip", "data-placement" => "bottom"}
+
       - else
         %li.nav-item.pull-right
-          %a.fa.fa-book.left_menu_icon{:href => brochures_path, class: side_header_menu_active(["brochures"]), title: "Brochures", "data-toggle" => "tooltip", "data-placement" => "bottom"}
+          %a.fa.fa-clone.left_menu_icon{:href => brochure_members_path, class: side_header_menu_active(["members"]), title: "Brosurile mele", "data-toggle" => "tooltip", "data-placement" => "bottom"}
         -#%li.nav-item.pull-right
         -#  %a.fa.fa-cog.left_menu_icon{:href => security_path, class: side_header_menu_active(["settings"]), title: "Settings", "data-toggle" => "tooltip", "data-placement" => "bottom"}
 
@@ -25,8 +28,8 @@
         .fa.fa-user-circle.color_purple.account_icon.dropdown-toggle{"data-toggle" => "dropdown", style: "pointer-events:none"}
         %ul#menu_account.dropdown-menu
           %li
-            = link_to "Profile", edit_user_path(current_user.id), :method => :get, class: "link"
+            = link_to "Profil", edit_user_path(current_user.id), :method => :get, class: "link"
           %li
-            = link_to "Logout", destroy_user_session_path, :method => :delete, :data => { :no_turbolink => true }, class: "link"
+            = link_to "Iesire", destroy_user_session_path, :method => :delete, :data => { :no_turbolink => true }, class: "link"
 
 

@@ -4,25 +4,25 @@
       = render "devise/shared/error_messages", resource: resource
       .card
         .card-header
-          %h4.color_white Account Activation
+          %h4.color_white Activare cont
         .card-body
           - if @requires_password
-            = f.label :password,'Choose a Password:', class: "color_white add_padding_top_20"
+            = f.label :password,'Alege o parola:', class: "color_white add_padding_top_20"
             .input-group.form-group
               .input-group-prepend
                 %span.input-group-text
                   %i.fa.fa-key.color_white
-              = f.password_field :password, autofocus: true, class: "form-control", placeholder: "Password"
+              = f.password_field :password, autofocus: true, class: "form-control", placeholder: "Parola"
 
 
-            = f.label :password_confirmation, 'Password Confirmation:', class: "color_white add_padding_top_20"
+            = f.label :password_confirmation, 'Confirma parola:', class: "color_white add_padding_top_20"
             .input-group.form-group
               .input-group-prepend
                 %span.input-group-text
                   %i.fa.fa-key.color_white
-              = f.password_field :password_confirmation, autofocus: true, class: "form-control", placeholder: "Password Confirmation"
+              = f.password_field :password_confirmation, autofocus: true, class: "form-control", placeholder: "Confirmarea parolei"
             = hidden_field_tag :confirmation_token,@confirmation_token
         .card-footer
           .d-flex.justify-content-center
-            = f.submit "Activate account", class: "btn login_btn color_white register_btn"
+            = f.submit "Activeaza cont", class: "btn login_btn color_white register_btn"
 

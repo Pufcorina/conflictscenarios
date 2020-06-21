@@ -4,13 +4,13 @@
       .col-lg-12.col-xs-12.body_item_height
         .row.add_padding_top_15
           .col-lg-4.col-xs-4.popup_form_size.custom_width_30
-            First Name
+            Prenume
           .col-lg-8.col-xs-8.no_padding.custom_width_70
             .form-group
               = text_field_tag :first_name, '', class: "form-control", autocomplete: "off"
         .row
           .col-lg-4.col-xs-4.popup_form_size.custom_width_30
-            Last Name
+            Nume de familie
           .col-lg-8.col-xs-8.no_padding.custom_width_70
             .form-group
               = text_field_tag :last_name, '', class: "form-control", autocomplete: "off"
@@ -22,11 +22,11 @@
               = email_field_tag :email, '', class: "form-control", autocomplete: "off"
         .row
           .col-lg-4.col-xs-4.popup_form_size.custom_width_30
-            Role
+            Rol
           .col-lg-8.col-xs-8.no_padding.custom_width_70
             .form-group
               = select_tag :role, options_for_select(options_for_role, selected: "employee"), class: "form-control"
 
   .modal-footer
-    %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
-    = submit_tag "Save", class: "btn btn-success", remote: true
+    %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Inchide
+    = submit_tag "Salveaza", class: "btn btn-success", remote: true

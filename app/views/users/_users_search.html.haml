@@ -3,7 +3,7 @@
     .row.add_padding_top_20
       .col-xs-12.col-lg-3.no_padding_left
         .form-group
-          %p NAME
+          %p NUME
           .form-group
             = text_field_tag :user_search_name, "", value: @search_params.present? ? @search_params['user_search_name'] : params[:user_search_name], class: 'form-control custom_input', autocomplete: "off",  disabled: false
       .col-xs-12.col-lg-3.no_padding_left
@@ -13,7 +13,7 @@
             = text_field_tag :user_search_email, "", value: @search_params.present? ? @search_params['user_search_email'] : params[:user_search_email], class: 'form-control custom_input', autocomplete: "off",  disabled: false
       .col-xs-12.col-lg-2.no_padding_left
         .form-group
-          %p PHONE
+          %p TELEFON
           .form-group
             = text_field_tag :user_search_phone, "", value: @search_params.present? ? @search_params['user_search_phone'] : params[:user_search_phone], class: 'form-control custom_input', autocomplete: "off",  disabled: false
       .col-xs-12.col-lg-1.no_padding_left
@@ -24,7 +24,7 @@
             %label.custom-control-label{:for => "user_search_admin"}
       .col-xs-12.col-lg-1.no_padding_left
         .form-group
-          %p.text_center User
+          %p.text_center Membru
           .custom-control.custom-checkbox
             = text_field_tag :user_search_employee, "", value: @search_params.present? ? @search_params['user_search_employee'] : params[:user_search_employee], class: 'custom-control-input', type: "checkbox"
             %label.custom-control-label{:for => "user_search_employee"}
@@ -32,7 +32,7 @@
 
     .row.d-flex.flex-row-.add_padding_top_10.add_margin_right_15
       .pull-left
-        = submit_tag 'Search', class:"btn btn-outline-secondary"
+        = submit_tag 'Cauta', class:"btn btn-outline-secondary"
       .pull-left.add_margin_right_20
-        = submit_tag 'Reset', class:"btn btn-outline-secondary", name: "reset", id: "reset_search"
+        = submit_tag 'Reseteaza', class:"btn btn-outline-secondary", name: "reset", id: "reset_search"
 

@@ -195,7 +195,7 @@ window.crm = window.crm or {}
         return false
       else
         #validate question options
-        if (question_type == "multiple_choice" || question_type == "multiple_answers")
+        if (question_type == "multiple_choice")
           options_filled = 0
           question.find(".#{question_type}_fields .option_input#{".aux_title_mc" if question_type == "multiple_choice"}").each ()->
             option_title = $(@).val()
@@ -205,23 +205,51 @@ window.crm = window.crm or {}
           if (options_filled < 2)
             alert("The question must have at least two valid options!")
             return false
-        #toggle grey shade
-        question.addClass('background_light_grey').removeClass('background_grey')
+          #toggle grey shade
+          question.addClass('background_light_grey').removeClass('background_grey')
 
-        #clone question title
-        question.find(".question_title_preview").html(title_text)
+          #clone question title
+          question.find(".question_title_preview").html(title_text)
 
-        #clone multipe inputs to labels or remove blank options from selected type
-        question.find(".#{question_type}_fields .option_input#{".aux_title_mc" if question_type == "multiple_choice"}").each ()->
-          option_title = $(@).val()
-          if option_title != ""
-            $(@).parent().find("span.preview").html(option_title)
-          else
-            $(@).closest(".option_form").remove()
+          #clone multipe inputs to labels or remove blank options from selected type
+          question.find(".#{question_type}_fields .option_input#{".aux_title_mc" if question_type == "multiple_choice"}").each ()->
+            option_title = $(@).val()
+            if option_title != ""
+              $(@).parent().find("span.preview").html(option_title)
+            else
+              $(@).closest(".option_form").remove()
 
-        question.find(".option_input.option_input_field_form.aux_description").each () ->
-          option_descr = $(this).val()
-          $(@).parent().find("span.preview").html(option_descr)
+          question.find(".option_input.option_input_field_form.aux_description").each () ->
+            option_descr = $(this).val()
+            $(@).parent().find("span.preview").html(option_descr)
+        else
+            if (question_type == "multiple_answers")
+              options_filled = 0
+              question.find(".#{question_type}_fields .option_input").each ()->
+                option_title = $(@).val()
+                if option_title != ""
+                  options_filled = options_filled + 1
+
+              if (options_filled < 2)
+                alert("The question must have at least two valid options!")
+                return false
+            #toggle grey shade
+            question.addClass('background_light_grey').removeClass('background_grey')
+
+            #clone question title
+            question.find(".question_title_preview").html(title_text)
+
+            #clone multipe inputs to labels or remove blank options from selected type
+            question.find(".#{question_type}_fields .option_input").each ()->
+              option_title = $(@).val()
+              if option_title != ""
+                $(@).parent().find("span.preview").html(option_title)
+              else
+                $(@).closest(".option_form").remove()
+
+            question.find(".option_input.option_input_field_form.aux_description").each () ->
+              option_descr = $(this).val()
+              $(@).parent().find("span.preview").html(option_descr)
 
 
         #toggle question mode: viewing/editing

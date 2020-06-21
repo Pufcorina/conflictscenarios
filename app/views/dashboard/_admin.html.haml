@@ -1,23 +1,23 @@
 .row.d-flex.justify-content-between
   .col-xs-4.col-lg-3.border_custom{style: "padding:10px"}
     %h4
-      TOTAL SUBMISSIONS
+      TOTAL COMPLETARI
       %i.fa.fa-check-square.pull-right.fa-lg.color_purple{style: "padding:10px"}
     %h5.color_gray
       #{[*20..3000].sample}
   .col-xs-4.col-lg-3.border_custom{style: "padding:10px"}
     %h4
-      TOTAL SCENARIOS
+      TOTAL SCENARII
       %i.fa.fa-copy.pull-right.fa-lg.color_purple{style: "padding:10px"}
     %h5.color_gray
       #{@surveys.count}
   .col-xs-4.col-lg-3.border_custom{style: "padding:10px"}
     %h5
-      TOTAL BROCHURES
+      TOTAL BROSURI
       %i.fa.fa-book.pull-right.fa-lg.color_purple{style: "padding:10px"}
     %h7.color_gray
       #{@brochures.count}
 
 .row{style: "margin-top: 100px"}
   .col-xs-12.col-lg-12
-    = column_chart [["January", [*20..300].sample], ["February", [*20..300].sample], ["March", [*20..300].sample], ["April", [*20..300].sample], ["May", [*20..300].sample], ["June", [*20..300].sample], ["July", [*20..300].sample], ["August", [*20..300].sample], ["September", [*20..300].sample], ["October", [*20..300].sample], ["November", [*20..300].sample], ["December", [*20..300].sample]], colors: ["#B48DF8", "#FF0000"], library: {backgroundColor: "#B48DF8"}, width: "100%"
+    = column_chart [["Ianuarie", [*20..300].sample], ["Februarie", [*20..300].sample], ["Martie", [*20..300].sample], ["Aprilie", [*20..300].sample], ["Mai", [*20..300].sample], ["Iunie", [*20..300].sample], ["Iulie", [*20..300].sample], ["August", [*20..300].sample], ["Spetembrie", [*20..300].sample], ["Octombrie", [*20..300].sample], ["Noiembrie", [*20..300].sample], ["Decembrie", [*20..300].sample]], colors: ["#B48DF8", "#FF0000"], library: {backgroundColor: "#B48DF8"}, width: "100%"

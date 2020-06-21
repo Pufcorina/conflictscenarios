@@ -26,5 +26,8 @@ Rails.application.routes.draw do
   get '/assign_brochure', to: 'assign#index', :as => :assign
   get '/search_members', to: 'assign#search_members'
   post '/get_brochure', to: 'assign#get_brochure'
+  post '/assign_members', to: 'assign#assign_members'
+
+  resources :brochure_members
 
 end

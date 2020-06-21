@@ -31,6 +31,20 @@ class AssignController < ApplicationController
     @user = current_user
   end
 
+  def assign_members
+    brochure_id = params["brochure"]
+
+    if params["specific_members"] == "on"
+      members_ids = params["specific_members"].split(',')
+    else
+      members_ids = User.all.pluck(:id)
+    end
+
+    members_ids.each do |member|
+      BrochureMember.create({user_id: member, brochure_id: brochure_id, answered: false})
+    end
+  end
+
 
 
   private
