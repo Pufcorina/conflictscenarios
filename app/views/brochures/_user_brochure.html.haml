@@ -2,19 +2,19 @@
   - if @brochure.present?
     .modal-content.border_custom{style: "height: 70vh; overflow-y: scroll"}
       .modal-header
-        %h4#myModalLabel.modal-title.pull-left{"scenario-id" => ''} INTRODUCERE
-        %h4#myModalLabel.modal-title.pull-left.hidden{"scenario-id" => '0'} COD PERSONAL
-        %h4#myModalLabel.modal-title.pull-left.hidden{"scenario-id" => '1'} DESPRE DUMNEAVOASTRA
+        %h4#myModalLabel.modal-title.pull-left{"scenario-id" => '0'} INTRODUCERE
+        %h4#myModalLabel.modal-title.pull-left.hidden{"scenario-id" => '1'} COD PERSONAL
+        %h4#myModalLabel.modal-title.pull-left.hidden{"scenario-id" => '2'} DESPRE DUMNEAVOASTRA
         - @scenarios.each_with_index do |scenario, index|
-          %h4#myModalLabel.modal-title.pull-left.hidden{"scenario-id" => "#{index+2}"} #{scenario.title.capitalize}
+          %h4#myModalLabel.modal-title.pull-left.hidden{"scenario-id" => "#{index+3}"} #{scenario.title.capitalize}
 
       .modal-body{style: "height: 50vh; overflow-y: scroll"}
-        .modal-body-content{"scenario-id" => ''}
+        .modal-body-content{"scenario-id" => '0'}
           .row
             = @brochure.subdescription
           .row.add_margin_top_20
             = @brochure.description
-        .modal-body-content.hidden{"scenario-id" => "0"}
+        .modal-body-content.hidden{"scenario-id" => "1"}
           %table.table.table-striped.results.custom_table3
             %thead
               %td
@@ -40,10 +40,10 @@
                 %td #{birthdate.day} #{months[birthdate.month.to_s]}
                 %td #{birthdate.day.to_i + birthdate.month.to_i}
 
-        .modal-body-content.hidden{"scenario-id" => "1"}
-          Work in progress
+        .modal-body-content.hidden{"scenario-id" => "2"}
+          Work in progress #{@scenarios.count}
         - @scenarios.each_with_index do |scenario, index|
-          .modal-body-content.hidden{"scenario-id" => "#{index+2}"}
+          .modal-body-content.hidden{"scenario-id" => "#{index+3}"}
             .row
               .col-xs-2.col-sm-2.col-md-2.col-lg-2
               .col-xs-8.col-sm-8.col-md-8.col-lg-8.no_padding.add-margin-all-0.answer_body
@@ -54,10 +54,10 @@
 
       .modal-footer.d-flex.justify-content-between
         %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Renunta
-        %button.btn.btn-default.btn-prev.hidden{:type => "button", "current-page" => ''} Pasul anterior
-        %button.btn.btn-default.btn-next{:type => "button", "current-page" => ''} Pasul urmator
+        %button.btn.btn-default.btn-prev.hidden{:type => "button", "current-page" => '0'} Pasul anterior
+        %button.btn.btn-default.btn-next{:type => "button", "current-page" => '0'} Pasul urmator
 
-        %button.btn.btn-default.btn-save.hidden{:type => "submit", "current-page" => '', disabled: @preview} Trimite raspunsuri
+        %button.btn.btn-default.btn-save.hidden{:type => "submit", "current-page" => '0', disabled: @preview} Trimite raspunsuri
   - else
     .modal-content.border_custom{style: "height: 70vh; overflow-y: scroll"}
       .modal-header
@@ -109,8 +109,8 @@
       if (current_page_id) {
         modal = $('.modal-body')
         pages = modal.children().length
-        last_child_index = modal.children().index($(".modal-body-content[scenario-id='"+current_page_id+"']")) +2
-
+        last_child_index = modal.children().index($(".modal-body-content[scenario-id='"+current_page_id+"']"))
+       debugger
         if (pages - 1 == last_child_index) {
           $('.btn-prev').removeClass('hidden')
           $('.btn-next').addClass('hidden')
