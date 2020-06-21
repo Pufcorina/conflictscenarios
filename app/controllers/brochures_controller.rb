@@ -73,6 +73,10 @@ class BrochuresController < ApplicationController
   # DELETE /brochures/1
   # DELETE /brochures/1.json
   def destroy
+    BrochureMember.where(brochure_id: @brochure.id )
+    BrochureAnswer.where(brochure_id: @brochure.id )
+    RelationBrochureScenarioMembers.where(brochure_id: @brochure.id )
+    RelationBrochureScenarios.where(brochure_id: @brochure.id )
     @brochure.destroy
     respond_to do |format|
       format.html { redirect_to brochures_url, notice: 'Brochure was successfully destroyed.' }
@@ -102,7 +106,6 @@ class BrochuresController < ApplicationController
     answers.each do |answer|
       BrochureAnswer.create({brochure_id: brochure_id, answer: answer, user_id: user.id})
     end
-    binding.pry
     BrochureMember.where(user_id: user.id).where(brochure_id: brochure_id).update_all(:answered => true)
 
     redirect_to brochure_members_path and return
