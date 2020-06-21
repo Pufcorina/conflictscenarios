@@ -117,6 +117,11 @@ window.gems = window.gems or {}
         $('#active_filters').val("all")
         $('#members_filters_list').html("None")
 
+
+    $(document).off 'click', '#assign'
+    $(document).on 'click', '#assign', ->
+      $('#assign_members').submit()
+
     # send survey metadatum values for selected metadatum
     $(document).off 'change', '#field_type'
     $(document).on 'change', '#field_type', ->

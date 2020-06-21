@@ -1,0 +1,3 @@
+class BrochureMembersController < ApplicationController
+
+end

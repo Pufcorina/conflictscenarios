@@ -1,0 +1,3 @@
+class BrochureMember < ApplicationRecord
+
+end

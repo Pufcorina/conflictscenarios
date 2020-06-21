@@ -94,8 +94,6 @@ window.crm = window.crm or {}
         alert("brochure title cannot be empty!")
         return false
 
-
-
     $('.custom_pagination a').click (e)->
       window.history.pushState(null, null, this.href)
       $.rails.handleRemote($(this))
