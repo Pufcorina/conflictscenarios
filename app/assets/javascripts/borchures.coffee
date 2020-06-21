@@ -81,7 +81,7 @@ window.crm = window.crm or {}
     $(document).on 'click', '.remove_survey_brochure', ->
       index = $(@).attr('data-index')
       $("#survey_#{index}").val('0')
-      $("#select2-survey_#{index}-container").html("Please select a scenario").attr('title', 'Please select a scenario')
+      $("#select2-survey_#{index}-container").html("Te rog selecteaza un scenariu.").attr('title', 'Te rog selecteaza un scenariu.')
 
       $($('#surveys').children()[index]).addClass('hidden')
 
@@ -91,7 +91,7 @@ window.crm = window.crm or {}
     $(document).on 'click', '#btn_save_brochure', ->
       
       if $('#brochure_title').val() == ""
-        alert("brochure title cannot be empty!")
+        alert("Titlul brosurii nu poate fi gol!")
         return false
 
     $('.custom_pagination a').click (e)->

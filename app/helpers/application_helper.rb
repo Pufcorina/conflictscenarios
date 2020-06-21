@@ -59,7 +59,7 @@ module ApplicationHelper
   end
 
   def options_for_brochure
-    options_for_brochure = [["Please select a brochure", "0"]]
+    options_for_brochure = [["Te rog selecteaza o brosura", "0"]]
     Brochure.all.each do |brochure|
       options_for_brochure << [brochure.title, brochure.id]
     end

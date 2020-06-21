@@ -88,7 +88,7 @@ class SurveysController < ApplicationController
 
   def destroy
     @survey = Survey.find(params[:id]).delete
-    flash[:notice] = "Successfully deleted."
+    flash[:notice] = "Stergerea s-a efectuat cu success."
     redirect_to surveys_path and return
   end
 

@@ -41,7 +41,7 @@ class BrochuresController < ApplicationController
         RelationBrochureScenarios.create({brochure_id: @brochure.id, survey_id:sb})
       end
       respond_to do |format|
-        format.html { redirect_to @brochure, notice: 'Brochure was successfully created.' }
+        format.html { redirect_to @brochure, notice: 'Brosura a fost creata cu success.' }
         format.json { render :show, status: :created, location: @brochure }
       end
     else
@@ -61,7 +61,7 @@ class BrochuresController < ApplicationController
     end
     respond_to do |format|
       if @brochure.update(brochure_params)
-        format.html { redirect_to @brochure, notice: 'Brochure was successfully updated.' }
+        format.html { redirect_to @brochure, notice: 'Brosura s-a updatat cu success.' }
         format.json { render :show, status: :ok, location: @brochure }
       else
         format.html { render :edit }
@@ -79,7 +79,7 @@ class BrochuresController < ApplicationController
     RelationBrochureScenarios.where(brochure_id: @brochure.id )
     @brochure.destroy
     respond_to do |format|
-      format.html { redirect_to brochures_url, notice: 'Brochure was successfully destroyed.' }
+      format.html { redirect_to brochures_url, notice: 'Brosura a fost stearsa cu success.' }
       format.json { head :no_content }
     end
   end

@@ -287,15 +287,15 @@ window.crm = window.crm or {}
     $(document).on 'click', '#btn_save_survey', ->
       
       if $('#survey_title').val() == ""
-        alert("Survey title cannot be empty!")
+        alert("Titlul chestionarului nu poate fi gol!")
         return false
 
       if $('.question').length == 0
-        alert("Please add at least one question")
+        alert("Te rog adauga cel putin o intrebare.")
         return false
 
       if $('.question.editing').length > 0
-        alert("Please save all questions")
+        alert("Te rog sa salvezi toate intrebarile!")
         return false
 
 
