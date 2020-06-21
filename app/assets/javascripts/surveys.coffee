@@ -223,16 +223,16 @@ window.crm = window.crm or {}
             option_descr = $(this).val()
             $(@).parent().find("span.preview").html(option_descr)
         else
-          if (question_type == "multiple_answers")
-            options_filled = 0
-            question.find(".#{question_type}_fields .option_input").each ()->
-              option_title = $(@).val()
-              if option_title != ""
-                options_filled = options_filled + 1
+            if (question_type == "multiple_answers")
+              options_filled = 0
+              question.find(".#{question_type}_fields .option_input").each ()->
+                option_title = $(@).val()
+                if option_title != ""
+                  options_filled = options_filled + 1
 
-            if (options_filled < 2)
-              alert("The question must have at least two valid options!")
-              return false
+              if (options_filled < 2)
+                alert("The question must have at least two valid options!")
+                return false
             #toggle grey shade
             question.addClass('background_light_grey').removeClass('background_grey')
 
