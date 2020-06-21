@@ -146,7 +146,6 @@ window.gems = window.gems or {}
         }
         dataType: 'html'
         success: (result) ->
-          debugger
           $('#brochure_form').html(result);
           return
         error: ->

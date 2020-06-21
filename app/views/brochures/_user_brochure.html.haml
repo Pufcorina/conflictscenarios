@@ -8,7 +8,7 @@
         - @scenarios.each_with_index do |scenario, index|
           %h4#myModalLabel.modal-title.pull-left.hidden{"scenario-id" => "#{index+3}"} #{scenario.title.capitalize}
 
-      .modal-body{style: "height: 50vh; overflow-y: scroll"}
+      .modal-body.brochure{style: "height: 50vh; overflow-y: scroll"}
         .modal-body-content{"scenario-id" => '0'}
           .row
             = @brochure.subdescription
@@ -61,7 +61,7 @@
   - else
     .modal-content.border_custom{style: "height: 70vh; overflow-y: scroll"}
       .modal-header
-        %h4#myModalLabel.modal-title.pull-left{"scenario-id" => ''} PREVIEW
+        %h4#myModalLabel.modal-title.pull-left{"scenario-id" => '0'} PREVIEW
 
       .modal-body{style: "height: 50vh; overflow-y: scroll"}
         .modal-body-content
@@ -105,13 +105,12 @@
 
 
     function show_buttons(current_page_id) {
-
+      debugger
       if (current_page_id) {
-        modal = $('.modal-body')
-        pages = modal.children().length
-        last_child_index = modal.children().index($(".modal-body-content[scenario-id='"+current_page_id+"']"))
-       debugger
-        if (pages - 1 == last_child_index) {
+        modal = $('.modal-body.brochure')
+        pages = modal.children().length - 1
+
+        if ( ''+pages == current_page_id) {
           $('.btn-prev').removeClass('hidden')
           $('.btn-next').addClass('hidden')
           $('.btn-save').removeClass('hidden')
