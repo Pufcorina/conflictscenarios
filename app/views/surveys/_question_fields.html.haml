@@ -2,7 +2,7 @@
   .col-xs-12.col-lg-12.d-flex.add_padding_left_10.no_padding.add-margin-bottom-15{style: "min-height: 60px"}
     .col-xs-1.no_padding_right.question_title{style: "width: 75px"}
       %b.question_rank_title
-        = "Q#{f.object.try(:order) || ((f.try(:index).to_i || 0) + 1)}"
+        = "#{f.object.try(:order) || ((f.try(:index).to_i || 0) + 1)}"
     .col-xs-6.col-lg-6.question_title.no_padding_left.editable
       .input_field_form.form-group.question_title_text_form
         = f.text_field :title, class: 'form-control custom_input question_name_input', placeholder: "Enter question text"

@@ -1,10 +1,11 @@
-.col-lg-12.col-xs-12.option_list.no_padding_right.add_padding_left_27
+.option_list.no_padding_right.add_padding_left_27.flex_table
   - question.options.sort_by{|o| o.order || 1}.each do |o|
-    .row.option
-      .col-lg-12.col-xs-12.form_size.text-center.radio_button_answer.no_padding_right.no_padding_left
-        .no-margin.pull-left{style: "white-space: nowrap;"}
+    .col-2.row.option.add_border.no_padding{style: "display:grid;max-width:150px;min-width:120px"}
+      .form_size.text-center.radio_button_answer.no_padding_right.no_padding_left.no_margin{style: "display:contents"}
+        .no_margin.pull-left{style: "white-space: nowrap;"}
           %input.cursor_pointer.radio_button_align.add_margin_top_5{:type => "radio", name: "answer[#{question.id}]", id:"radio_option_#{question.id}_#{o.title}", class: "radio_option", value: o.title, checked: ((answ = @answers.select{|x| x[question.id]}).present? && answ[0][question.id] == o.title)}
-          %label.cursor_pointer.radio_button_text.add_margin_left_5{:for => "radio_option_#{question.id}_#{o.title}"} #{o.title}
-
+          %label.cursor_pointer.radio_button_text.add_margin_left_5.no_padding{:for => "radio_option_#{question.id}_#{o.title}"} #{o.title}
+      .answer_description.add_padding_top_5.no_margin.add_border_top.text_align_center
+        = o.try(:aux_description)
 -# :javascript
 -#   window.crm.answer_survey.init();

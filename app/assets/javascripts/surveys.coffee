@@ -49,7 +49,7 @@ window.crm = window.crm or {}
       rank = rank + 1
       order = $('.question').length
       console.log("insert:"+ rank)
-      last_q.find('.question_rank_title').html('Q'+order)
+      last_q.find('.question_rank_title').html(order)
       last_q.find('.order_number').val(order)
       last_q.find('.btn_save_question').attr('id', 'btn_save_'+rank)
       last_q.find('.btn_edit_question').attr('id', 'btn_edit_'+rank)
@@ -276,7 +276,7 @@ window.crm = window.crm or {}
       id_moved_element = item.id
       if id_moved_element != "disable_sortable_new_question_btn" && $('#'+id_moved_element).hasClass('question')
         $("#"+id_moved_element).find('.order_number').val(next_index)
-        $("#"+id_moved_element).find('.question_rank_title').html("Q"+next_index)
+        $("#"+id_moved_element).find('.question_rank_title').html(next_index)
         next_index = next_index + 1
 
       if item.nextElementSibling
@@ -289,7 +289,7 @@ window.crm = window.crm or {}
       id_moved_element = item.id
       if id_moved_element != "disable_sortable_new_question_btn" && $('#'+id_moved_element).hasClass('question')
         $("#"+id_moved_element).find('.order_number').val(prev_index)
-        $("#"+id_moved_element).find('.question_rank_title').html("Q"+prev_index)
+        $("#"+id_moved_element).find('.question_rank_title').html(prev_index)
         prev_index = prev_index - 1
 
       if item.previousElementSibling

@@ -1,13 +1,13 @@
 .add-margin-top-10
-  .col-xs-12.col-lg-12.fit-width.answer_question.no_padding
+  .fit-width.answer_question.no_padding
     .row.form_size.add-margin-bottom-10.add-margin-top-20{style: "margin-left: 0!important; margin-right: 0!important"}
-      .col-xs-2.col-md-1.col-lg-1.no_padding_right{style: "width: 50px"}
+      .add_padding_left_15.no_padding_right
         %b #{question.order}.
       .col-xs-9.col-md-10.col-lg-10.no_padding
         %span #{question.title}
     .row{id: "#{question.question_type == "free_text" ? "free_text" : (question.question_type == "multiple_choice" ? "multiple_choice" : "multiple_answers")}_#{question.id}"}
       - if question.question_type == "free_text"
-        .col-lg-8.col-md-8.col-sm-8.col-xs-12.add_padding_left_10
+        .col-7.add_padding_left_27
           = text_area_tag "answer[#{question.id}]", (answ = @answers.select{|x| x[question.id]}).present? ? answ[0][question.id] : "", class: "form-control custom_survey_text answer", placeholder: "Completeaza raspunsul", id:"question_text_#{question.id}"
       - elsif question.question_type == "multiple_choice"
         = render partial: "surveys/answers/answer_multiple_choice", locals: {question: question}

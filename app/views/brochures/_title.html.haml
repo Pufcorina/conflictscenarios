@@ -5,7 +5,7 @@
         .input_field_form.form-group.question_title_text_form
           = f.text_field :title, value: (f.object.try(:title) || "Brosura x"), class: 'form-control custom_input', placeholder: "Enter brochure title"
     .row.preview.add_padding_left_30
-      %b.add-margin-bottom-10#title_text_content #{f.object.try(:title).present? ? f.object.try(:title) : "Scenariul x"}
+      %b.add-margin-bottom-10#title_text_content #{f.object.try(:title).present? ? f.object.try(:title) : "Brosura x"}
   .col-xs-4.col-lg-4.pull-right.add-margin-top-10
     .form-group.add-margin-top-15
       %button.pull-right.add-margin-top-10.btn_survey.btn_save.hidden#btn_save_title{type: "button", "data-type"=>"title"}

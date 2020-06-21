@@ -2,6 +2,6 @@
   .row.answer_text.add_margin_top_20
     %p.font_size_16{style: "font-weight: 100"} #{survey.description}
 
-.col-xs-12.col-lg-12.no_padding
+.no_padding
   - questions.each do |question|
     = render partial: "surveys/answers/answer_question", locals: {question: question}
