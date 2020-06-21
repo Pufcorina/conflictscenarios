@@ -1,71 +1,73 @@
 .row
   - if @brochure.present?
-    .modal-content.border_custom{style: "height: 70vh"}
-      .modal-header
-        %h4#myModalLabel.modal-title.pull-left{"scenario-id" => '0'} INTRODUCERE
-        %h4#myModalLabel.modal-title.pull-left.hidden{"scenario-id" => '1'} COD PERSONAL
-        %h4#myModalLabel.modal-title.pull-left.hidden{"scenario-id" => '2'} DESPRE DUMNEAVOASTRA
-        - @scenarios.each_with_index do |scenario, index|
-          %h4#myModalLabel.modal-title.pull-left.hidden{"scenario-id" => "#{index+3}"} #{scenario.title.capitalize}
+    = form_for("answer_brochure", url: brochure_answer_brochure_path, html: { class: "custom_flex_fist_position", id: "answer_form" }) do |f|
+      .modal-content.border_custom{style: "height: 70vh"}
+        .modal-header
+          %h4#myModalLabel.modal-title.pull-left{"scenario-id" => '0'} INTRODUCERE
+          %h4#myModalLabel.modal-title.pull-left.hidden{"scenario-id" => '1'} COD PERSONAL
+          %h4#myModalLabel.modal-title.pull-left.hidden{"scenario-id" => '2'} DESPRE DUMNEAVOASTRA
+          - @scenarios.each_with_index do |scenario, index|
+            %h4#myModalLabel.modal-title.pull-left.hidden{"scenario-id" => "#{index+3}"} #{scenario.title.capitalize}
 
-      .modal-body.brochure{style: "height: 50vh; overflow-y: auto"}
-        .modal-body-content{"scenario-id" => '0'}
-          .row
-            = @brochure.subdescription
-          .row.add_margin_top_20
-            = @brochure.description
-        .modal-body-content.hidden{"scenario-id" => "1"}
-          %table.table.table-striped.results.custom_table3
-            %thead
-              %td
-              %td
-              %td Codul Dvs.
-            %tbody
-              %tr
-                %td Prima literă a orașului în care v-ați născut:
-                %td #{@user.city}
-                %td #{@user.city.split('').first.capitalize}
-              %tr
-                %td Prima literă a județului în care v-ați născut:
-                %td #{@user.try(:country)}
-                %td #{(@user.try(:country) || "").split('').first.capitalize}
-              %tr
-                %td Suma ultimelor două cifre ale anului nașterii:
-                - birthdate = @user.try(:date_of_birth)
-                -if birthdate.present?
-                  - year = birthdate.year.to_s.split('')
-                  %td #{birthdate.year}
-                  %td #{year.first.to_i + year.last.to_i}
-                - else
-                  %td
-                  %td
-              %tr
-                %td Suma dintre ziua și luna nașterii:
-                -if birthdate.present?
-                  %td #{birthdate.day} #{months[birthdate.month.to_s]}
-                  %td #{birthdate.day.to_i + birthdate.month.to_i}
-                - else
-                  %td
-                  %td
-
-        .modal-body-content.hidden{"scenario-id" => "2"}
-          Work in progress #{@scenarios.count}
-        - @scenarios.each_with_index do |scenario, index|
-          .modal-body-content.hidden{"scenario-id" => "#{index+3}"}
+        .modal-body.brochure{style: "height: 50vh; overflow-y: auto"}
+          .modal-body-content{"scenario-id" => '0'}
             .row
-              .col-xs-2.col-sm-2.col-md-2.col-lg-2
-              .col-xs-8.col-sm-8.col-md-8.col-lg-8.no_padding.add-margin-all-0.answer_body
-                .row.background_white
-                  .container-fluid#answer_survey_container
-                    .row.answer_form
-                      = render partial: 'surveys/answers/answer_form', locals: {questions: @questions[scenario.id], survey: scenario}
+              = @brochure.subdescription
+            .row.add_margin_top_20
+              = @brochure.description
+          .modal-body-content.hidden{"scenario-id" => "1"}
+            %table.table.table-striped.results.custom_table3
+              %thead
+                %td
+                %td
+                %td Codul Dvs.
+              %tbody
+                %tr
+                  %td Prima literă a orașului în care v-ați născut:
+                  %td #{@user.city}
+                  %td #{@user.city.split('').first.capitalize}
+                %tr
+                  %td Prima literă a județului în care v-ați născut:
+                  %td #{@user.try(:country)}
+                  %td #{(@user.try(:country) || "").split('').first.capitalize}
+                %tr
+                  %td Suma ultimelor două cifre ale anului nașterii:
+                  - birthdate = @user.try(:date_of_birth)
+                  -if birthdate.present?
+                    - year = birthdate.year.to_s.split('')
+                    %td #{birthdate.year}
+                    %td #{year.first.to_i + year.last.to_i}
+                  - else
+                    %td
+                    %td
+                %tr
+                  %td Suma dintre ziua și luna nașterii:
+                  -if birthdate.present?
+                    %td #{birthdate.day} #{months[birthdate.month.to_s]}
+                    %td #{birthdate.day.to_i + birthdate.month.to_i}
+                  - else
+                    %td
+                    %td
 
-      .modal-footer.d-flex.justify-content-between
-        = link_to "Renunta", brochure_members_path, :method => :get, class: "btn btn-outline-dark"
-        %button.btn.btn-outline-secondary.btn-prev.hidden{:type => "button", "current-page" => '0'} Pasul anterior
-        %button.btn.btn-outline-secondary.btn-next{:type => "button", "current-page" => '0'} Pasul urmator
+          .modal-body-content.hidden{"scenario-id" => "2"}
+            Work in progress #{@scenarios.count}
+          - @scenarios.each_with_index do |scenario, index|
+            .modal-body-content.hidden{"scenario-id" => "#{index+3}"}
+              .row
+                .col-xs-2.col-sm-2.col-md-2.col-lg-2
+                .col-xs-8.col-sm-8.col-md-8.col-lg-8.no_padding.add-margin-all-0.answer_body
+                  .row.background_white
+                    .container-fluid#answer_survey_container
+                      .row.answer_form
+                        = render partial: 'surveys/answers/answer_form', locals: {questions: @questions[scenario.id], survey: scenario}
 
-        %button.btn.btn-outline-success.btn-save.hidden{:type => "submit", "current-page" => '0', disabled: @preview} Trimite raspunsuri
+        .modal-footer.d-flex.justify-content-between
+          = link_to "Renunta", brochure_members_path, :method => :get, class: "btn btn-outline-dark"
+          %button.btn.btn-outline-secondary.btn-prev.hidden{:type => "button", "current-page" => '0'} Pasul anterior
+          %button.btn.btn-outline-secondary.btn-next{:type => "button", "current-page" => '0'} Pasul urmator
+
+          = f.submit yield(:button_text), class: "btn btn-outline-success btn-save hidden", value: "Trimite raspunsuri", id: "btn_save_answer", data: {  disable_with: "Se salveaza.." }
+
   - else
     .modal-content.border_custom{style: "height: 70vh"}
       .modal-header

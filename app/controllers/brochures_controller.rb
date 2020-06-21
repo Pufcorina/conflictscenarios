@@ -35,6 +35,7 @@ class BrochuresController < ApplicationController
   def create
     @brochure = Brochure.new(brochure_params)
 
+    @brochure.author = current_user.full_name
     if @brochure.save
       survey_brochure_params.each do |key, sb|
         RelationBrochureScenarios.create({brochure_id: @brochure.id, survey_id:sb})
@@ -91,6 +92,10 @@ class BrochuresController < ApplicationController
     respond_to do |format|
       format.html {render 'brochures/show'}
     end
+  end
+
+  def answer_brochure
+
   end
 
   private

@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_21_140318) do
+ActiveRecord::Schema.define(version: 2020_06_21_190142) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "brochure_answers", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "brochure_id"
+    t.bigint "question_id"
+    t.string "answer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "brochure_members", force: :cascade do |t|
     t.bigint "user_id"
@@ -29,6 +38,7 @@ ActiveRecord::Schema.define(version: 2020_06_21_140318) do
     t.string "description"
     t.date "sent_at"
     t.integer "brochures_nb"
+    t.string "author"
   end
 
   create_table "member_questions", force: :cascade do |t|

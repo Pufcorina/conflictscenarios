@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :brochures do
     get :fill_in
+    post :answer_brochure
   end
   devise_for :users, :controllers => { :confirmations => "confirmations" }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

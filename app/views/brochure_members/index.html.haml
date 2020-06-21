@@ -13,10 +13,12 @@
         .col-xs-12.col-lg-3
           %h4.bold{style: "width: 500px"}
             #{brochure.title}
+        .col-xs-12.col-lg-3.d-flex.flex-column
+          #{brochure.try(:author) || "Claudia Rus"}
+          %p.color_gray Autor
         .col-xs-12.col-lg-3
-          Autor
-        .col-xs-12.col-lg-3
-          Nb Brocures
+          #{@brochures_member[brochure.id].try(:created_at).try(:strftime, "%d/%m/%Y")}
+          %p.color_gray Data primire
         .col-xs-12.col-lg-2
           %a.fa.fa-edit.font_size_30.pull-right.add_margin_right_15.link-black{href: brochure_fill_in_path(brochure), method: :get, "data-toggle" => "tooltip", style: "font-size:30px!important"}
           %a.fa.fa-eye.color_purple.font_size_30.pull-right.add_margin_right_15{href: brochure_path(brochure), method: :get, "data-toggle" => "tooltip"}

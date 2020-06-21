@@ -14,7 +14,8 @@
           %h4.bold{style: "width: 500px"}
             #{brochure.title}
         .col-xs-12.col-lg-3
-          Autor
+          #{brochure.try(:author) || "Claudia Rus"}
+          %span{style: "font-size:11px; font-style: italic; color: lightgray;"} Autor
         .col-xs-12.col-lg-3
           Completari
         .col-xs-12.col-lg-2
