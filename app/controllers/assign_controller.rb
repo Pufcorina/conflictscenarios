@@ -43,6 +43,9 @@ class AssignController < ApplicationController
     members_ids.each do |member|
       BrochureMember.create({user_id: member, brochure_id: brochure_id, answered: false})
     end
+
+    flash[:notice] = 'Brosura trimisa!'
+    redirect_to assign_path and return
   end
 
 

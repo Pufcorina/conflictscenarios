@@ -5,6 +5,11 @@ class BrochuresController < ApplicationController
   # GET /brochures.json
   def index
     @brochures = Brochure.all
+
+    @brochures_submissions = BrochureAnswer.all.group_by(&:brochure_id)
+    @brochures_submissions.each do |k, v|
+      @brochures_submissions[k] = v.group_by{|e| e[:user_id]}.count
+    end
   end
 
   # GET /brochures/1
@@ -100,11 +105,12 @@ class BrochuresController < ApplicationController
 
   def answer_brochure
     brochure_id = params["brochure_id"]
-    BrochureAnswer.where(brochure_id: brochure_id).delete_all
-    answers = params["answer"]
     user = current_user
-    answers.each do |answer|
-      BrochureAnswer.create({brochure_id: brochure_id, answer: answer, user_id: user.id})
+    BrochureAnswer.where(brochure_id: brochure_id).where(user_id: user.id).delete_all
+    answers = params["answer"]
+
+    answers.each do |question_id, answer|
+      BrochureAnswer.create({brochure_id: brochure_id, question_id: question_id, answer: answer, user_id: user.id})
     end
     BrochureMember.where(user_id: user.id).where(brochure_id: brochure_id).update_all(:answered => true)
 

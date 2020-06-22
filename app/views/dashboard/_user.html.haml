@@ -27,13 +27,13 @@
         .row.border_custom{style: "padding:15px;"}
           .col-xs-3.col-lg-3{style: "padding-top: 20px"}
             %h5
-              #{brochure.try(:title)}
+              #{brochure.try(:title)}.
           .col-xs-2.col-lg-2.d-flex.flex-column{style: "padding-top: 5px"}
-            %p.color_gray #{ub.created_at.try(:strftime, "%d/%m/%Y")}
-            %p.color_gray Data primire
+            %span #{ub.created_at.try(:strftime, "%d/%m/%Y")}
+            %span{style: "font-size:11px; font-style: italic; color: lightgray;"} Primit
           .col-xs-3.col-lg-3.d-flex.flex-column{style: "padding-top: 5px"}
-            %p.color_gray #{brochure.try(:author) || "Claudia Rus"}
-            %p.color_gray Autor
+            %span #{brochure.try(:author) || "Claudia Rus"}
+            %span{style: "font-size:11px; font-style: italic; color: lightgray;"} Autor
           .col-xs-3.col-lg-3.pull-right.d-flex{style: "padding-top: 10px"}
             = button_to  "Vizualizeaza", brochure_path(brochure, brochure_id: brochure.id), method: :get, "data-toggle" => "tooltip", class:"btn btn-default btn_big_custom custom_btn btn_grey", style: "font-size: 20px!important;"
             = button_to  "Completeaza", brochure_fill_in_path(brochure), method: :get, class:"btn btn-default btn_big_custom custom_btn btn_orange", style: "font-size: 20px!important;"
@@ -58,11 +58,11 @@
             %h5
               #{brochure.try(:title)}
           .col-xs-2.col-lg-2.d-flex.flex-column{style: "padding-top: 5px"}
-            %p.color_gray #{ub.created_at.try(:strftime, "%d/%m/%Y")}
-            %p.color_gray Primit
+            %span #{ub.created_at.try(:strftime, "%d/%m/%Y")}
+            %span{style: "font-size:11px; font-style: italic; color: lightgray;"} Primit
           .col-xs-3.col-lg-3.d-flex.flex-column{style: "padding-top: 5px"}
-            %p.color_gray #{brochure.try(:author) || "Claudia Rus"}
-            %p.color_gray Autor
+            %span #{brochure.try(:author) || "Claudia Rus"}
+            %span{style: "font-size:11px; font-style: italic; color: lightgray;"} Autor
           .col-xs-3.col-lg-3.pull-right.d-flex{style: "padding-top: 10px"}
             = button_to  "Vizualizeaza", brochure_path(brochure, brochure_id: brochure.id), method: :get, class:"btn btn-default btn_big_custom custom_btn btn_grey", style: "font-size: 20px!important;"
             = button_to  "Completeaza", brochure_fill_in_path(brochure), method: :get, class:"btn btn-default btn_big_custom custom_btn btn_orange", style: "font-size: 20px!important;"

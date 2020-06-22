@@ -13,11 +13,12 @@
         .col-xs-12.col-lg-3
           %h4.bold{style: "width: 500px"}
             #{brochure.title}
-        .col-xs-12.col-lg-3
-          #{brochure.try(:author) || "Claudia Rus"}
+        .col-xs-12.col-lg-3.d-flex.flex-column
+          %span #{brochure.try(:author) || "Claudia Rus"}
           %span{style: "font-size:11px; font-style: italic; color: lightgray;"} Autor
-        .col-xs-12.col-lg-3
-          Completari
+        .col-xs-12.col-lg-3.d-flex.flex-column
+          %span.add_padding_left_20 #{@brochures_submissions[brochure.id] || 0}
+          %span{style: "font-size:11px; font-style: italic; color: lightgray;"} Completari
         .col-xs-12.col-lg-2
           = link_to "", brochure_path(id: brochure.id), method: :delete, data: { confirm: "Are you sure?" }, "data-remote" => "true", class: "fa fa-trash color_red font_size_30 pull-right"
 

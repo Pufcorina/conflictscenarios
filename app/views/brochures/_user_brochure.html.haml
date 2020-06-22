@@ -62,7 +62,8 @@
                         = render partial: 'surveys/answers/answer_form', locals: {questions: @questions[scenario.id], survey: scenario}
 
         .modal-footer.d-flex.justify-content-between
-          = link_to "Renunta", brochure_members_path, :method => :get, class: "btn btn-outline-dark"
+          - if !@preview
+            = link_to "Renunta", brochure_members_path, :method => :get, class: "btn btn-outline-dark"
           %button.btn.btn-outline-secondary.btn-prev.hidden{:type => "button", "current-page" => '0'} Pasul anterior
           %button.btn.btn-outline-secondary.btn-next{:type => "button", "current-page" => '0'} Pasul urmator
 
