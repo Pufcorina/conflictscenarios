@@ -1,5 +1,5 @@
 - if question[1].blank?
-  %span.no_padding_left No responses for this question
+  %span.no_padding_left Niciun raspuns la aceasta intrebare
 - else
   .row.add-margin-top-20
     = column_chart question.last, height: "200px", width: (question.last.count < 10 ? "#{question.last.count*10}%" : "100%")
