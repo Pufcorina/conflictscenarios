@@ -117,6 +117,11 @@ class BrochuresController < ApplicationController
     redirect_to brochure_members_path and return
   end
 
+  def results
+    @brochure = Brochure.find(params[:brochure_id])
+    @brochure_answers = BrochureAnswer.where(brochure_id: @brochure.id)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_brochure

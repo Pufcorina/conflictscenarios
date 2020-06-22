@@ -1,9 +1,8 @@
-.row.orders.custom_name.add-margin-top-20
-  .col-xs-12.col-sm-4
-    %h3.page-title
-      BROSURI
-  .col-xs-12
-    .page-title
+.row
+  .col-12.no_padding_left
+    = link_to "Pagina principala", root_path, :method => :get, class: "top_link_grey"
+    %i.fa.fa-chevron-right.color_grey
+    %span.color_purple Brosuri
 .col-lg-12.add_margin_top_20#survey_index_container
   - if @brochures.blank?
     Nu exista brosuri
@@ -27,6 +26,7 @@
           - else
             %a.fa.fa-pencil.color_lightskyblue.disabled.font_size_30.pull-right.add_margin_right_15{href: edit_brochure_path(brochure), method: :get, "data-toggle" => "tooltip"}
               %i.gga-info-circle.cursor_pointer{'data-toggle' => "tooltip", title: "Survey has already been sent and cannot be edited anymore."}
+          %a.fa.fa-line-chart.color_green.font_size_30.pull-right.add_margin_right_15{href: brochure_results_path(brochure), method: :get, "data-toggle" => "tooltip"}
           %a.fa.fa-eye.color_purple.font_size_30.pull-right.add_margin_right_15{href: brochure_path(brochure), method: :get, "data-toggle" => "tooltip"}
 
 .row.fixed_survey_bar.background_light_grey

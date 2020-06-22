@@ -1,13 +1,17 @@
+.row
+  .col-12.no_padding_left
+    = link_to "Pagina principala", root_path, :method => :get, class: "top_link_grey"
+    %i.fa.fa-chevron-right.color_grey
+    = link_to "Scenarii", surveys_path, :method => :get, class: "top_link_grey"
+    %i.fa.fa-chevron-right.color_grey
+    %span.color_purple #{form_type} Scenariu
+
 = form_for([@customer, @survey], html: { class: "custom_flex_fist_position", id: "surveys_form_container" }) do |f|
   .row.custom_flex_fist_position.height_100.add-margin-all-0
     .col-lg-12.height_100{style: "margin-bottom: 100px"}
       .row
         .col-lg-12
           - add_error(@survey.errors.full_messages.to_sentence, 'error') if @survey.errors.present?
-          .row
-            .col-lg-12.add-margin-top-20.custom_survey_title
-              .custom_survey_title_content
-                #{form_type} SCENARIU
 
           .row
             = render partial: 'title', locals: {:f => f}

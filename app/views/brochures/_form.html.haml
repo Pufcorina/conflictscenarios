@@ -1,13 +1,18 @@
+.row
+  .col-12.no_padding_left
+    = link_to "Pagina principala", root_path, :method => :get, class: "top_link_grey"
+    %i.fa.fa-chevron-right.color_grey
+    = link_to "Brosuri", brochures_path, :method => :get, class: "top_link_grey"
+    %i.fa.fa-chevron-right.color_grey
+    %span.color_purple #{form_type} Brosura
+
 = form_for([@brochure], html: { class: "custom_flex_fist_position", id: "surveys_form_container" }) do |f|
   .row.custom_flex_fist_position.height_100.add-margin-all-0
     .col-lg-12.height_100{style: "margin-bottom: 100px"}
       .row
         .col-lg-12
           - add_error(@brochure.errors.full_messages.to_sentence, 'error') if @brochure.errors.present?
-          .row
-            .col-lg-12.add-margin-top-20.custom_survey_title
-              .custom_survey_title_content{style: "width: 180px"}
-                #{form_type} BROSURA
+
 
           .row
             = render partial: 'brochures/title', locals: {:f => f}
