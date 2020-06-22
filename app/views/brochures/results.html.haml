@@ -6,5 +6,18 @@
     %i.fa.fa-chevron-right.color_grey
     %span.color_purple Rezultate: #{@brochure.title}
 
-- @brochure_answers.each do |answer|
-  #{answer[:answer]}
+- @questions.each do |question|
+  .row.add-margin-top-5.btsp_ps_container.btsp_fheader_table_container.custom_table_container{id: "question_#{question[0].id}"}
+    .col-12.add-margin-top-20.add-margin-bottom-10
+      .col-xs-1.no_padding_right{style: "width: 75px"}
+        %b #{question[0].order}. #{question[0].title}
+    .col-12.add-margin-top-15.add-margin-bottom-20
+      %span.basic_label_container.background_label_finalized.add-margin-left-5 Deja au raspuns: #{question[2].first}
+      %span.basic_label_container.background_label_not_charged Mai au de raspuns: #{question[2].last}
+    .col-12.add-margin-bottom-20.add_padding_left_30.add_padding_right_30{id: "question_type_#{question[0].id}"}
+      - if question[0].question_type == "free_text"
+        = render partial: "results_free_text", locals: {question: question}
+      - elsif question[0].question_type == "multiple_choice"
+        = render partial: "results_multiple_choice", locals: {question: question}
+      - elsif question[0].question_type == "multiple_answers"
+        = render partial: "results_multiple_answers", locals: {question: question}

@@ -1,0 +1,21 @@
+.row
+  %b.color_orange.response_title RASPUNSURI (#{question[2].first})
+.row.add-margin-top-30
+  - if question[1].blank?
+    %span.add_padding_left_15 Niciun raspuns la aceasta intrebare
+  - else
+    .col-xs-12.add-margin-top-10.add-margin-bottom-20
+      - question[1].each do |answer|
+        .col-xs-6.add-margin-right-10.add-margin-bottom-20.custom_flex_fist_position
+          .row.add_padding_left_30
+            %p.fa.fa-circle.color_orange.add_padding_top_5
+            %p.add_padding_top_4.add_padding_left_10 #{answer.answer}
+          .row.add-margin-right-15
+            %hr.answers_hr
+          .row.add_padding_left_15
+            .col-xs-4{style: "width: fit-content"}
+              #{answer.try(:created_at).try(:strftime, "%m/%d/%Y")}
+            .col-xs-4{style: "width: fit-content"}
+              #{answer.try(:created_at).try(:strftime, "%I:%M %p")}
+
+

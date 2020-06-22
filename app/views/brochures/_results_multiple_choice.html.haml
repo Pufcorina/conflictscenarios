@@ -1,0 +1,25 @@
+- if question[1].blank?
+  %span.no_padding_left Niciun raspuns la aceasta intrebare
+- else
+  .row.add-margin-top-20
+    .col-xs-3
+      = pie_chart question[1].first, height: "250px", width: "100%", class: "pull-left"
+
+    .col-lg-10.add_padding_left_30.add_padding_right_30{style: "max-width: 500px"}
+      %table.table.table-striped.results.custom_table3
+        %thead
+          %tr
+            %th.custom_vertical_align_middle.text_align_center POSIBILE RASPUNSURI
+            %th.custom_vertical_align_middle.text_align_center PROCENTAJ
+            %th.custom_vertical_align_middle.text_align_center TOTAL
+        %tbody
+          - question[1].third.each do |answer| # question[1] are all the attributes (chart, legend, table, max_chart_legend_label)
+            %tr
+              %td.text_align_center #{answer.first}
+              %td.text_align_center.no_padding_left #{'%.2f' % answer.second}%
+              %td.text_align_center.no_padding_left #{answer.third}
+
+
+:javascript
+  window.crm.surveys.init();
+  window.crm.new_design_shared.applyCustomScrollbar("#chart_results_legend_question_#{question[0].id}");
