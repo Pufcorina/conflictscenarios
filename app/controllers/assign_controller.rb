@@ -1,4 +1,12 @@
 class AssignController < ApplicationController
+  before_action :check_user_details
+  def check_user_details
+    @user = current_user
+    if @user.try(:first_name).blank?
+      flash[:error] = "Trebuie sa completezi detaliile profilului intai!"
+      redirect_to edit_user_path(@user) and return
+    end
+  end
 
   # GET /websites
   # GET /websites.json

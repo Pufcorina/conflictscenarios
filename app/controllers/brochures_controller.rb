@@ -1,6 +1,13 @@
 class BrochuresController < ApplicationController
   before_action :set_brochure, only: [:show, :edit, :update, :destroy]
-
+  before_action :check_user_details
+  def check_user_details
+    @user = current_user
+    if @user.try(:first_name).blank?
+      flash[:error] = "Trebuie sa completezi detaliile profilului intai!"
+      redirect_to edit_user_path(@user) and return
+    end
+  end
   # GET /brochures
   # GET /brochures.json
   def index

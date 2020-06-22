@@ -6,8 +6,8 @@
 
 
 = form_for(@user, url: user_path(@user.id), html: { method: :put }) do |f|
-  .row.add_margin_top_20.add_margin_left_15
-    .col-xs-12.col-lg-5.d-flex.flex-row.flex-wrap.add_margin_top_20.add_margin_bottom_20.border_lightgrey_views.add_margin_right_20
+  .row.add_margin_left_15.add_margin_top_10
+    .col-xs-12.col-lg-5.d-flex.flex-row.flex-wrap.add_margin_bottom_20.border_lightgrey_views.add_margin_right_20
       .col-xs-12.col-lg-4.no_padding.add_margin_top_10
         #image_profile
           = image_tag 'background.jpg', class: "image_profile"
@@ -31,7 +31,7 @@
           %button.pull-right.btn.btn-outline-info.add_margin_right_10#btn_edit_user_name{type: "button", "data-type"=>"description"}
             %i.fa.fa-pencil.color_lightskyblue.add_margin_right_5
             Editeaza
-    .col-xs-12.col-lg-6.d-flex.flex-column.add_margin_top_20.add_margin_bottom_20.border_lightgrey_views
+    .col-xs-12.col-lg-6.d-flex.flex-column.add_margin_bottom_20.border_lightgrey_views
       .col-xs-12.d-flex.flex-row.add_padding_top_10
         .col-3
           Prenume
@@ -53,7 +53,7 @@
             = label_tag :role
           .col-9
             = select_tag :role, options_for_select(options_for_role, selected: (f.object.admin.present? ? "admin" : (f.object.manager.present? ? "manager" : "employee"))), class: "form-control"
-  .row.add_margin_top_20.add_margin_left_15.custom_name.add_margin_bottom_20
+  .row.add_margin_top_10.add_margin_left_15.custom_name.add_margin_bottom_20
     .col-12.no_padding_left
       %h5.page-title
         Detalii personale
@@ -64,7 +64,7 @@
   -#    %p.color_purple
   -#      Currently waiting confirmation for: #{@user.unconfirmed_email}
   .row.add_margin_left_15
-    .col-xs-12.col-lg-5.d-flex.flex-column.add_padding_top_20.add_padding_bottom_20.border_lightgrey_views.add_margin_right_20.add_margin_top_20
+    .col-xs-12.col-lg-5.d-flex.flex-column.add_padding_bottom_20.border_lightgrey_views.add_margin_right_20.add_margin_top_20
       .col-xs-12.d-flex.flex-row.add_padding_top_10
         .col-5
           Parola curenta
@@ -92,7 +92,7 @@
       -##       = f.label :password_confirmation
       -##     .col-9
       -##       = f.text_field :password_confirmation, autofocus: true, autocomplete: false, placeholder: "Password Confirmation", class: "form-control", type: "checkbox"
-    .col-xs-12.col-lg-6.d-flex.flex-column.add_padding_top_20.add_padding_bottom_20.border_lightgrey_views.add_margin_top_20
+    .col-xs-12.col-lg-6.d-flex.flex-column.add_padding_bottom_20.border_lightgrey_views.add_margin_top_20
       .col-xs-12.d-flex.flex-row.add_padding_top_10
         .col-3
           Ziua de nastere
