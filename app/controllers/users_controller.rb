@@ -71,7 +71,6 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.validate_user = true
     user_param = user_params.reject{ |k,v| ["password_confirmation", "current_password", "password"].include?(k)}
     new_user = @user
     if @user.valid_password?(user_params["current_password"]) && user_params["password"] == user_params["password_confirmation"]
