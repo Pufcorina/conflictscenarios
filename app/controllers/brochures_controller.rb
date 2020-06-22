@@ -124,7 +124,6 @@ class BrochuresController < ApplicationController
       append_value = (multi_answers_final[question_id].present? ? multi_answers_final[question_id] + ', ' : "")
       multi_answers_final[question_id] = append_value + answer.to_s
     end
-    binding.pry
 
     answers.each do |question_id, answer|
       BrochureAnswer.create({brochure_id: brochure_id, question_id: question_id, answer: answer, user_id: user.id})
