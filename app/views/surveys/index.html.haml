@@ -5,7 +5,7 @@
     %span.color_purple Scenarii
 .col-lg-12.add_margin_top_20#survey_index_container{style:"margin-bottom:100px"}
   - if @surveys.blank?
-    Nu exista scenarii
+    Nu exista scenarii.
   - else
     - @surveys.each do |survey|
       .row.add_margin_top_10.add_padding_bottom_10.border_custom.add_padding_top_15
@@ -20,7 +20,7 @@
           %span.add_padding_left_20 #{(@survey_brochures[survey.id] || []).count}
           %span{style: "font-size:11px; font-style: italic; color: lightgray;"} Brosuri
         .col-xs-12.col-lg-2
-          = link_to "", survey_path(id: survey.id), method: :delete, data: { confirm: "Are you sure?" }, "data-remote" => "true", class: "fa fa-trash color_red font_size_30 pull-right"
+          = link_to "", survey_path(id: survey.id), method: :delete, data: { confirm: "Esti sigur?" }, "data-remote" => "true", class: "fa fa-trash color_red font_size_30 pull-right"
           - disable_check =  ((@survey_brochures[survey.id] || []).count == 0)
           - if (@survey_brochures[survey.id] || []).count == 0
             %a.fa.fa-pencil.color_lightskyblue.font_size_30.pull-right.add_margin_right_15{href: edit_survey_path(id: survey.id, id: survey.id), method: :get, "data-toggle" => "tooltip"}

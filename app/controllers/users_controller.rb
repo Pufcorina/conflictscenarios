@@ -56,7 +56,7 @@ class UsersController < ApplicationController
       # UserMailer.signup_confirmation(@user).deliver
       redirect_to users_path and return
     else
-      flash[:error] = "An error occurred when adding a new user"
+      flash[:error] = "A aparut o eroare la adaugarea unui nou utilizator."
       redirect_to users_path and return
     end
   end
@@ -84,10 +84,10 @@ class UsersController < ApplicationController
       new_user[attribute.to_sym] = value
     end
     if new_user.save
-      flash[:notice] = "Updated successfully"
+      flash[:notice] = "Modificarea s-a efectuat cu success."
       redirect_to edit_user_path and return
     else
-      flash[:error] = "Error updating the profile"
+      flash[:error] = "Eroare la modificarea profilului."
       render 'edit'
     end
   end

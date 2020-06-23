@@ -4,12 +4,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :validatable, :rememberable, :confirmable
   attr_accessor :validate_user
-  validates :first_name, presence:true, :on => :update, if: :validate_user
-  validates :last_name, presence:true, :on => :update, if: :validate_user
-  validates :phone, presence:true, :on => :update, if: :validate_user
-  validates :date_of_birth, presence:true, :on => :update, if: :validate_user
-  validates :city, presence:true, :on => :update, if: :validate_user
-  validates :country, presence:true, :on => :update, if: :validate_user
+  validates :first_name, presence:true, :on => :update
+  validates :last_name, presence:true, :on => :update
+  validates :phone, presence:true, :on => :update
+  validates :date_of_birth, presence:true, :on => :update
+  validates :city, presence:true, :on => :update
+  validates :country, presence:true, :on => :update
 
 
   def full_name
