@@ -18,16 +18,16 @@
         .col-xs-12.col-lg-3.d-flex.flex-column
           %span.add_padding_left_20 #{@brochures_submissions[brochure.id] || 0}
           %span{style: "font-size:11px; font-style: italic; color: lightgray;"} Completari
-        .col-xs-12.col-lg-2
-          = link_to "", brochure_path(id: brochure.id), method: :delete, data: { confirm: "Are you sure?" }, "data-remote" => "true", class: "fa fa-trash color_red font_size_30 pull-right"
+        .action_buttons
+          = link_to "", brochure_path(id: brochure.id), method: :delete, data: { confirm: "Are you sure?" }, "data-remote" => "true", class: "fa fa-trash color_red font_size_30 pull-right", "data-toggle" => "tooltip", title: "Sterge"
 
           - if brochure.sent_at.blank?
-            %a.fa.fa-pencil.color_lightskyblue.font_size_30.pull-right.add_margin_right_15{href: edit_brochure_path(brochure), method: :get, "data-toggle" => "tooltip"}
+            %a.fa.fa-pencil.color_lightskyblue.font_size_30.pull-right.add_margin_right_15{href: edit_brochure_path(brochure), method: :get, "data-toggle" => "tooltip", title: "Editeaza"}
           - else
             %a.fa.fa-pencil.color_lightskyblue.disabled.font_size_30.pull-right.add_margin_right_15{href: edit_brochure_path(brochure), method: :get, "data-toggle" => "tooltip"}
               %i.gga-info-circle.cursor_pointer{'data-toggle' => "tooltip", title: "Survey has already been sent and cannot be edited anymore."}
-          %a.fa.fa-line-chart.color_green.font_size_30.pull-right.add_margin_right_15{href: brochure_results_path(brochure), method: :get, "data-toggle" => "tooltip"}
-          %a.fa.fa-eye.color_purple.font_size_30.pull-right.add_margin_right_15{href: brochure_path(brochure), method: :get, "data-toggle" => "tooltip"}
+          %a.fa.fa-line-chart.color_green.font_size_30.pull-right.add_margin_right_15{href: brochure_results_path(brochure), method: :get, "data-toggle" => "tooltip", title: "Vezi rezultatele"}
+          %a.fa.fa-eye.color_purple.font_size_30.pull-right.add_margin_right_15{href: brochure_path(brochure), method: :get, "data-toggle" => "tooltip", title: "Previzualizare"}
 
 .row.fixed_survey_bar.background_light_grey
   .col-xs-12.col-sm-12
