@@ -21,7 +21,7 @@ class ConfirmationsController < Devise::ConfirmationsController
     end
 
     if !@confirmable.errors.empty?
-      flash[:notice] = "Welcome to Eight Investment Group CRM"
+      flash[:notice] = "Bine ati venit!"
 
       redirect_to edit_user_path(@confirmable) and return
     end

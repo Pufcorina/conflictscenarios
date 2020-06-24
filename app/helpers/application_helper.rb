@@ -50,7 +50,7 @@ module ApplicationHelper
   end
 
   def options_for_surveys
-    options_for_surveys = [["Please select a scenario", "0"]]
+      options_for_surveys = [["Te rog selecteaza un scenariu.", "0"]]
     Survey.all.each do |survey|
       options_for_surveys << [survey.title, survey.id]
     end

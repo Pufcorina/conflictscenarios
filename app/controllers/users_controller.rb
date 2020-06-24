@@ -50,7 +50,7 @@ class UsersController < ApplicationController
 
     @user[:admin] = params["role"] == "admin" ? true : false
     @user[:manager] = params["role"] == "manager" ? true : false
-    @user[:employee] = params["role"] == "employee" ? true : false
+    @user[:employee] = @user[:admin] == true ? false : true
 
     if @user.save(validate: false)
       # UserMailer.signup_confirmation(@user).deliver
@@ -78,7 +78,7 @@ class UsersController < ApplicationController
     end
     new_user[:admin] = params["role"] == "admin" ? true : false
     new_user[:manager] = params["role"] == "manager" ? true : false
-    new_user[:employee] = params["role"] == "employee" ? true : false
+    @user[:employee] = @user[:admin] == true ? false : true
     user_param.each do |attribute, value|
       value = Date.strptime(value, "%Y-%m-%d") if attribute == "date_of_birth" && value.present?
       new_user[attribute.to_sym] = value
