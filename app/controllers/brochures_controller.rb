@@ -85,10 +85,10 @@ class BrochuresController < ApplicationController
   # DELETE /brochures/1
   # DELETE /brochures/1.json
   def destroy
-    BrochureMember.where(brochure_id: @brochure.id )
-    BrochureAnswer.where(brochure_id: @brochure.id )
-    RelationBrochureScenarioMembers.where(brochure_id: @brochure.id )
-    RelationBrochureScenarios.where(brochure_id: @brochure.id )
+    BrochureMember.where(brochure_id: @brochure.id ).delete_all
+    BrochureAnswer.where(brochure_id: @brochure.id ).delete_all
+    RelationBrochureScenarioMembers.where(brochure_id: @brochure.id ).delete_all
+    RelationBrochureScenarios.where(brochure_id: @brochure.id ).delete_all
     @brochure.destroy
     respond_to do |format|
       format.html { redirect_to brochures_url, notice: 'Brosura a fost stearsa cu success.' }
