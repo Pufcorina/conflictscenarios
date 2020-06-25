@@ -5,12 +5,6 @@
 - else
   .col-lg-12.no_padding
     = form_tag search_members_path, :method => 'GET', :id => "search_members_email_form", :remote => true do
-      .col-lg-4.pull-right.no_padding_right
-        .form-group
-          .input-group.date
-            = text_field_tag :search_members_input, '', placeholder: "Cautare...",  class: "form-control no_color input-group", remote:  true
-            %a.input-group-addon#reset_search_members_email
-              %span.fa.fa-eraser
       .col-lg-12.col-xs-12.no_padding.add-margin-bottom-20
         .col-lg-12.col-xs-12.no_padding.custom_table_container#members_email{style: "max-height: 350px; min-height: 300px"}
           = render partial: 'member_list_modal'
