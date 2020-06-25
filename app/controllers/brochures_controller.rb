@@ -163,7 +163,6 @@ class BrochuresController < ApplicationController
           column_chart.map{|a| [a.first, a.second.count]}
       ]
     end
-
   end
 
 
