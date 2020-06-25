@@ -15,7 +15,7 @@
     / Tab panes
     .tab-content
       - @scenarios.each_with_index do |scenario, index|
-        .container.tab-pane.add-margin-top-10{id: "#{scenario.id}", class:"#{index == 0 ? "active" : "fade"}"}
+        .tab-pane.add-margin-top-10{id: "#{scenario.id}", class:"#{index == 0 ? "active" : "fade"}"}
           - @questions.select{|q| q.first.survey_id == scenario.id}.each do |question|
             .row.add-margin-top-5.btsp_ps_container.btsp_fheader_table_container.custom_table_container{id: "question_#{question[0].id}"}
               .col-12.add-margin-top-20.add-margin-bottom-10
