@@ -2,10 +2,10 @@
   %span.no_padding_left Niciun raspuns la aceasta intrebare
 - else
   .row.add-margin-top-20
-    .col-xs-3
+    .col-lg-3.add_padding_left_30.add_padding_right_30
       = pie_chart question[1].first, height: "250px", width: "100%", class: "pull-left"
-
-    .col-lg-10.add_padding_left_30.add_padding_right_30{style: "max-width: 500px; margin-left:200px"}
+    .col-lg-4.add_padding_left_30.add_padding_right_30
+    .col-lg-4.add_padding_left_30.add_padding_right_30
       %table.table.table-striped.results.custom_table3
         %thead
           %tr

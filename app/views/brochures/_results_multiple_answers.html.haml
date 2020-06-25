@@ -1,10 +1,10 @@
 - if question[1].blank?
   %span.no_padding_left Niciun raspuns la aceasta intrebare
 - else
-  .row.add-margin-top-20
-    = column_chart question.last, height: "200px", width: (question.last.count < 10 ? "#{question.last.count*10}%" : "100%")
-  .row.add-margin-top-20
-    .col-lg-12.add_padding_left_30.add_padding_right_30{style: "max-width: 500px; margin-left:200px"}
+  .row.add-margin-top-20.d-flex
+    .col-lg-7.add_padding_left_30.add_padding_right_30
+      = column_chart question.last, height: "200px", width: (question.last.count < 10 ? "#{question.last.count*10}%" : "100%")
+    .col-lg-4.add_padding_left_30.add_padding_right_30
       %table.table.table-striped.custom_table3.results
         %thead
           %tr
