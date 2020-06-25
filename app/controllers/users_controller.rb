@@ -83,6 +83,9 @@ class UsersController < ApplicationController
       value = Date.strptime(value, "%Y-%m-%d") if attribute == "date_of_birth" && value.present?
       new_user[attribute.to_sym] = value
     end
+    
+    new_user.validate_user = true
+
     if new_user.save
       flash[:notice] = "Modificarea s-a efectuat cu success."
       redirect_to edit_user_path and return
