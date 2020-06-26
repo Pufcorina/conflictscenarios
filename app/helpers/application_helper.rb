@@ -82,6 +82,14 @@ module ApplicationHelper
     ]
   end
 
+  def options_for_members
+    [
+        ["Militari", "militari"],
+        ["Studenti", 'studenti'],
+        ["Profesori", 'profesori'],
+    ]
+  end
+
   def options_for_survey_questions
     [
         ['Free text', 'free_text'],

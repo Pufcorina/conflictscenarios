@@ -1,0 +1,2 @@
+class DetailForm < ApplicationRecord
+end

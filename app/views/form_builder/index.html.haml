@@ -1,0 +1,37 @@
+.row
+  .col-12.no_padding_left
+    = link_to "Pagina principala", root_path, :method => :get, class: "top_link_grey"
+    %i.fa.fa-chevron-right.color_grey
+    %span.color_purple Detaliile profilului
+.col-lg-12.add_margin_top_20#survey_index_container
+  - if @details.blank?
+    Nu exista niciun profil customizat
+  - else
+    - @details.each do |detail_form|
+      .row.add_margin_top_10.add_padding_bottom_10.border_custom.add_padding_top_15
+        .col-xs-12.col-lg-3
+          %h4.bold{style: "width: 500px"}
+            #{detail_form.title}
+        .action_buttons
+          -# = link_to "", brochure_path(id: detail_form.id), method: :delete, data: { confirm: "Are you sure?" }, "data-remote" => "true", class: "fa fa-trash color_red font_size_30 pull-right", "data-toggle" => "tooltip", title: "Sterge"
+          -#
+          -# - if detail_form.sent_at.blank?
+          -#   %a.fa.fa-pencil.color_lightskyblue.font_size_30.pull-right.add_margin_right_15{href: edit_brochure_path(brochure), method: :get, "data-toggle" => "tooltip", title: "Editeaza"}
+          -# - else
+          -#   %a.fa.fa-pencil.color_lightskyblue.disabled.font_size_30.pull-right.add_margin_right_15{href: edit_brochure_path(brochure), method: :get, "data-toggle" => "tooltip"}
+          -#     %i.gga-info-circle.cursor_pointer{'data-toggle' => "tooltip", title: "Survey has already been sent and cannot be edited anymore."}
+          -# %a.fa.fa-line-chart.color_green.font_size_30.pull-right.add_margin_right_15{href: brochure_results_path(brochure), method: :get, "data-toggle" => "tooltip", title: "Vezi rezultatele"}
+          -# %a.fa.fa-eye.color_purple.font_size_30.pull-right.add_margin_right_15{href: brochure_path(brochure), method: :get, "data-toggle" => "tooltip", title: "Previzualizare"}
+
+.row.fixed_survey_bar.background_light_grey
+  .col-xs-12.col-sm-12
+    .btsp_custom_tabs_menu
+    .add-margin-right-0.pull-right
+      = link_to  "Profil nou", form_builder_new_path, class:"btn btn-default btn_big_custom custom_btn btn_orange"
+    .add-margin-right-0.pull-left
+
+
+
+:javascript
+  window.crm.surveys.init();
+  window.crm.new_design_shared.applyCustomScrollbar("#survey_index_container");

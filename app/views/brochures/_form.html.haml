@@ -31,7 +31,7 @@
 
 
           .row.add-margin-top-40
-            %button#add_survey{type: 'button', class: "pull-left btn_survey btn_delete btn_question btn_new_question add-margin-right-5", style:"border-radius:4px"} Add Scenario
+            %button#add_survey{type: 'button', class: "pull-left btn_survey btn_delete btn_question btn_new_question add-margin-right-5", style:"border-radius:4px"} Adauga scenariu
           .row#surveys
             - @survey_brochures.each_with_index do |survey_brochure, index|
               = render "survey_fields", survey_brochure: survey_brochure, index: index, hidden: false

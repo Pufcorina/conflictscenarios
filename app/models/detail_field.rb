@@ -1,0 +1,2 @@
+class DetailField < ApplicationRecord
+end

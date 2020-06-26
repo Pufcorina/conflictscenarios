@@ -1,0 +1,62 @@
+.row
+  .col-12.no_padding_left
+    = link_to "Pagina principala", root_path, :method => :get, class: "top_link_grey"
+    %i.fa.fa-chevron-right.color_grey
+    = link_to "Detaliile profilului", form_builder_path, :method => :get, class: "top_link_grey"
+    %i.fa.fa-chevron-right.color_grey
+    %span.color_purple Configureaza Profil
+.row.add_margin_top_20
+  .col-lg-7.col-xs-4.popup_form_size.custom_width_30
+    %h6 Profil pentru urmatoarea categorie de membrii:
+  .col-lg-4.no_padding{style:"width: 300px!important"}
+    = select_tag :title, options_for_select(options_for_members.reject{|m| @titles.include? m.second}, selected: "militari"), class: "form-control js-example-basic-single", onchange: "selectBrochure()"
+
+.row.d-flex.add_margin_top_20
+  .col-7
+    - [*0..30].each_with_index do |row, index|
+      .form_row.border{class: ("hidden" if index != 0), style: "border-radius: 4px"}
+        .row.d-fex.w-100.h-100.add_padding_10{'data-row' => index, :ondragover => "allowDrop(event)", :ondrop => "drop(event)"}
+
+  .col-4.d-flex.flex-column.add_padding_5.border{style: "border-radius: 4px"}
+    .filed.add_padding_5.border.d-flex#label{style: "border-style: dotted!important", :draggable => "true", :height => "100", :ondragstart => "drag(event)", :width => "336"}
+      %label.add_margin_right_10 Text
+      %input.add_margin_right_10#label_title{style: "width: 200px; height: 30px", :oninput => "label_text(event)"}
+    .filed.add_padding_5.border.add_margin_top_10#input{style: "border-style: dotted!important", :draggable => "true", :height => "100", :ondragstart => "drag(event)", :width => "336"}
+      %input.add_margin_right_10{style: "width: 100px; height: 30px"}
+.row
+
+:javascript
+  window.gems.email_templates.init();
+  $(document).ready(function() {
+    $('.js-example-basic-single').select2();
+  });
+
+  function selectBrochure() {
+    window.gems.email_templates.get_brochure();
+  }
+  function allowDrop(ev) {
+    ev.preventDefault();
+  }
+
+  function label_text(ev) {
+    ev.preventDefault();
+    input = $(ev.target)
+    text = input.val()
+    $(input.parent().children()[0]).html(text);
+
+  }
+
+  function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+  }
+
+  function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+
+    clone_node = $($(document.getElementById(data)).children()[0]).clone(true, true);
+    column = $(ev.target).children().length
+    row = $(ev.target).attr('data-row')
+    clone_node.attr('id', "row_"+row+"_column_"+column)
+    $(ev.target).append(clone_node);
+  }
