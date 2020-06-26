@@ -117,6 +117,17 @@ window.gems = window.gems or {}
         $('#active_filters').val("all")
         $('#members_filters_list').html("None")
 
+    $(document).off 'click', '.fa-trash.delete_row'
+    $(document).on 'click', '.fa-trash.delete_row', ->
+      row_index = $(@).attr('data-row')
+      $('.col-12[data-row-form="'+row_index+'"').remove()
+
+
+
+    $(document).off 'click', '#add_row'
+    $(document).on 'click', '#add_row', ->
+      $('.form_row.hidden').first().removeClass('hidden')
+      $('.fa-trash.delete_row.hidden').first().removeClass('hidden')
 
     $(document).off 'click', '#assign'
     $(document).on 'click', '#assign', ->

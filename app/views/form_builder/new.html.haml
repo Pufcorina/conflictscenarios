@@ -13,17 +13,21 @@
 
 .row.d-flex.add_margin_top_20
   .col-7
-    - [*0..30].each_with_index do |row, index|
-      .form_row.border{class: ("hidden" if index != 0), style: "border-radius: 4px"}
-        .row.d-fex.w-100.h-100.add_padding_10{'data-row' => index, :ondragover => "allowDrop(event)", :ondrop => "drop(event)"}
-
+    - [*0..50].each_with_index do |row, index|
+      .col-12.d-flex{'data-row-form' => index}
+        .col-11.form_row.border{class: ("hidden add_margin_top_10" if index != 0), style: "border-radius: 4px"}
+          .row.d-fex.w-100.h-100.add_padding_10{'data-row' => index, :ondragover => "allowDrop(event)", :ondrop => "drop(event)"}
+        .col-1.fa.fa-trash.delete_row.color_red{class: (index != 0 ? "hidden add_margin_top_20" : "add_margin_top_10"), 'data-row' => index}
   .col-4.d-flex.flex-column.add_padding_5.border{style: "border-radius: 4px"}
     .filed.add_padding_5.border.d-flex#label{style: "border-style: dotted!important", :draggable => "true", :height => "100", :ondragstart => "drag(event)", :width => "336"}
       %label.add_margin_right_10 Text
       %input.add_margin_right_10#label_title{style: "width: 200px; height: 30px", :oninput => "label_text(event)"}
     .filed.add_padding_5.border.add_margin_top_10#input{style: "border-style: dotted!important", :draggable => "true", :height => "100", :ondragstart => "drag(event)", :width => "336"}
       %input.add_margin_right_10{style: "width: 100px; height: 30px"}
-.row
+
+.row.add-margin-top-20
+  %button#add_row{type: 'button', class: "pull-left btn btn-default btn_big_custom custom_btn btn_orange", style:"border-radius:4px"} Adauga scenariu
+
 
 :javascript
   window.gems.email_templates.init();
