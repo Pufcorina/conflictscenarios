@@ -23,7 +23,8 @@ Rails.application.routes.draw do
   end
   post '/new_user', to: 'users#create'
 
-
+  get '/form_builder', to: 'form_builder#index', :as => :form_builder
+  get '/form_builder/new', to: 'form_builder#new'
 
 
   resources :surveys
