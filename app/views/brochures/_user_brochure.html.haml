@@ -50,7 +50,7 @@
                     %td
 
           .modal-body-content.hidden{"scenario-id" => "2"}
-            Work in progress #{@scenarios.count}
+            Work in progress
           - @scenarios.each_with_index do |scenario, index|
             .modal-body-content.hidden{"scenario-id" => "#{index+3}"}
               .row
