@@ -40,7 +40,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'haml'
 gem 'haml-rails'
 
-gem 'bootstrap', '~> 4.0.0'
+gem 'bootstrap', '~> 4.3.1'
 gem 'high_voltage'
 gem 'jquery-rails'
 gem 'popper_js', '~> 1.16.0'
