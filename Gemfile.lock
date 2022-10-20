@@ -1,6 +1,10 @@
 GEM
-  remote: https://rubygems.org/
   remote: https://rails-assets.org/
+  specs:
+    rails-assets-tether (1.4.7)
+
+GEM
+  remote: https://rubygems.org/
   specs:
     actioncable (5.2.4.2)
       actionpack (= 5.2.4.2)
@@ -156,12 +160,13 @@ GEM
     mimemagic (0.3.4)
     mini_magick (4.10.1)
     mini_mime (1.0.2)
-    mini_portile2 (2.4.0)
+    mini_portile2 (2.8.0)
     minitest (5.14.0)
     msgpack (1.3.3)
     nio4r (2.5.2)
-    nokogiri (1.10.9)
-      mini_portile2 (~> 2.4.0)
+    nokogiri (1.13.9)
+      mini_portile2 (~> 2.8.0)
+      racc (~> 1.4)
     orm_adapter (0.5.0)
     perfect-scrollbar-rails (0.6.15)
       railties (>= 3.2, < 6.0)
@@ -172,6 +177,7 @@ GEM
       method_source (~> 1.0)
     public_suffix (4.0.4)
     puma (3.12.4)
+    racc (1.6.0)
     rack (2.2.2)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -188,7 +194,6 @@ GEM
       bundler (>= 1.3.0)
       railties (= 5.2.4.2)
       sprockets-rails (>= 2.0.0)
-    rails-assets-tether (1.4.7)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
